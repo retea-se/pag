@@ -76,7 +76,14 @@ Skriptet returnerar olika exit-koder för monitorering:
 - `1` - Kritiskt fel (t.ex. timeout eller API-fel)
 - `2` - Partiell framgång (några events misslyckades men körningen slutfördes)
 
-Se `TODO.md` för cron-konfiguration och monitorering.
+### Automatisk uppdatering
+
+För automatisk uppdatering av eventdata, se:
+- [TODO.md](./TODO.md) - Snabbguide för cron-konfiguration
+- [CRON-SETUP.md](./CRON-SETUP.md) - Detaljerad installationsguide med felsökning
+- [crontab.example](./crontab.example) - Exempel på cron-konfiguration
+
+Cron-jobb rekommenderas att köras var 4:e timme för att hålla data uppdaterad.
 
 ## Projektstruktur
 
@@ -94,6 +101,7 @@ Se `TODO.md` för cron-konfiguration och monitorering.
 │   ├── RssPage.jsx      # RSS-prenumerationssida
 │   └── main.jsx         # Entry point med routing
 ├── TODO.md              # Cron-konfiguration
+├── CRON-SETUP.md        # Detaljerad cron-installationsguide
 └── vite.config.js       # Vite-konfiguration
 ```
 
