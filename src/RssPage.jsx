@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { RssIcon } from './components/Icons';
+import { usePageViews } from './hooks/usePageViews';
 import './App.css';
 
 const RSS_FEEDS = [
@@ -32,6 +33,7 @@ const RSS_FEEDS = [
 function RssPage() {
   const [copied, setCopied] = useState(null);
   const [lastUpdated, setLastUpdated] = useState(null);
+  const pageViews = usePageViews();
 
   // I produktion: /pag/, i utveckling: /
   const baseUrl = window.location.origin + import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -151,6 +153,7 @@ function RssPage() {
           <a href="#" className="back-link">Tillbaka till evenemang</a>
         </div>
         <p className="footer-arenas">Avicii Arena, 3Arena, Hovet & Annexet</p>
+        <p className="footer-made">Made with ❤️ in Stockholm | {pageViews.toLocaleString('sv-SE')}</p>
       </footer>
     </div>
   );

@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { fetchAllEvents, filterEventsByPeriod, groupEventsByDate, ARENAS } from './api/stockholmLive';
 import { RefreshIcon, getCategoryIcon, RssIcon, GitHubIcon, ArenaDot } from './components/Icons';
+import { usePageViews } from './hooks/usePageViews';
 import './App.css';
 
 // Datumfilter-knappar
@@ -30,6 +31,7 @@ function App() {
   const [lastUpdated, setLastUpdated] = useState(null);
   const [dateFilter, setDateFilter] = useState('today');
   const [loadingProgress, setLoadingProgress] = useState('');
+  const pageViews = usePageViews();
 
   const loadEvents = async (forceRefresh = false) => {
     setLoading(true);
@@ -208,7 +210,7 @@ function App() {
           </div>
         </div>
         <p className="footer-arenas">Avicii Arena, 3Arena, Hovet & Annexet</p>
-        <p className="footer-made">Made with ❤️ in Stockholm</p>
+        <p className="footer-made">Made with ❤️ in Stockholm | {pageViews.toLocaleString('sv-SE')}</p>
       </footer>
     </div>
   );
