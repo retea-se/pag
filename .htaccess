@@ -1,0 +1,24 @@
+# SPA routing for Pa G
+# Redirect all requests to index.html (let React Router handle routing)
+
+RewriteEngine On
+RewriteBase /pag/
+
+# If the request is for an existing file or directory, don't rewrite
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Otherwise, serve index.html for SPA routing
+RewriteRule ^ index.html [L]
+
+# Cache static assets
+<IfModule mod_headers.c>
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "public, max-age=2592000, immutable"
+    </FilesMatch>
+    <FilesMatch "\.(json)$">
+        Header set Cache-Control "public, max-age=1800"
+    </FilesMatch>
+</IfModule>
+

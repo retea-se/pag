@@ -1,0 +1,16 @@
+# Cron-konfiguration för På G - Globen Events
+#
+# Installera med: crontab -e
+# Eller kopiera innehållet och lägg till i din crontab
+#
+# Kör var 4:e timme (00:00, 04:00, 08:00, 12:00, 16:00, 20:00)
+# Anpassa sökvägen nedan till din faktiska installationssökväg
+
+0 */4 * * * cd /path/to/globen-events && /usr/bin/node scripts/fetch-events.js >> /var/log/globen-events.log 2>&1
+
+# Alternativ: Om du vill ha mer detaljerad loggning med tidsstämplar:
+# 0 */4 * * * cd /path/to/globen-events && /usr/bin/node scripts/fetch-events.js >> /var/log/globen-events.log 2>&1 && echo "$(date): Cron job completed" >> /var/log/globen-events.log
+
+# För shared hosting (t.ex. med ~/public_html/pag/):
+# 0 */4 * * * cd ~/public_html/pag && /usr/bin/node scripts/fetch-events.js >> ~/logs/globen-events.log 2>&1
+

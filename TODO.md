@@ -7,15 +7,29 @@ För att hålla eventdata och RSS-flöden uppdaterade behöver följande cron-jo
 ### Linux/Mac (crontab -e)
 
 ```bash
-# Uppdatera events och RSS var 2:a timme
-0 */2 * * * cd /path/to/globen-events && node scripts/fetch-events.js >> /var/log/globen-events.log 2>&1
+# Uppdatera events och RSS var 4:e timme (00:00, 04:00, 08:00, 12:00, 16:00, 20:00)
+0 */4 * * * cd /path/to/globen-events && /usr/bin/node scripts/fetch-events.js >> /var/log/globen-events.log 2>&1
 ```
+
+**För shared hosting (t.ex. mackan.eu):**
+```bash
+# Anpassa sökvägen till din faktiska installationssökväg
+0 */4 * * * cd ~/public_html/pag && /usr/bin/node scripts/fetch-events.js >> ~/logs/globen-events.log 2>&1
+```
+
+**Installation:**
+1. Redigera crontab: `crontab -e`
+2. Lägg till raden ovan (anpassa sökvägen)
+3. Spara och stäng
+4. Verifiera med: `crontab -l`
+
+Se även `crontab.example` för ett komplett exempel.
 
 ### Windows (Task Scheduler)
 
 1. Öppna Task Scheduler
 2. Skapa ny Basic Task: "Globen Events Update"
-3. Trigger: Daily, repetera var 2:a timme
+3. Trigger: Daily, repetera var 4:e timme
 4. Action: Start a program
    - Program: `node`
    - Arguments: `scripts/fetch-events.js`
@@ -29,7 +43,7 @@ Skapa `.github/workflows/update-events.yml`:
 name: Update Events
 on:
   schedule:
-    - cron: '0 */2 * * *'  # Var 2:a timme
+    - cron: '0 */4 * * *'  # Var 4:e timme
   workflow_dispatch:  # Manuell körning
 
 jobs:
