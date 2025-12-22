@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { fetchAllEvents, filterEventsByPeriod, groupEventsByDate, ARENAS } from './api/stockholmLive';
-import { RefreshIcon, getCategoryIcon, RssIcon, ArenaDot } from './components/Icons';
+import { RefreshIcon, getCategoryIcon, RssIcon, GitHubIcon, ArenaDot } from './components/Icons';
 import './App.css';
 
 // Datumfilter-knappar
@@ -197,10 +197,15 @@ function App() {
       <footer className="footer">
         <div className="footer-content">
           <p>Data från Stockholm Live</p>
-          <a href="#rss" className="rss-link">
-            <RssIcon size={14} />
-            RSS-flöden
-          </a>
+          <div className="footer-links">
+            <a href="#rss" className="rss-link">
+              <RssIcon size={14} />
+              RSS-flöden
+            </a>
+            <a href="https://github.com/retea-se/pag" target="_blank" rel="noopener noreferrer" className="github-link" title="GitHub">
+              <GitHubIcon size={14} />
+            </a>
+          </div>
         </div>
         <p className="footer-arenas">Avicii Arena, 3Arena, Hovet & Annexet</p>
       </footer>
