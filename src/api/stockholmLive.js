@@ -54,6 +54,61 @@ const SWEDISH_MONTHS = {
   'september': 8, 'oktober': 9, 'november': 10, 'december': 11
 };
 
+// Allowlist för SSRF-skydd
+const ALLOWED_DOMAINS = [
+  'aviciiarena.se',
+  '3arena.se',
+  'hovetarena.se',
+  'annexet.se'
+];
+
+/**
+ * Validerar event-URL mot SSRF-skydd
+ * @param {string} url - URL att validera
+ * @returns {boolean} - true om URL är giltig, false annars
+ */
+function validateEventUrl(url) {
+  if (!url || typeof url !== 'string') {
+    return false;
+  }
+
+  try {
+    const urlObj = new URL(url);
+
+    // Kräv HTTPS
+    if (urlObj.protocol !== 'https:') {
+      console.warn(`SSRF: Ogiltigt protokoll för ${url} (kräver https:)`);
+      return false;
+    }
+
+    // Kontrollera hostname mot allowlist
+    const hostname = urlObj.hostname.toLowerCase();
+    const isAllowed = ALLOWED_DOMAINS.some(domain => {
+      return hostname === domain || hostname.endsWith('.' + domain);
+    });
+
+    if (!isAllowed) {
+      console.warn(`SSRF: Ogiltig hostname för ${url} (${hostname} är inte i allowlist)`);
+      return false;
+    }
+
+    // Blockera interna IP-intervall
+    if (hostname === 'localhost' ||
+        hostname === '127.0.0.1' ||
+        hostname.startsWith('192.168.') ||
+        hostname.startsWith('10.') ||
+        /^172\.(1[6-9]|2[0-9]|3[0-1])\./.test(hostname)) {
+      console.warn(`SSRF: Intern IP/hostname blockerad för ${url}`);
+      return false;
+    }
+
+    return true;
+  } catch (error) {
+    console.warn(`SSRF: Ogiltig URL-format för ${url}:`, error.message);
+    return false;
+  }
+}
+
 // Hämta cache från localStorage
 function getCache() {
   try {
@@ -123,6 +178,12 @@ function parseTime(timeStr) {
 // Scrapa eventdetaljer från eventsida
 async function scrapeEventDetails(event, arena) {
   try {
+    // SSRF-validering av original-URL
+    if (!validateEventUrl(event.link)) {
+      console.warn(`SSRF: Blockerad URL: ${event.link}`);
+      return null;
+    }
+
     // Bygg proxy-URL för eventsidan
     const eventPath = event.link.replace(arena.website, '');
     const proxyUrl = `${arena.scrapePath}${eventPath}`;
@@ -399,7 +460,7 @@ export function groupEventsByDate(events, byDate = false) {
 }
 
 // Generera RSS XML
-export function generateRSS(events, baseUrl = 'https://example.com/pag') {
+export function generateRSS(events, baseUrl = 'https://mackan.eu/pag') {
   const now = new Date().toUTCString();
 
   const items = events

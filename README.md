@@ -39,6 +39,8 @@ npm run build
 
 Bygg hamnar i `dist/` och kan deployas till valfri statisk hosting.
 
+**Produktionsmiljö:** https://mackan.eu/pag
+
 ## Datahämtning
 
 Eventdata cachas i `public/events.json`. Kör bakgrundsskriptet för att uppdatera:
@@ -54,7 +56,27 @@ Detta genererar:
 - `public/rss-week.xml` - Veckans evenemang
 - `public/rss-upcoming.xml` - Alla kommande evenemang
 
-Se `TODO.md` för cron-konfiguration.
+### Konfiguration
+
+Skriptet stöder följande miljövariabler (valfria):
+
+- `FETCH_TIMEOUT_MS` - Timeout för individuella nätverksanrop i millisekunder (standard: 10000 = 10 sekunder)
+- `MAX_RUNTIME_MS` - Maximal total körtid för hela skriptet i millisekunder (standard: 300000 = 5 minuter)
+- `MAX_PARALLEL_SCRAPES` - Maximalt antal parallella scraping-requests (standard: 5, rekommenderat: 5-8)
+
+Exempel:
+```bash
+FETCH_TIMEOUT_MS=15000 MAX_PARALLEL_SCRAPES=8 node scripts/fetch-events.js
+```
+
+### Exit-koder
+
+Skriptet returnerar olika exit-koder för monitorering:
+- `0` - Framgångsrik körning
+- `1` - Kritiskt fel (t.ex. timeout eller API-fel)
+- `2` - Partiell framgång (några events misslyckades men körningen slutfördes)
+
+Se `TODO.md` för cron-konfiguration och monitorering.
 
 ## Projektstruktur
 

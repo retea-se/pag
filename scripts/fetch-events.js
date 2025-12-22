@@ -6,12 +6,14 @@
  * Kör via cron/scheduled task: node scripts/fetch-events.js
  * Rekommenderat: Varje timme eller 2-4 gånger per dygn
  */
+/* eslint-env node */
 
 import https from 'https';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { config } from 'dotenv';
+import pLimit from 'p-limit';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -20,6 +22,12 @@ const __dirname = path.dirname(__filename);
 config({ path: path.join(__dirname, '..', '.env') });
 
 const TICKETMASTER_KEY = process.env.TICKETMASTER_KEY || '';
+
+// Konfiguration från miljövariabler
+const FETCH_TIMEOUT_MS = parseInt(process.env.FETCH_TIMEOUT_MS || '10000', 10);
+const MAX_RUNTIME_MS = parseInt(process.env.MAX_RUNTIME_MS || '300000', 10); // 5 minuter
+const MAX_PARALLEL_SCRAPES = parseInt(process.env.MAX_PARALLEL_SCRAPES || '5', 10);
+const MAX_RETRIES = 2;
 
 const ARENAS = {
   aviciiArena: {
@@ -70,13 +78,121 @@ const SWEDISH_MONTHS = {
   'september': 8, 'oktober': 9, 'november': 10, 'december': 11
 };
 
-function fetch(url) {
+// Allowlist för SSRF-skydd
+const ALLOWED_DOMAINS = [
+  'aviciiarena.se',
+  '3arena.se',
+  'hovetarena.se',
+  'annexet.se'
+];
+
+/**
+ * Validerar event-URL mot SSRF-skydd
+ * @param {string} url - URL att validera
+ * @returns {boolean} - true om URL är giltig, false annars
+ */
+function validateEventUrl(url) {
+  if (!url || typeof url !== 'string') {
+    return false;
+  }
+
+  try {
+    const urlObj = new URL(url);
+
+    // Kräv HTTPS
+    if (urlObj.protocol !== 'https:') {
+      console.warn(`  SSRF: Ogiltigt protokoll för ${url} (kräver https:)`);
+      return false;
+    }
+
+    // Kontrollera hostname mot allowlist
+    const hostname = urlObj.hostname.toLowerCase();
+    const isAllowed = ALLOWED_DOMAINS.some(domain => {
+      return hostname === domain || hostname.endsWith('.' + domain);
+    });
+
+    if (!isAllowed) {
+      console.warn(`  SSRF: Ogiltig hostname för ${url} (${hostname} är inte i allowlist)`);
+      return false;
+    }
+
+    // Blockera interna IP-intervall
+    if (hostname === 'localhost' ||
+        hostname === '127.0.0.1' ||
+        hostname.startsWith('192.168.') ||
+        hostname.startsWith('10.') ||
+        hostname.startsWith('172.16.') ||
+        hostname.startsWith('172.17.') ||
+        hostname.startsWith('172.18.') ||
+        hostname.startsWith('172.19.') ||
+        hostname.startsWith('172.20.') ||
+        hostname.startsWith('172.21.') ||
+        hostname.startsWith('172.22.') ||
+        hostname.startsWith('172.23.') ||
+        hostname.startsWith('172.24.') ||
+        hostname.startsWith('172.25.') ||
+        hostname.startsWith('172.26.') ||
+        hostname.startsWith('172.27.') ||
+        hostname.startsWith('172.28.') ||
+        hostname.startsWith('172.29.') ||
+        hostname.startsWith('172.30.') ||
+        hostname.startsWith('172.31.')) {
+      console.warn(`  SSRF: Intern IP/hostname blockerad för ${url}`);
+      return false;
+    }
+
+    return true;
+  } catch (error) {
+    console.warn(`  SSRF: Ogiltig URL-format för ${url}:`, error.message);
+    return false;
+  }
+}
+
+function fetch(url, timeoutMs = FETCH_TIMEOUT_MS) {
   return new Promise((resolve, reject) => {
-    https.get(url, { headers: { 'User-Agent': 'GlobenEvents/1.0' } }, (res) => {
+    let timeoutId;
+    let completed = false;
+
+    const req = https.get(url, { headers: { 'User-Agent': 'GlobenEvents/1.0' } }, (res) => {
       let data = '';
       res.on('data', chunk => data += chunk);
-      res.on('end', () => resolve({ ok: res.statusCode === 200, text: () => data, json: () => JSON.parse(data) }));
-    }).on('error', reject);
+      res.on('end', () => {
+        if (completed) return;
+        completed = true;
+        clearTimeout(timeoutId);
+        try {
+          resolve({
+            ok: res.statusCode === 200,
+            text: () => data,
+            json: () => JSON.parse(data)
+          });
+        } catch (parseError) {
+          console.error(`  JSON parse error for ${url}:`, parseError.message);
+          reject(new Error(`JSON parse error: ${parseError.message}`));
+        }
+      });
+    });
+
+    req.on('error', (error) => {
+      if (completed) return;
+      completed = true;
+      clearTimeout(timeoutId);
+      if (error.code === 'ECONNRESET' || error.message.includes('timeout')) {
+        console.error(`  Request timeout for ${url} (${timeoutMs}ms)`);
+        reject(new Error(`Request timeout after ${timeoutMs}ms`));
+      } else {
+        reject(error);
+      }
+    });
+
+    // Timeout handling
+    timeoutId = setTimeout(() => {
+      if (completed) return;
+      completed = true;
+      req.destroy();
+      console.error(`  Request timeout for ${url} (${timeoutMs}ms)`);
+      reject(new Error(`Request timeout after ${timeoutMs}ms`));
+    }, timeoutMs);
   });
 }
 
@@ -121,104 +237,130 @@ function parseTime(timeStr) {
 }
 
 /**
- * Scrapar ALLA datum och tider från en eventsida
+ * Scrapar ALLA datum och tider från en eventsida med retry-logik
  * Returnerar en array av performances: [{ date: Date, time: "HH:MM" }, ...]
  */
-async function scrapeEventDetails(eventUrl) {
-  try {
-    const response = await fetch(eventUrl);
-    if (!response.ok) return { performances: [] };
+async function scrapeEventDetails(eventUrl, retries = MAX_RETRIES) {
+  // SSRF-validering
+  if (!validateEventUrl(eventUrl)) {
+    console.warn(`  SSRF: Blockerad URL: ${eventUrl}`);
+    return { performances: [] };
+  }
 
-    const html = await response.text();
-    const performances = [];
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      if (attempt > 0) {
+        // Exponential backoff: 1s, 2s
+        const delay = Math.pow(2, attempt - 1) * 1000;
+        await new Promise(r => setTimeout(r, delay));
+      }
 
-    // Splitta HTML vid varje <li> för att hantera inline HTML
-    // Format: <li><div class="date"><span><strong>Fredag 9 januari 2026</span></strong></div>
-    //         <div class="item"><span class="time">15:00</span></div>...</li>
-    const liParts = html.split(/<li>/i);
+      const response = await fetch(eventUrl);
+      if (!response.ok) {
+        if (attempt < retries && response.ok === false) {
+          continue; // Retry on non-200 status
+        }
+        return { performances: [] };
+      }
 
-    for (const liContent of liParts) {
-      // Hitta datum i denna <li>-del
-      const dateMatch = liContent.match(/<div class="date"[^>]*>.*?<strong>([^<]*\d{1,2}\s+[a-zåäö]+\s+\d{4})/i);
+      const html = await response.text();
+      const performances = [];
 
-      if (!dateMatch) continue;
+      // Splitta HTML vid varje <li> för att hantera inline HTML
+      // Format: <li><div class="date"><span><strong>Fredag 9 januari 2026</span></strong></div>
+      //         <div class="item"><span class="time">15:00</span></div>...</li>
+      const liParts = html.split(/<li>/i);
 
-      const dateText = dateMatch[1];
-      const eventDate = parseSwedishDate(dateText);
+      for (const liContent of liParts) {
+        // Hitta datum i denna <li>-del
+        const dateMatch = liContent.match(/<div class="date"[^>]*>.*?<strong>([^<]*\d{1,2}\s+[a-zåäö]+\s+\d{4})/i);
 
-      if (!eventDate) continue;
+        if (!dateMatch) continue;
 
-      // Begränsa sökningen till innan nästa </li>
-      const liEnd = liContent.indexOf('</li>');
-      const liSection = liEnd > 0 ? liContent.substring(0, liEnd) : liContent;
+        const dateText = dateMatch[1];
+        const eventDate = parseSwedishDate(dateText);
 
-      // Hitta alla tider inom detta <li>-element
-      const timeRegex = /<span class="time">(\d{1,2}[.:]\d{2})<\/span>/gi;
-      let timeMatch;
-      let foundTimes = false;
+        if (!eventDate) continue;
 
-      while ((timeMatch = timeRegex.exec(liSection)) !== null) {
-        const time = parseTime(timeMatch[1]);
-        if (time) {
-          const dateWithTime = new Date(eventDate);
-          const [hours, minutes] = time.split(':').map(Number);
-          dateWithTime.setHours(hours, minutes, 0, 0);
+        // Begränsa sökningen till innan nästa </li>
+        const liEnd = liContent.indexOf('</li>');
+        const liSection = liEnd > 0 ? liContent.substring(0, liEnd) : liContent;
 
+        // Hitta alla tider inom detta <li>-element
+        const timeRegex = /<span class="time">(\d{1,2}[.:]\d{2})<\/span>/gi;
+        let timeMatch;
+        let foundTimes = false;
+
+        while ((timeMatch = timeRegex.exec(liSection)) !== null) {
+          const time = parseTime(timeMatch[1]);
+          if (time) {
+            const dateWithTime = new Date(eventDate);
+            const [hours, minutes] = time.split(':').map(Number);
+            dateWithTime.setHours(hours, minutes, 0, 0);
+
+            performances.push({
+              date: dateWithTime,
+              time: time
+            });
+            foundTimes = true;
+          }
+        }
+
+        // Om inga tider hittades, lägg till datumet utan tid
+        if (!foundTimes) {
           performances.push({
-            date: dateWithTime,
-            time: time
+            date: new Date(eventDate),
+            time: null
           });
-          foundTimes = true;
         }
       }
 
-      // Om inga tider hittades, lägg till datumet utan tid
-      if (!foundTimes) {
-        performances.push({
-          date: new Date(eventDate),
-          time: null
-        });
-      }
-    }
+      // Fallback: Om vi inte hittade strukturerade datum, försök med enklare regex
+      if (performances.length === 0) {
+        const dateMatches = html.match(/<strong>([^<]*\d{1,2}\s+[a-zåäö]+\s+\d{4})[^<]*<\/strong>/gi);
 
-    // Fallback: Om vi inte hittade strukturerade datum, försök med enklare regex
-    if (performances.length === 0) {
-      const dateMatches = html.match(/<strong>([^<]*\d{1,2}\s+[a-zåäö]+\s+\d{4})[^<]*<\/strong>/gi);
+        if (dateMatches && dateMatches.length > 0) {
+          for (const match of dateMatches) {
+            const dateText = match.replace(/<\/?strong>/gi, '').replace(/<\/?span>/gi, '');
+            const eventDate = parseSwedishDate(dateText);
+            if (eventDate) {
+              // Försök hitta tid nära detta datum
+              const timeMatch = html.match(/(?:showstart|kl\.?)\s*(\d{1,2}[.:]\d{2})/i);
+              const time = timeMatch ? parseTime(timeMatch[1]) : null;
 
-      if (dateMatches && dateMatches.length > 0) {
-        for (const match of dateMatches) {
-          const dateText = match.replace(/<\/?strong>/gi, '').replace(/<\/?span>/gi, '');
-          const eventDate = parseSwedishDate(dateText);
-          if (eventDate) {
-            // Försök hitta tid nära detta datum
-            const timeMatch = html.match(/(?:showstart|kl\.?)\s*(\d{1,2}[.:]\d{2})/i);
-            const time = timeMatch ? parseTime(timeMatch[1]) : null;
+              if (time) {
+                const [hours, minutes] = time.split(':').map(Number);
+                eventDate.setHours(hours, minutes, 0, 0);
+              }
 
-            if (time) {
-              const [hours, minutes] = time.split(':').map(Number);
-              eventDate.setHours(hours, minutes, 0, 0);
+              performances.push({
+                date: eventDate,
+                time: time
+              });
+              break; // Ta bara första i fallback-läge
             }
-
-            performances.push({
-              date: eventDate,
-              time: time
-            });
-            break; // Ta bara första i fallback-läge
           }
         }
       }
-    }
 
-    return { performances };
-  } catch (error) {
-    console.warn(`  Kunde inte scrapa: ${eventUrl}`);
-    return { performances: [] };
+      return { performances };
+    } catch (error) {
+      if (attempt < retries) {
+        console.warn(`  Scrape-fel (försök ${attempt + 1}/${retries + 1}): ${eventUrl} - ${error.message}`);
+        continue;
+      }
+      console.warn(`  Kunde inte scrapa efter ${retries + 1} försök: ${eventUrl} - ${error.message}`);
+      return { performances: [] };
+    }
   }
+  return { performances: [] };
 }
 
 /**
  * Hämtar events från Ticketmaster API för matchning
+ * (För närvarande inte använd, kan aktiveras i framtiden)
  */
+// eslint-disable-next-line no-unused-vars
 async function fetchTicketmasterEvents(keyword, venueIds) {
   if (!TICKETMASTER_KEY || venueIds.length === 0) return [];
 
@@ -257,28 +399,69 @@ async function fetchArenaEvents(arenaKey, arena) {
     const events = await response.json();
     console.log(`  Hittade ${events.length} events från API`);
 
-    const mappedEvents = [];
-
-    for (let i = 0; i < events.length; i++) {
-      const event = events[i];
+    // Filtrera bort Premium, Clubhouse etc
+    const validEvents = events.filter(event => {
       const title = decodeHtml(event.title?.rendered || '');
+      return !title.match(/^(Premium|The 1989)$/i) &&
+             !title.toLowerCase().includes('clubhouse') &&
+             !title.toLowerCase().includes('premium lounge');
+    });
 
-      // Skippa "Premium", "Clubhouse", etc (underpaket och tillägg)
-      if (title.match(/^(Premium|The 1989)$/i) ||
-          title.toLowerCase().includes('clubhouse') ||
-          title.toLowerCase().includes('premium lounge')) {
-        continue;
-      }
+    console.log(`  Scrapar ${validEvents.length} events (parallellt, max ${MAX_PARALLEL_SCRAPES} samtidigt)...`);
 
-      process.stdout.write(`  Scrapar ${i + 1}/${events.length}: ${title.substring(0, 40)}...`);
+    // Skapa limit för parallellism
+    const limit = pLimit(MAX_PARALLEL_SCRAPES);
+    const errorQueue = [];
 
-      // Scrapa ALLA datum från eventsidan
-      const details = await scrapeEventDetails(event.link);
-      const performances = details?.performances || [];
+    // Scrapa alla events parallellt
+    const scrapePromises = validEvents.map((event) => {
+      return limit(async () => {
+        const title = decodeHtml(event.title?.rendered || '');
+        try {
+          const details = await scrapeEventDetails(event.link);
+          const performances = details?.performances || [];
+
+          if (performances.length > 0) {
+            return {
+              success: true,
+              event,
+              title,
+              performances
+            };
+          } else {
+            return {
+              success: true,
+              event,
+              title,
+              performances: []
+            };
+          }
+        } catch (error) {
+          errorQueue.push({
+            event: title,
+            url: event.link,
+            error: error.message
+          });
+          return {
+            success: false,
+            event,
+            title,
+            performances: []
+          };
+        }
+      });
+    });
+
+    const results = await Promise.all(scrapePromises);
+
+    // Bygg mapped events från resultat
+    const mappedEvents = [];
+    for (const result of results) {
+      if (!result.success) continue;
+
+      const { event, title, performances } = result;
 
       if (performances.length > 0) {
-        process.stdout.write(` ✓ ${performances.length} föreställning${performances.length > 1 ? 'ar' : ''}\n`);
-
         // Skapa en entry för varje föreställning
         for (let j = 0; j < performances.length; j++) {
           const perf = performances[j];
@@ -300,8 +483,6 @@ async function fetchArenaEvents(arenaKey, arena) {
           });
         }
       } else {
-        process.stdout.write(` (inget datum)\n`);
-
         // Lägg till utan datum
         mappedEvents.push({
           id: `${arena.id}-${event.id}`,
@@ -318,15 +499,25 @@ async function fetchArenaEvents(arenaKey, arena) {
           eventTime: null
         });
       }
-
-      // Liten delay för att inte överbelasta
-      await new Promise(r => setTimeout(r, 200));
     }
 
-    return mappedEvents;
+    // Rapportera fel om några
+    if (errorQueue.length > 0) {
+      console.warn(`  ${errorQueue.length} event misslyckades vid scraping:`);
+      for (const err of errorQueue.slice(0, 5)) {
+        console.warn(`    - ${err.event}: ${err.error}`);
+      }
+      if (errorQueue.length > 5) {
+        console.warn(`    ... och ${errorQueue.length - 5} till`);
+      }
+    }
+
+    console.log(`  ✓ Klar: ${mappedEvents.length} event-tillfällen (${errorQueue.length} misslyckade)`);
+
+    return { events: mappedEvents, errors: errorQueue.length };
   } catch (error) {
     console.error(`  Fel vid hämtning från ${arena.name}:`, error.message);
-    return [];
+    return { events: [], errors: 0, critical: true };
   }
 }
 
@@ -364,7 +555,7 @@ function filterEventsByPeriod(events, period) {
 // Generera RSS XML
 function generateRSS(events, title, description, feedUrl) {
   const now = new Date().toUTCString();
-  const baseUrl = 'https://pag.example.com';
+  const baseUrl = 'https://mackan.eu/pag';
 
   const items = events
     .slice(0, 100)
@@ -415,15 +606,36 @@ async function main() {
   console.log('Startar:', new Date().toLocaleString('sv-SE'));
   console.log('='.repeat(50));
 
-  const allEvents = [];
+  // Global timeout för hela körningen
+  const maxRuntimePromise = new Promise((_, reject) => {
+    setTimeout(() => {
+      reject(new Error(`Max runtime exceeded (${MAX_RUNTIME_MS}ms)`));
+    }, MAX_RUNTIME_MS);
+  });
 
-  for (const [key, arena] of Object.entries(ARENAS)) {
-    const events = await fetchArenaEvents(key, arena);
-    allEvents.push(...events);
-    console.log('');
-  }
+  let totalErrors = 0;
+  let criticalErrors = 0;
 
-  // Filtrera bort dubbletter baserat på id (inkluderar datum/tid för multi-show events)
+  const runScript = async () => {
+    const allEvents = [];
+
+    for (const [key, arena] of Object.entries(ARENAS)) {
+      try {
+        const result = await fetchArenaEvents(key, arena);
+        if (result.critical) {
+          criticalErrors++;
+        } else {
+          allEvents.push(...result.events);
+          totalErrors += result.errors;
+        }
+        console.log('');
+      } catch (error) {
+        criticalErrors++;
+        console.error(`  KRITISKT FEL för ${arena.name}:`, error.message);
+      }
+    }
+
+    // Filtrera bort dubbletter baserat på id (inkluderar datum/tid för multi-show events)
   const seen = new Set();
   const uniqueEvents = allEvents.filter(e => {
     if (seen.has(e.id)) return false;
@@ -465,7 +677,7 @@ async function main() {
   console.log('\nGenererar RSS-filer...');
   for (const feed of rssFeeds) {
     const filtered = filterEventsByPeriod(uniqueEvents, feed.period);
-    const rss = generateRSS(filtered, feed.title, feed.desc, `/pag/${feed.file}`);
+    const rss = generateRSS(filtered, feed.title, feed.desc, `https://mackan.eu/pag/${feed.file}`);
     const rssPath = path.join(publicDir, feed.file);
     fs.writeFileSync(rssPath, rss, 'utf8');
     console.log(`  ${feed.file}: ${filtered.length} events`);
@@ -499,12 +711,37 @@ async function main() {
     }
   }
 
-  // Per arena
-  console.log('\nPer arena:');
-  for (const arena of Object.values(ARENAS)) {
-    const count = uniqueEvents.filter(e => e.arenaId === arena.id).length;
-    console.log(`  ${arena.name}: ${count}`);
+    // Per arena
+    console.log('\nPer arena:');
+    for (const arena of Object.values(ARENAS)) {
+      const count = uniqueEvents.filter(e => e.arenaId === arena.id).length;
+      console.log(`  ${arena.name}: ${count}`);
+    }
+  };
+
+  try {
+    await Promise.race([runScript(), maxRuntimePromise]);
+
+    // Exit codes: 0 = success, 1 = critical error, 2 = partial failure
+    if (criticalErrors > 0) {
+      console.error('\n' + '='.repeat(50));
+      console.error(`KRITISKT: ${criticalErrors} arena(er) misslyckades`);
+      console.error('='.repeat(50));
+      process.exit(1);
+    } else if (totalErrors > 0) {
+      console.log('\n' + '='.repeat(50));
+      console.log(`VARNING: ${totalErrors} event misslyckades, men körningen slutfördes`);
+      console.log('='.repeat(50));
+      process.exit(2);
+    } else {
+      process.exit(0);
+    }
+  } catch (error) {
+    console.error('\n' + '='.repeat(50));
+    console.error('KRITISKT FEL:', error.message);
+    console.error('='.repeat(50));
+    process.exit(1);
   }
 }
 
-main().catch(console.error);
+main();
