@@ -3,12 +3,8 @@
  * Tester för timeout-hantering i fetch-funktionen
  */
 
-import { describe, it, expect, beforeEach, afterEach } from 'node:test';
+import { describe, it, expect } from 'node:test';
 import https from 'https';
-
-// Mock https.get för att simulera långsamma svar
-let mockDelay = 0;
-let mockShouldTimeout = false;
 
 // Simulera fetch-funktionen med timeout
 function fetch(url, timeoutMs = 10000) {
@@ -52,11 +48,6 @@ function fetch(url, timeoutMs = 10000) {
 }
 
 describe('Fetch timeout handling', () => {
-  beforeEach(() => {
-    mockDelay = 0;
-    mockShouldTimeout = false;
-  });
-
   it('should timeout after specified time', async () => {
     const timeoutMs = 100;
     const startTime = Date.now();
@@ -77,7 +68,7 @@ describe('Fetch timeout handling', () => {
       const response = await fetch('https://httpbin.org/json', timeoutMs);
       expect(response).toBeDefined();
       expect(response.ok).toBe(true);
-    } catch (error) {
+    } catch {
       expect.fail('Should not have timed out');
     }
   });

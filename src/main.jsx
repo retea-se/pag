@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import RssPage from './RssPage.jsx'
 
-function Router() {
+export function Router() {
   const [page, setPage] = useState(window.location.hash);
 
   useEffect(() => {

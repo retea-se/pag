@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { fetchAllEvents, filterEventsByPeriod, groupEventsByDate, ARENAS } from './api/stockholmLive';
-import { RefreshIcon, getCategoryIcon, RssIcon, GitHubIcon, ArenaDot } from './components/Icons';
+import { RefreshIcon, CategoryIcon, RssIcon, GitHubIcon, ArenaDot } from './components/Icons';
 import { usePageViews } from './hooks/usePageViews';
 import './App.css';
 
@@ -171,7 +171,7 @@ function App() {
                     className="event-card"
                   >
                     <div className="event-icon">
-                      {getCategoryIcon(event.categoryIcon, 22)}
+                      <CategoryIcon iconName={event.categoryIcon} size={22} />
                     </div>
                     <div className="event-content">
                       <div className="event-title">{event.title}</div>

@@ -6,8 +6,6 @@
  * Kör via cron/scheduled task: node scripts/fetch-events.js
  * Rekommenderat: Varje timme eller 2-4 gånger per dygn
  */
-/* eslint-env node */
-
 import https from 'https';
 import fs from 'fs';
 import path from 'path';

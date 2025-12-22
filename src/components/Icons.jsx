@@ -164,7 +164,7 @@ export function TicketIcon({ size = 20, className = '' }) {
 }
 
 // Hämta ikon baserat på kategori
-export function getCategoryIcon(iconName, size = 20) {
+export function CategoryIcon({ iconName, size = 20 }) {
   const icons = {
     music: MusicIcon,
     sport: SportIcon,
