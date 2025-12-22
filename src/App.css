@@ -1,13 +1,18 @@
 /* På G i Globenområdet - Modern Design */
 
-/* Inter font med font-display: swap för att minska CLS */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+/*
+ * Font laddas via preload i index.html för bättre performance.
+ * Fallback-font med size-adjust för att minimera CLS.
+ */
 
-/* Fallback font-stack för att minska layout shift */
+/* Fallback font som matchar Inter för att undvika layout shift */
 @font-face {
-  font-family: 'Inter';
-  font-display: swap;
-  src: local('Inter');
+  font-family: 'Inter Fallback';
+  src: local('Arial');
+  size-adjust: 107%;
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
 }
 
 :root {
@@ -41,7 +46,7 @@
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Inter', 'Inter Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.5;
@@ -228,6 +233,8 @@ body {
   flex: 1;
   padding: var(--space-md);
   padding-bottom: var(--space-xl);
+  min-height: 50vh;
+  contain: layout;
 }
 
 /* Loading, Error, Empty states */

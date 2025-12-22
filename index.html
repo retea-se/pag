@@ -2,8 +2,19 @@
 <html lang="sv">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/pag/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Preconnect för snabbare fontladdning -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Preload kritisk font-fil för att undvika CLS -->
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" />
+
+    <!-- Ladda Inter font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+
+    <link rel="icon" type="image/svg+xml" href="/pag/favicon.svg" />
     <meta name="description" content="Se alla evenemang på arenorna i Globenområdet - Avicii Arena, 3Arena, Hovet, Annexet. Konserter, hockey, shower och mer." />
     <title>På G i Globenområdet</title>
     <link rel="alternate" type="application/rss+xml" title="På G - Kommande evenemang" href="/pag/rss-upcoming.xml" />
