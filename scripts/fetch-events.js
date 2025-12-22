@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 /**
  * Bakgrundsskript för att hämta och cacha evenemang från Stockholm Live
+ * Hybrid-lösning: Scraping + Ticketmaster API för bättre datumkvalitet
+ *
  * Kör via cron/scheduled task: node scripts/fetch-events.js
  * Rekommenderat: Varje timme eller 2-4 gånger per dygn
  */
@@ -9,9 +11,15 @@ import https from 'https';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { config } from 'dotenv';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+// Ladda miljövariabler från .env
+config({ path: path.join(__dirname, '..', '.env') });
+
+const TICKETMASTER_KEY = process.env.TICKETMASTER_KEY || '';
 
 const ARENAS = {
   aviciiArena: {
@@ -19,28 +27,32 @@ const ARENAS = {
     name: 'Avicii Arena',
     apiUrl: 'https://aviciiarena.se/wp-json/wp/v2/events?per_page=100',
     website: 'https://aviciiarena.se',
-    color: '#3b82f6'
+    color: '#3b82f6',
+    ticketmasterVenueIds: ['Z7r9jZaA6X', 'KovZ917Adl7'] // Avicii Arena + GLOBEN
   },
   threeArena: {
     id: '3arena',
     name: '3Arena',
     apiUrl: 'https://3arena.se/wp-json/wp/v2/events?per_page=100',
     website: 'https://3arena.se',
-    color: '#10b981'
+    color: '#10b981',
+    ticketmasterVenueIds: []
   },
   hovet: {
     id: 'hovet',
     name: 'Hovet',
     apiUrl: 'https://hovetarena.se/wp-json/wp/v2/events?per_page=100',
     website: 'https://hovetarena.se',
-    color: '#f59e0b'
+    color: '#f59e0b',
+    ticketmasterVenueIds: ['Z698xZq2Za7wK', 'Z598xZq2ZevA1', 'Z598xZq2Zevk7', 'ZFr9jZ1kFk']
   },
   annexet: {
     id: 'annexet',
     name: 'Annexet',
     apiUrl: 'https://annexet.se/wp-json/wp/v2/events?per_page=100',
     website: 'https://annexet.se',
-    color: '#ef4444'
+    color: '#ef4444',
+    ticketmasterVenueIds: ['Za98xZq2Za1']
   }
 };
 
@@ -108,42 +120,127 @@ function parseTime(timeStr) {
   return null;
 }
 
+/**
+ * Scrapar ALLA datum och tider från en eventsida
+ * Returnerar en array av performances: [{ date: Date, time: "HH:MM" }, ...]
+ */
 async function scrapeEventDetails(eventUrl) {
   try {
     const response = await fetch(eventUrl);
-    if (!response.ok) return null;
+    if (!response.ok) return { performances: [] };
 
     const html = await response.text();
+    const performances = [];
 
-    // Hitta "Datum & tider" sektionen
-    // Leta efter datum i <strong> taggar
-    const dateMatches = html.match(/<strong>([^<]*\d{1,2}\s+[a-zåäö]+\s+\d{4})[^<]*<\/strong>/gi);
+    // Splitta HTML vid varje <li> för att hantera inline HTML
+    // Format: <li><div class="date"><span><strong>Fredag 9 januari 2026</span></strong></div>
+    //         <div class="item"><span class="time">15:00</span></div>...</li>
+    const liParts = html.split(/<li>/i);
 
-    let eventDate = null;
-    let eventTime = null;
+    for (const liContent of liParts) {
+      // Hitta datum i denna <li>-del
+      const dateMatch = liContent.match(/<div class="date"[^>]*>.*?<strong>([^<]*\d{1,2}\s+[a-zåäö]+\s+\d{4})/i);
 
-    if (dateMatches && dateMatches.length > 0) {
-      // Ta första datumet
-      const dateText = dateMatches[0].replace(/<\/?strong>/gi, '');
-      eventDate = parseSwedishDate(dateText);
+      if (!dateMatch) continue;
+
+      const dateText = dateMatch[1];
+      const eventDate = parseSwedishDate(dateText);
+
+      if (!eventDate) continue;
+
+      // Begränsa sökningen till innan nästa </li>
+      const liEnd = liContent.indexOf('</li>');
+      const liSection = liEnd > 0 ? liContent.substring(0, liEnd) : liContent;
+
+      // Hitta alla tider inom detta <li>-element
+      const timeRegex = /<span class="time">(\d{1,2}[.:]\d{2})<\/span>/gi;
+      let timeMatch;
+      let foundTimes = false;
+
+      while ((timeMatch = timeRegex.exec(liSection)) !== null) {
+        const time = parseTime(timeMatch[1]);
+        if (time) {
+          const dateWithTime = new Date(eventDate);
+          const [hours, minutes] = time.split(':').map(Number);
+          dateWithTime.setHours(hours, minutes, 0, 0);
+
+          performances.push({
+            date: dateWithTime,
+            time: time
+          });
+          foundTimes = true;
+        }
+      }
+
+      // Om inga tider hittades, lägg till datumet utan tid
+      if (!foundTimes) {
+        performances.push({
+          date: new Date(eventDate),
+          time: null
+        });
+      }
     }
 
-    // Leta efter tid (Showstart eller kl.)
-    const timeMatch = html.match(/(?:showstart|kl\.?)\s*(\d{1,2}[.:]\d{2})/i);
-    if (timeMatch) {
-      eventTime = parseTime(timeMatch[1]);
+    // Fallback: Om vi inte hittade strukturerade datum, försök med enklare regex
+    if (performances.length === 0) {
+      const dateMatches = html.match(/<strong>([^<]*\d{1,2}\s+[a-zåäö]+\s+\d{4})[^<]*<\/strong>/gi);
+
+      if (dateMatches && dateMatches.length > 0) {
+        for (const match of dateMatches) {
+          const dateText = match.replace(/<\/?strong>/gi, '').replace(/<\/?span>/gi, '');
+          const eventDate = parseSwedishDate(dateText);
+          if (eventDate) {
+            // Försök hitta tid nära detta datum
+            const timeMatch = html.match(/(?:showstart|kl\.?)\s*(\d{1,2}[.:]\d{2})/i);
+            const time = timeMatch ? parseTime(timeMatch[1]) : null;
+
+            if (time) {
+              const [hours, minutes] = time.split(':').map(Number);
+              eventDate.setHours(hours, minutes, 0, 0);
+            }
+
+            performances.push({
+              date: eventDate,
+              time: time
+            });
+            break; // Ta bara första i fallback-läge
+          }
+        }
+      }
     }
 
-    // Om vi hittade datum och tid, kombinera
-    if (eventDate && eventTime) {
-      const [hours, minutes] = eventTime.split(':').map(Number);
-      eventDate.setHours(hours, minutes, 0, 0);
-    }
-
-    return { eventDate, eventTime };
+    return { performances };
   } catch (error) {
     console.warn(`  Kunde inte scrapa: ${eventUrl}`);
-    return null;
+    return { performances: [] };
+  }
+}
+
+/**
+ * Hämtar events från Ticketmaster API för matchning
+ */
+async function fetchTicketmasterEvents(keyword, venueIds) {
+  if (!TICKETMASTER_KEY || venueIds.length === 0) return [];
+
+  try {
+    const venueParam = venueIds.join(',');
+    const url = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${TICKETMASTER_KEY}&venueId=${venueParam}&size=100&countryCode=SE`;
+
+    const response = await fetch(url);
+    if (!response.ok) return [];
+
+    const data = await response.json();
+    if (!data._embedded?.events) return [];
+
+    return data._embedded.events.map(event => ({
+      name: event.name,
+      date: event.dates?.start?.dateTime || event.dates?.start?.localDate,
+      time: event.dates?.start?.localTime,
+      venue: event._embedded?.venues?.[0]?.name
+    }));
+  } catch (error) {
+    console.warn('  Ticketmaster API-fel:', error.message);
+    return [];
   }
 }
 
@@ -158,7 +255,7 @@ async function fetchArenaEvents(arenaKey, arena) {
     }
 
     const events = await response.json();
-    console.log(`  Hittade ${events.length} events`);
+    console.log(`  Hittade ${events.length} events från API`);
 
     const mappedEvents = [];
 
@@ -175,29 +272,52 @@ async function fetchArenaEvents(arenaKey, arena) {
 
       process.stdout.write(`  Scrapar ${i + 1}/${events.length}: ${title.substring(0, 40)}...`);
 
-      // Scrapa datum från eventsidan
+      // Scrapa ALLA datum från eventsidan
       const details = await scrapeEventDetails(event.link);
+      const performances = details?.performances || [];
 
-      if (details?.eventDate) {
-        process.stdout.write(` ✓ ${details.eventDate.toLocaleDateString('sv-SE')}\n`);
+      if (performances.length > 0) {
+        process.stdout.write(` ✓ ${performances.length} föreställning${performances.length > 1 ? 'ar' : ''}\n`);
+
+        // Skapa en entry för varje föreställning
+        for (let j = 0; j < performances.length; j++) {
+          const perf = performances[j];
+          mappedEvents.push({
+            id: `${arena.id}-${event.id}${performances.length > 1 ? `-${j + 1}` : ''}`,
+            title,
+            arena: arena.name,
+            arenaId: arena.id,
+            arenaColor: arena.color,
+            link: event.link,
+            category: event.events_category?.[0] || 26,
+            categoryName: CATEGORIES[event.events_category?.[0]]?.name || 'Event',
+            categoryIcon: CATEGORIES[event.events_category?.[0]]?.icon || 'calendar',
+            slug: event.slug,
+            eventDate: perf.date?.toISOString() || null,
+            eventTime: perf.time || null,
+            performanceNumber: performances.length > 1 ? j + 1 : null,
+            totalPerformances: performances.length > 1 ? performances.length : null
+          });
+        }
       } else {
         process.stdout.write(` (inget datum)\n`);
-      }
 
-      mappedEvents.push({
-        id: `${arena.id}-${event.id}`,
-        title,
-        arena: arena.name,
-        arenaId: arena.id,
-        arenaColor: arena.color,
-        link: event.link,
-        category: event.events_category?.[0] || 26,
-        categoryName: CATEGORIES[event.events_category?.[0]]?.name || 'Event',
-        categoryIcon: CATEGORIES[event.events_category?.[0]]?.icon || 'calendar',
-        slug: event.slug,
-        eventDate: details?.eventDate?.toISOString() || null,
-        eventTime: details?.eventTime || null
-      });
+        // Lägg till utan datum
+        mappedEvents.push({
+          id: `${arena.id}-${event.id}`,
+          title,
+          arena: arena.name,
+          arenaId: arena.id,
+          arenaColor: arena.color,
+          link: event.link,
+          category: event.events_category?.[0] || 26,
+          categoryName: CATEGORIES[event.events_category?.[0]]?.name || 'Event',
+          categoryIcon: CATEGORIES[event.events_category?.[0]]?.icon || 'calendar',
+          slug: event.slug,
+          eventDate: null,
+          eventTime: null
+        });
+      }
 
       // Liten delay för att inte överbelasta
       await new Promise(r => setTimeout(r, 200));
@@ -258,9 +378,15 @@ function generateRSS(events, title, description, feedUrl) {
       }) : 'Datum ej angivet';
       const timeStr = event.eventTime || '';
 
+      // Lägg till föreställningsnummer i titeln för multi-show events
+      let titleSuffix = '';
+      if (event.totalPerformances > 1) {
+        titleSuffix = ` (${event.performanceNumber}/${event.totalPerformances})`;
+      }
+
       return `
     <item>
-      <title><![CDATA[${event.title} - ${event.arena}]]></title>
+      <title><![CDATA[${event.title}${titleSuffix} - ${event.arena}]]></title>
       <link>${event.link}</link>
       <guid isPermaLink="false">${event.id}</guid>
       <pubDate>${eventDate ? eventDate.toUTCString() : now}</pubDate>
@@ -297,12 +423,11 @@ async function main() {
     console.log('');
   }
 
-  // Filtrera bort dubbletter baserat på titel + arena
+  // Filtrera bort dubbletter baserat på id (inkluderar datum/tid för multi-show events)
   const seen = new Set();
   const uniqueEvents = allEvents.filter(e => {
-    const key = `${e.title}-${e.arenaId}`;
-    if (seen.has(key)) return false;
-    seen.add(key);
+    if (seen.has(e.id)) return false;
+    seen.add(e.id);
     return true;
   });
 
@@ -347,15 +472,32 @@ async function main() {
   }
 
   console.log('='.repeat(50));
-  console.log(`Klart! Sparade ${uniqueEvents.length} unika events`);
+  console.log(`Klart! Sparade ${uniqueEvents.length} event-tillfällen`);
   console.log(`Fil: ${outputPath}`);
   console.log('='.repeat(50));
 
   // Statistik
   const withDate = uniqueEvents.filter(e => e.eventDate).length;
   const withoutDate = uniqueEvents.length - withDate;
+  const multiShowEvents = uniqueEvents.filter(e => e.totalPerformances > 1);
+  const uniqueTitles = new Set(uniqueEvents.map(e => e.title)).size;
+
+  console.log(`Unika event-titlar: ${uniqueTitles}`);
+  console.log(`Totalt antal föreställningar: ${uniqueEvents.length}`);
   console.log(`Med datum: ${withDate}`);
   console.log(`Utan datum: ${withoutDate}`);
+
+  if (multiShowEvents.length > 0) {
+    console.log(`\nFlerföreställnings-events:`);
+    const multiShowTitles = [...new Set(multiShowEvents.map(e => e.title))];
+    for (const title of multiShowTitles.slice(0, 5)) {
+      const count = multiShowEvents.filter(e => e.title === title).length;
+      console.log(`  ${title.substring(0, 40)}: ${count} föreställningar`);
+    }
+    if (multiShowTitles.length > 5) {
+      console.log(`  ... och ${multiShowTitles.length - 5} till`);
+    }
+  }
 
   // Per arena
   console.log('\nPer arena:');
