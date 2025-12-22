@@ -35,7 +35,7 @@ const ARENAS = {
   }
 };
 
-const CACHE_KEY = 'globen-events-cache-v3';
+const CACHE_KEY = 'globen-events-cache-v4';
 const CACHE_DURATION = 30 * 60 * 1000; // 30 minuter
 
 // Event kategorier med ikoner
@@ -229,7 +229,9 @@ async function fetchArenaEvents(arena, scrapeDetails = false) {
 // Hämta events från statisk JSON-fil (genererad av bakgrundsskript)
 async function fetchStaticEvents() {
   try {
-    const response = await fetch('/events.json');
+    // Använd import.meta.env.BASE_URL för korrekt sökväg i Vite
+    const baseUrl = import.meta.env.BASE_URL || '/';
+    const response = await fetch(`${baseUrl}events.json`);
     if (!response.ok) return null;
 
     const data = await response.json();
