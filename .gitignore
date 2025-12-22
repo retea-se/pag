@@ -1,0 +1,69 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sw?
+*~
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Cache
+.cache/
+.eslintcache
+.parcel-cache/
+
+# Test coverage
+coverage/
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+.temp/
+*.local
+
+# Package manager locks (behåll package-lock.json)
+yarn.lock
+pnpm-lock.yaml
+
+# Generated data files (regenereras av scripts/fetch-events.js)
+public/events.json
+public/rss-*.xml
+
+# Unused/old files
+mockups/
+src/api/ticketmaster.js
+src/components/ArenaCard.jsx
+src/components/EventItem.jsx
+src/utils/rss.js
+public/vite.svg
+src/assets/
