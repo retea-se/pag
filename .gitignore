@@ -13,6 +13,7 @@ dist-ssr/
 # IDE
 .idea/
 .vscode/
+*.code-workspace
 *.swp
 *.swo
 *.sw?
@@ -67,3 +68,6 @@ src/components/EventItem.jsx
 src/utils/rss.js
 public/vite.svg
 src/assets/
+
+# Server-specific scripts (behålls lokalt)
+scripts/fetch-events-server.js
