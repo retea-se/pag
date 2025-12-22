@@ -327,7 +327,7 @@ export async function fetchAllEvents(forceRefresh = false, scrapeDetails = false
 
   const allEvents = [];
 
-  for (const [key, arena] of Object.entries(ARENAS)) {
+  for (const arena of Object.values(ARENAS)) {
     const events = await fetchArenaEvents(arena, scrapeDetails);
     allEvents.push(...events);
     await new Promise(r => setTimeout(r, 100));
@@ -416,8 +416,8 @@ export function groupEventsByTimeOfDay(events) {
   });
 
   return Object.entries(groups)
-    .filter(([key, group]) => group.events.length > 0)
-    .map(([key, group]) => group);
+    .filter(([, group]) => group.events.length > 0)
+    .map(([, group]) => group);
 }
 
 // Gruppera events efter datum eller tid
@@ -449,7 +449,7 @@ export function groupEventsByDate(events, byDate = false) {
   // Sortera månader kronologiskt
   const sortedGroups = Object.entries(groups)
     .sort(([a], [b]) => a.localeCompare(b))
-    .map(([key, group]) => group);
+    .map(([, group]) => group);
 
   // Lägg till events utan datum sist
   if (noDateEvents.length > 0) {
