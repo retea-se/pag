@@ -208,6 +208,7 @@ function App() {
           </div>
         </div>
         <p className="footer-arenas">Avicii Arena, 3Arena, Hovet & Annexet</p>
+        <p className="footer-made">Made with ❤️ in Stockholm</p>
       </footer>
     </div>
   );

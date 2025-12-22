@@ -403,6 +403,12 @@ body {
   opacity: 0.7;
 }
 
+.footer-made {
+  font-size: 0.625rem;
+  opacity: 0.5;
+  margin-top: var(--space-xs);
+}
+
 .rss-link {
   display: inline-flex;
   align-items: center;
