@@ -1,6 +1,14 @@
 /* På G i Globenområdet - Modern Design */
 
+/* Inter font med font-display: swap för att minska CLS */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Fallback font-stack för att minska layout shift */
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+  src: local('Inter');
+}
 
 :root {
   --bg-primary: #0a0a0a;
