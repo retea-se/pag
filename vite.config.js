@@ -5,6 +5,20 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: '/pag/',
+  build: {
+    // Optimera build för bättre prestanda
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+        },
+      },
+    },
+    // Minska chunk-storlekar
+    chunkSizeWarningLimit: 1000,
+    // Aktivera minification (esbuild är standard och snabbare än terser)
+    minify: 'esbuild',
+  },
   server: {
     proxy: {
       '/api/ticketmaster': {

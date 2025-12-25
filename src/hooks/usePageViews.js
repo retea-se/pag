@@ -15,11 +15,17 @@ export function usePageViews() {
     if (hasTracked) {
       // Redan räknat denna session, bara hämta nuvarande värde
       fetch(apiUrl, { method: 'GET' })
-        .then(res => res.json())
+        .then(res => {
+          if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status}`);
+          }
+          return res.json();
+        })
         .then(data => {
           setPageViews(data.count || 0);
         })
         .catch(() => {
+          // Tyst fel - visa 0 om API misslyckas
           setPageViews(0);
         });
       return;
@@ -27,14 +33,18 @@ export function usePageViews() {
 
     // Öka global räknare första gången i sessionen
     fetch(apiUrl, { method: 'GET' })
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
       .then(data => {
         setPageViews(data.count || 0);
         sessionStorage.setItem(sessionKey, 'true');
       })
-      .catch(err => {
-        console.error('Kunde inte uppdatera sidvisningar:', err);
-        // Fallback: visa 0 om API misslyckas
+      .catch(() => {
+        // Tyst fel - visa 0 om API misslyckas (förhindrar console errors)
         setPageViews(0);
       });
   }, []);
