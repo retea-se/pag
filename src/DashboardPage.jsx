@@ -205,6 +205,9 @@ function DashboardPage() {
             {/* Errors Section */}
             <div className="errors-section">
               <h2 className="section-title">Fel & varningar</h2>
+              <div className="errors-timestamp">
+                Senaste körning: {formatDate(status.lastRun)}
+              </div>
               {status.errors && status.errors.length > 0 ? (
                 status.errors.map((err, index) => (
                   <div key={index} className="error-item">
@@ -213,8 +216,8 @@ function DashboardPage() {
                   </div>
                 ))
               ) : (
-                <div className="empty-state">
-                  Inga fel under senaste körningen
+                <div className="empty-state success">
+                  ✓ Körningen lyckades utan fel eller varningar
                 </div>
               )}
             </div>
@@ -235,4 +238,5 @@ function DashboardPage() {
 }
 
 export default DashboardPage;
+
 

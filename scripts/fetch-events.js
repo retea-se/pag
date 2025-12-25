@@ -944,6 +944,28 @@ async function main() {
     console.error('\n' + '='.repeat(50));
     console.error('KRITISKT FEL:', error.message);
     console.error('='.repeat(50));
+
+    // Försök skriva status.json även vid fel så att dashboard kan visa felet
+    try {
+      const publicDir = process.env.OUTPUT_DIR || path.join(__dirname, '..', 'public');
+      const statusPath = path.join(publicDir, 'status.json');
+      const errorStatus = {
+        lastRun: new Date().toISOString(),
+        duration: 0,
+        status: 'error',
+        eventCount: 0,
+        arenaCount: 0,
+        errors: [{
+          title: 'Kritiskt fel',
+          message: error.message
+        }]
+      };
+      fs.writeFileSync(statusPath, JSON.stringify(errorStatus, null, 2), 'utf8');
+      console.log(`Status (fel) sparad till: ${statusPath}`);
+    } catch (statusError) {
+      console.error('Kunde inte spara status vid fel:', statusError.message);
+    }
+
     process.exit(1);
   }
 }
