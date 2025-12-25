@@ -137,11 +137,26 @@ function setCache(events) {
   }
 }
 
-// Parsa HTML-entiteter
+// Parsa HTML-entiteter (säker version utan innerHTML)
 function decodeHtml(html) {
-  const txt = document.createElement('textarea');
-  txt.innerHTML = html;
-  return txt.value;
+  if (!html) return '';
+  const entities = {
+    '&amp;': '&',
+    '&lt;': '<',
+    '&gt;': '>',
+    '&quot;': '"',
+    '&#039;': "'",
+    '&#39;': "'",
+    '&#8211;': '\u2013',
+    '&#8212;': '\u2014',
+    '&#8217;': '\u2019',
+    '&#8216;': '\u2018',
+    '&#8220;': '\u201c',
+    '&#8221;': '\u201d',
+    '&nbsp;': ' ',
+    '&#160;': ' '
+  };
+  return html.replace(/&[#\w]+;/g, match => entities[match] || match);
 }
 
 // Parsa svenskt datum (ex: "13 november 2026" eller "13 - 14 november 2026")
