@@ -1,5 +1,7 @@
 # På G i Globenområdet / On G in the Globen Area
 
+*"På G" is short for "På gång" (Swedish for "On going" / "In progress")*
+
 [English below](#english)
 
 En modern webbapp som visar kommande evenemang på arenorna i Globenområdet i Stockholm.
@@ -119,18 +121,20 @@ MIT
 <a name="english"></a>
 # On G in the Globen Area
 
-A modern web app displaying upcoming events at the arenas in the Globen area of Stockholm.
+**On G** (short for "På gång" in Swedish, meaning "On going" or "In progress") is a modern web app that tracks and displays what's happening at the four major arenas in the Globen area of Stockholm, Sweden. The app provides real-time information about ongoing and upcoming events, concerts, and shows at Avicii Arena, 3Arena, Hovet, and Annexet.
+
+Perfect for event-goers, tourists, and locals who want to stay updated on what's on at Stockholm's premier entertainment venues in the Globen district.
 
 ![På G](https://img.shields.io/badge/P%C3%A5_G-Globenomr%C3%A5det-6366f1)
 
 ## Features
 
-- Displays events from Avicii Arena, 3Arena, Hovet, and Annexet
-- Filtering: Yesterday, Today, Tomorrow, This Week, Upcoming
-- Responsive design optimized for mobile
-- RSS feeds for subscription (today, tomorrow, week, upcoming)
-- Dark theme with modern Scandinavian design
-- No emojis - SVG icons only
+- **Comprehensive event tracking**: Displays all events and shows happening at the four major arenas in Stockholm's Globen area - Avicii Arena, 3Arena, Hovet, and Annexet
+- **Smart filtering**: View events by time period - Yesterday, Today, Tomorrow, This Week, or all Upcoming events
+- **Mobile-optimized**: Responsive design that works perfectly on phones, tablets, and desktops
+- **RSS feeds**: Subscribe to RSS feeds for today's events, tomorrow's events, this week's events, or all upcoming events
+- **Modern design**: Dark theme with clean Scandinavian aesthetics
+- **Accessible**: No emojis - uses SVG icons for better accessibility and performance
 
 ## Data Sources
 
