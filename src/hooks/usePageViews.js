@@ -21,7 +21,6 @@ export function usePageViews() {
         const res = await fetch(apiUrl, { 
           method: 'GET',
           signal,
-          // Ignorera 404 och andra fel tyst
           cache: 'no-cache'
         });
         
@@ -30,7 +29,19 @@ export function usePageViews() {
           return;
         }
         
-        const data = await res.json();
+        // Kontrollera content-type för att säkerställa att vi får JSON
+        const contentType = res.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+          return;
+        }
+        
+        const text = await res.text();
+        if (!text || text.trim().startsWith('<')) {
+          // Om svaret ser ut som HTML (t.ex. 404-sida), ignorera
+          return;
+        }
+        
+        const data = JSON.parse(text);
         if (data && typeof data.count === 'number') {
           setPageViews(data.count);
           if (isFirstVisit) {
@@ -38,10 +49,8 @@ export function usePageViews() {
           }
         }
       } catch (err) {
-        // Ignorera alla fel tyst (inklusive AbortError)
-        if (err.name !== 'AbortError') {
-          // Tyst fel - inga console errors
-        }
+        // Ignorera alla fel tyst (inklusive AbortError, JSON parse errors, etc)
+        // Inga console errors ska visas
       }
     };
 
