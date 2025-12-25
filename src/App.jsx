@@ -174,13 +174,20 @@ function App() {
                       {getCategoryIcon(event.categoryIcon, 22)}
                     </div>
                     <div className="event-content">
-                      <div className="event-title">{event.title}</div>
+                      <div className="event-title">
+                        {event.title}
+                        {event.opponent && (
+                          <span className="event-opponent"> vs {event.opponent}</span>
+                        )}
+                      </div>
                       <div className="event-meta">
                         {event.eventDate && (dateFilter === 'upcoming' || dateFilter === 'week') && (
                           <span className="event-date">{formatEventDate(event.eventDate)}</span>
                         )}
-                        {event.eventTime && (
+                        {event.eventTime ? (
                           <span className="event-time">{event.eventTime}</span>
+                        ) : event.eventDate && (
+                          <span className="event-time event-time-unconfirmed">Tid ej bekr.</span>
                         )}
                         <span className="event-arena">
                           <ArenaDot color={event.arenaColor} size={6} />

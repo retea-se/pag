@@ -380,6 +380,16 @@ body {
   gap: 6px;
 }
 
+.event-opponent {
+  font-weight: 400;
+  color: var(--accent-light);
+}
+
+.event-time-unconfirmed {
+  font-style: italic;
+  opacity: 0.7;
+}
+
 /* Footer */
 .footer {
   padding: var(--space-lg) var(--space-md);
@@ -404,12 +414,6 @@ body {
 }
 
 .footer-made {
-  font-size: 0.625rem;
-  opacity: 0.5;
-  margin-top: var(--space-xs);
-}
-
-.footer-views {
   font-size: 0.625rem;
   opacity: 0.5;
   margin-top: var(--space-xs);

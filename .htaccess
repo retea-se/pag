@@ -4,6 +4,10 @@
 RewriteEngine On
 RewriteBase /pag/
 
+# Exclude API and assets directories from SPA routing
+RewriteCond %{REQUEST_URI} ^/pag/(api|assets)/
+RewriteRule ^ - [L]
+
 # If the request is for an existing file or directory, don't rewrite
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d

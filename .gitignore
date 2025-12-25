@@ -71,3 +71,8 @@ src/assets/
 
 # Server-specific scripts (behålls lokalt)
 scripts/fetch-events-server.js
+
+# Lighthouse reports (genererade filer)
+lighthouse-report.json
+*.lighthouse.json
+lighthouse/

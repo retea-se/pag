@@ -69,7 +69,14 @@ const CATEGORIES = {
   29: { name: 'Sport', icon: 'sport' },
   30: { name: 'Humor/Samtal', icon: 'mic' },
   35: { name: 'Annat', icon: 'calendar' },
-  26: { name: 'Event', icon: 'calendar' }
+  26: { name: 'Event', icon: 'calendar' },
+  37: { name: 'Sport', icon: 'sport' }  // Hovet sport-kategori
+};
+
+// Hockey-lag för opponent-matching
+const HOCKEY_TEAMS = {
+  'djurgarden-hockey': { prefix: 'DIF', name: 'Djurgården' },
+  'aik-hockey': { prefix: 'AIK', name: 'AIK' }
 };
 
 const SWEDISH_MONTHS = {
@@ -238,9 +245,9 @@ function parseTime(timeStr) {
 
 /**
  * Scrapar ALLA datum och tider från en eventsida med retry-logik
- * Returnerar en array av performances: [{ date: Date, time: "HH:MM" }, ...]
+ * Returnerar en array av performances: [{ date: Date, time: "HH:MM", opponent: "Leksand" }, ...]
  */
-async function scrapeEventDetails(eventUrl, retries = MAX_RETRIES) {
+async function scrapeEventDetails(eventUrl, slug = '', retries = MAX_RETRIES) {
   // SSRF-validering
   if (!validateEventUrl(eventUrl)) {
     console.warn(`  SSRF: Blockerad URL: ${eventUrl}`);
@@ -266,6 +273,9 @@ async function scrapeEventDetails(eventUrl, retries = MAX_RETRIES) {
       const html = await response.text();
       const performances = [];
 
+      // Kolla om detta är ett hockey-event
+      const hockeyTeam = HOCKEY_TEAMS[slug];
+
       // Splitta HTML vid varje <li> för att hantera inline HTML
       // Format: <li><div class="date"><span><strong>Fredag 9 januari 2026</span></strong></div>
       //         <div class="item"><span class="time">15:00</span></div>...</li>
@@ -286,6 +296,22 @@ async function scrapeEventDetails(eventUrl, retries = MAX_RETRIES) {
         const liEnd = liContent.indexOf('</li>');
         const liSection = liEnd > 0 ? liContent.substring(0, liEnd) : liContent;
 
+        // Extrahera motståndare för hockey-matcher
+        let opponent = null;
+        if (hockeyTeam) {
+          // Matcha "DIF – Leksand", "DIF - Rögle", "AIK – Södertälje" etc.
+          const opponentRegex = new RegExp(
+            `${hockeyTeam.prefix}\\s*[–\\-]\\s*([A-ZÅÄÖa-zåäö0-9\\s]+?)(?:<|$|\\s*$)`,
+            'i'
+          );
+          const opponentMatch = liSection.match(opponentRegex);
+          if (opponentMatch) {
+            opponent = opponentMatch[1].trim();
+            // Rensa bort eventuella HTML-rester
+            opponent = opponent.replace(/<[^>]*>/g, '').trim();
+          }
+        }
+
         // Hitta alla tider inom detta <li>-element
         const timeRegex = /<span class="time">(\d{1,2}[.:]\d{2})<\/span>/gi;
         let timeMatch;
@@ -300,7 +326,8 @@ async function scrapeEventDetails(eventUrl, retries = MAX_RETRIES) {
 
             performances.push({
               date: dateWithTime,
-              time: time
+              time: time,
+              opponent: opponent
             });
             foundTimes = true;
           }
@@ -310,7 +337,8 @@ async function scrapeEventDetails(eventUrl, retries = MAX_RETRIES) {
         if (!foundTimes) {
           performances.push({
             date: new Date(eventDate),
-            time: null
+            time: null,
+            opponent: opponent
           });
         }
       }
@@ -418,7 +446,7 @@ async function fetchArenaEvents(arenaKey, arena) {
       return limit(async () => {
         const title = decodeHtml(event.title?.rendered || '');
         try {
-          const details = await scrapeEventDetails(event.link);
+          const details = await scrapeEventDetails(event.link, event.slug);
           const performances = details?.performances || [];
 
           if (performances.length > 0) {
@@ -465,6 +493,18 @@ async function fetchArenaEvents(arenaKey, arena) {
         // Skapa en entry för varje föreställning
         for (let j = 0; j < performances.length; j++) {
           const perf = performances[j];
+          // Hantera obekräftade tider (00:00)
+          const eventTime = perf.time === '00:00' ? null : perf.time;
+          const timeConfirmed = perf.time && perf.time !== '00:00';
+
+          // Fallback för kategori baserat på slug om okänd kategori
+          let categoryId = event.events_category?.[0] || 26;
+          let categoryInfo = CATEGORIES[categoryId];
+          if (!categoryInfo && event.slug?.includes('hockey')) {
+            categoryInfo = { name: 'Sport', icon: 'sport' };
+          }
+          categoryInfo = categoryInfo || { name: 'Event', icon: 'calendar' };
+
           mappedEvents.push({
             id: `${arena.id}-${event.id}${performances.length > 1 ? `-${j + 1}` : ''}`,
             title,
@@ -472,18 +512,28 @@ async function fetchArenaEvents(arenaKey, arena) {
             arenaId: arena.id,
             arenaColor: arena.color,
             link: event.link,
-            category: event.events_category?.[0] || 26,
-            categoryName: CATEGORIES[event.events_category?.[0]]?.name || 'Event',
-            categoryIcon: CATEGORIES[event.events_category?.[0]]?.icon || 'calendar',
+            category: categoryId,
+            categoryName: categoryInfo.name,
+            categoryIcon: categoryInfo.icon,
             slug: event.slug,
             eventDate: perf.date?.toISOString() || null,
-            eventTime: perf.time || null,
+            eventTime: eventTime,
+            timeConfirmed: timeConfirmed,
+            opponent: perf.opponent || null,
             performanceNumber: performances.length > 1 ? j + 1 : null,
             totalPerformances: performances.length > 1 ? performances.length : null
           });
         }
       } else {
         // Lägg till utan datum
+        // Fallback för kategori baserat på slug om okänd kategori
+        let categoryId = event.events_category?.[0] || 26;
+        let categoryInfo = CATEGORIES[categoryId];
+        if (!categoryInfo && event.slug?.includes('hockey')) {
+          categoryInfo = { name: 'Sport', icon: 'sport' };
+        }
+        categoryInfo = categoryInfo || { name: 'Event', icon: 'calendar' };
+
         mappedEvents.push({
           id: `${arena.id}-${event.id}`,
           title,
@@ -491,12 +541,14 @@ async function fetchArenaEvents(arenaKey, arena) {
           arenaId: arena.id,
           arenaColor: arena.color,
           link: event.link,
-          category: event.events_category?.[0] || 26,
-          categoryName: CATEGORIES[event.events_category?.[0]]?.name || 'Event',
-          categoryIcon: CATEGORIES[event.events_category?.[0]]?.icon || 'calendar',
+          category: categoryId,
+          categoryName: categoryInfo.name,
+          categoryIcon: categoryInfo.icon,
           slug: event.slug,
           eventDate: null,
-          eventTime: null
+          eventTime: null,
+          timeConfirmed: false,
+          opponent: null
         });
       }
     }
@@ -569,15 +621,18 @@ function generateRSS(events, title, description, feedUrl) {
       }) : 'Datum ej angivet';
       const timeStr = event.eventTime || '';
 
-      // Lägg till föreställningsnummer i titeln för multi-show events
-      let titleSuffix = '';
+      // Bygg titel med opponent och föreställningsnummer
+      let displayTitle = event.title;
+      if (event.opponent) {
+        displayTitle += ` vs ${event.opponent}`;
+      }
       if (event.totalPerformances > 1) {
-        titleSuffix = ` (${event.performanceNumber}/${event.totalPerformances})`;
+        displayTitle += ` (${event.performanceNumber}/${event.totalPerformances})`;
       }
 
       return `
     <item>
-      <title><![CDATA[${event.title}${titleSuffix} - ${event.arena}]]></title>
+      <title><![CDATA[${displayTitle} - ${event.arena}]]></title>
       <link>${event.link}</link>
       <guid isPermaLink="false">${event.id}</guid>
       <pubDate>${eventDate ? eventDate.toUTCString() : now}</pubDate>
@@ -635,13 +690,28 @@ async function main() {
       }
     }
 
-    // Filtrera bort dubbletter baserat på id (inkluderar datum/tid för multi-show events)
-  const seen = new Set();
-  const uniqueEvents = allEvents.filter(e => {
-    if (seen.has(e.id)) return false;
-    seen.add(e.id);
-    return true;
-  });
+    // Filtrera bort dubbletter baserat på titel + datum
+    // Prioritera Hovet för hockey (mer komplett data)
+    const eventMap = new Map();
+    for (const event of allEvents) {
+      // Skapa unik nyckel baserat på titel + datum
+      const dateKey = event.eventDate ? new Date(event.eventDate).toISOString().split('T')[0] : 'no-date';
+      const key = `${event.title.toLowerCase()}-${dateKey}`;
+
+      if (!eventMap.has(key)) {
+        eventMap.set(key, event);
+      } else {
+        // Om vi redan har eventet, behåll det med mest komplett data
+        const existing = eventMap.get(key);
+        // Prioritera: har opponent > har tid > Hovet (för hockey)
+        const existingScore = (existing.opponent ? 10 : 0) + (existing.eventTime ? 5 : 0) + (existing.arenaId === 'hovet' ? 1 : 0);
+        const newScore = (event.opponent ? 10 : 0) + (event.eventTime ? 5 : 0) + (event.arenaId === 'hovet' ? 1 : 0);
+        if (newScore > existingScore) {
+          eventMap.set(key, event);
+        }
+      }
+    }
+    const uniqueEvents = Array.from(eventMap.values());
 
   // Sortera: events med datum först (kronologiskt), sedan utan datum (alfabetiskt)
   uniqueEvents.sort((a, b) => {
@@ -660,7 +730,8 @@ async function main() {
     events: uniqueEvents
   };
 
-  const publicDir = path.join(__dirname, '..', 'public');
+  // OUTPUT_DIR miljövariabel för server-deploy, annars default till ../public
+  const publicDir = process.env.OUTPUT_DIR || path.join(__dirname, '..', 'public');
 
   // Spara till public/events.json
   const outputPath = path.join(publicDir, 'events.json');
