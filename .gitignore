@@ -45,6 +45,13 @@ lerna-debug.log*
 # Test coverage
 coverage/
 
+# Tests
+tests/
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+
 # Temporary files
 *.tmp
 *.temp
@@ -59,6 +66,7 @@ pnpm-lock.yaml
 # Generated data files (regenereras av scripts/fetch-events.js)
 public/events.json
 public/rss-*.xml
+public/status.json
 
 # Unused/old files
 mockups/
@@ -73,6 +81,17 @@ src/assets/
 scripts/fetch-events-server.js
 
 # Lighthouse reports (genererade filer)
-lighthouse-report.json
+lighthouse-report*.html
+lighthouse-report*.json
 *.lighthouse.json
 lighthouse/
+
+# Deployment instruktioner (känslig information)
+DEPLOY.md
+DEPLOY-INSTRUCTIONS.txt
+CRON-SETUP.md
+TODO.md
+crontab.example
+server-package.json
+scripts/server-setup.sh
+scripts/update-events.sh

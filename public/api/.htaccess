@@ -1,16 +1,14 @@
-# Enable PHP execution in this directory
-AddHandler application/x-httpd-php .php
+# Force PHP 8.2 for this directory
+<IfModule mime_module>
+    AddHandler application/x-httpd-php82 .php
+</IfModule>
+
+# Fallback handlers for different server configs
+<IfModule !mime_module>
+    AddHandler application/x-lsphp82 .php
+</IfModule>
 
 # Allow access to PHP files
 <FilesMatch "\.php$">
     Require all granted
 </FilesMatch>
-
-# Set proper content type for JSON responses
-<IfModule mod_headers.c>
-    <FilesMatch "\.php$">
-        Header set Content-Type "application/json"
-    </FilesMatch>
-</IfModule>
-
-

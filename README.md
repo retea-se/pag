@@ -1,4 +1,6 @@
-# På G i Globenområdet
+# På G i Globenområdet / On G in the Globen Area
+
+[English below](#english)
 
 En modern webbapp som visar kommande evenemang på arenorna i Globenområdet i Stockholm.
 
@@ -39,8 +41,6 @@ npm run build
 
 Bygg hamnar i `dist/` och kan deployas till valfri statisk hosting.
 
-**Produktionsmiljö:** https://mackan.eu/pag
-
 ## Datahämtning
 
 Eventdata cachas i `public/events.json`. Kör bakgrundsskriptet för att uppdatera:
@@ -69,22 +69,6 @@ Exempel:
 FETCH_TIMEOUT_MS=15000 MAX_PARALLEL_SCRAPES=8 node scripts/fetch-events.js
 ```
 
-### Exit-koder
-
-Skriptet returnerar olika exit-koder för monitorering:
-- `0` - Framgångsrik körning
-- `1` - Kritiskt fel (t.ex. timeout eller API-fel)
-- `2` - Partiell framgång (några events misslyckades men körningen slutfördes)
-
-### Automatisk uppdatering
-
-För automatisk uppdatering av eventdata, se:
-- [TODO.md](./TODO.md) - Snabbguide för cron-konfiguration
-- [CRON-SETUP.md](./CRON-SETUP.md) - Detaljerad installationsguide med felsökning
-- [crontab.example](./crontab.example) - Exempel på cron-konfiguration
-
-Cron-jobb rekommenderas att köras var 4:e timme för att hålla data uppdaterad.
-
 ## Projektstruktur
 
 ```
@@ -100,8 +84,6 @@ Cron-jobb rekommenderas att köras var 4:e timme för att hålla data uppdaterad
 │   ├── App.css          # Stilar
 │   ├── RssPage.jsx      # RSS-prenumerationssida
 │   └── main.jsx         # Entry point med routing
-├── TODO.md              # Cron-konfiguration
-├── CRON-SETUP.md        # Detaljerad cron-installationsguide
 └── vite.config.js       # Vite-konfiguration
 ```
 
@@ -128,10 +110,123 @@ All eventdata kommer från arenor som drivs av [Stockholm Live](https://stockhol
 
 - [Inter](https://rsms.me/inter/) av Rasmus Andersson
 
-### Utveckling
-
-Byggt med hjälp av [Claude Code](https://claude.ai/claude-code) av [Anthropic](https://anthropic.com).
-
 ## Licens
+
+MIT
+
+---
+
+<a name="english"></a>
+# On G in the Globen Area
+
+A modern web app displaying upcoming events at the arenas in the Globen area of Stockholm.
+
+![På G](https://img.shields.io/badge/P%C3%A5_G-Globenomr%C3%A5det-6366f1)
+
+## Features
+
+- Displays events from Avicii Arena, 3Arena, Hovet, and Annexet
+- Filtering: Yesterday, Today, Tomorrow, This Week, Upcoming
+- Responsive design optimized for mobile
+- RSS feeds for subscription (today, tomorrow, week, upcoming)
+- Dark theme with modern Scandinavian design
+- No emojis - SVG icons only
+
+## Data Sources
+
+Event data is fetched from [Stockholm Live](https://stockholmlive.com) via WordPress REST APIs for each arena. Dates are scraped from each event page.
+
+## Installation
+
+```bash
+npm install
+```
+
+## Development
+
+```bash
+npm run dev
+```
+
+The app runs on `http://localhost:5173/pag/`
+
+## Production
+
+```bash
+npm run build
+```
+
+Build output goes to `dist/` and can be deployed to any static hosting.
+
+## Data Fetching
+
+Event data is cached in `public/events.json`. Run the background script to update:
+
+```bash
+node scripts/fetch-events.js
+```
+
+This generates:
+- `public/events.json` - All event data
+- `public/rss-today.xml` - Today's events
+- `public/rss-tomorrow.xml` - Tomorrow's events
+- `public/rss-week.xml` - This week's events
+- `public/rss-upcoming.xml` - All upcoming events
+
+### Configuration
+
+The script supports the following environment variables (optional):
+
+- `FETCH_TIMEOUT_MS` - Timeout for individual network requests in milliseconds (default: 10000 = 10 seconds)
+- `MAX_RUNTIME_MS` - Maximum total runtime for the entire script in milliseconds (default: 300000 = 5 minutes)
+- `MAX_PARALLEL_SCRAPES` - Maximum number of parallel scraping requests (default: 5, recommended: 5-8)
+
+Example:
+```bash
+FETCH_TIMEOUT_MS=15000 MAX_PARALLEL_SCRAPES=8 node scripts/fetch-events.js
+```
+
+## Project Structure
+
+```
+├── public/              # Static files (generated data goes here)
+├── scripts/
+│   └── fetch-events.js  # Background script for data fetching
+├── src/
+│   ├── api/
+│   │   └── stockholmLive.js  # API handling and caching
+│   ├── components/
+│   │   └── Icons.jsx    # SVG icons
+│   ├── App.jsx          # Main component
+│   ├── App.css          # Styles
+│   ├── RssPage.jsx      # RSS subscription page
+│   └── main.jsx         # Entry point with routing
+└── vite.config.js       # Vite configuration
+```
+
+## Technology
+
+- [React](https://react.dev) 19
+- [Vite](https://vitejs.dev) 6
+- Vanilla CSS with CSS variables
+- Node.js background script for data fetching
+- RSS 2.0 with Atom extensions
+
+## Credits
+
+### Data Sources
+
+All event data comes from arenas operated by [Stockholm Live](https://stockholmlive.com):
+
+- [Avicii Arena](https://aviciiarena.se)
+- [3Arena](https://3arena.se)
+- [Hovet](https://hovetarena.se)
+- [Annexet](https://annexet.se)
+
+### Typography
+
+- [Inter](https://rsms.me/inter/) by Rasmus Andersson
+
+## License
 
 MIT

@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { fetchAllEvents, filterEventsByPeriod, groupEventsByDate, ARENAS } from './api/stockholmLive';
-import { RefreshIcon, getCategoryIcon, RssIcon, GitHubIcon, ArenaDot } from './components/Icons';
+import { RefreshIcon, getCategoryIcon, RssIcon, GitHubIcon, ArenaDot, InfoIcon } from './components/Icons';
 import { usePageViews } from './hooks/usePageViews';
 import './App.css';
 
@@ -210,6 +210,9 @@ function App() {
             <a href="#rss" className="rss-link">
               <RssIcon size={14} />
               RSS-flöden
+            </a>
+            <a href="#info" className="info-link" title="Information och FAQ">
+              <InfoIcon size={14} />
             </a>
             <a href="https://github.com/retea-se/pag" target="_blank" rel="noopener noreferrer" className="github-link" title="GitHub">
               <GitHubIcon size={14} />

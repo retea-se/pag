@@ -672,20 +672,51 @@ async function main() {
   let criticalErrors = 0;
 
   const runScript = async () => {
+    const startTime = Date.now();
     const allEvents = [];
+    const errors = [];
+
+    // OUTPUT_DIR miljövariabel för server-deploy, annars default till ../public
+    const publicDir = process.env.OUTPUT_DIR || path.join(__dirname, '..', 'public');
+
+    // Läs tidigare events för jämförelse
+    let previousEvents = [];
+    const previousEventsPath = path.join(publicDir, 'events.json');
+    if (fs.existsSync(previousEventsPath)) {
+      try {
+        const previousData = JSON.parse(fs.readFileSync(previousEventsPath, 'utf8'));
+        previousEvents = previousData.events || [];
+      } catch (err) {
+        console.warn('  Kunde inte läsa tidigare events för jämförelse');
+      }
+    }
 
     for (const [key, arena] of Object.entries(ARENAS)) {
       try {
         const result = await fetchArenaEvents(key, arena);
         if (result.critical) {
           criticalErrors++;
+          errors.push({
+            title: `Kritiskt fel: ${arena.name}`,
+            message: `Kunde inte hämta events från ${arena.name}`
+          });
         } else {
           allEvents.push(...result.events);
           totalErrors += result.errors;
+          if (result.errors > 0) {
+            errors.push({
+              title: `Varning: ${arena.name}`,
+              message: `${result.errors} event misslyckades vid scraping`
+            });
+          }
         }
         console.log('');
       } catch (error) {
         criticalErrors++;
+        errors.push({
+          title: `Kritiskt fel: ${arena.name}`,
+          message: error.message
+        });
         console.error(`  KRITISKT FEL för ${arena.name}:`, error.message);
       }
     }
@@ -730,12 +761,9 @@ async function main() {
     events: uniqueEvents
   };
 
-  // OUTPUT_DIR miljövariabel för server-deploy, annars default till ../public
-  const publicDir = process.env.OUTPUT_DIR || path.join(__dirname, '..', 'public');
-
-  // Spara till public/events.json
-  const outputPath = path.join(publicDir, 'events.json');
-  fs.writeFileSync(outputPath, JSON.stringify(output, null, 2), 'utf8');
+    // Spara till public/events.json
+    const outputPath = path.join(publicDir, 'events.json');
+    fs.writeFileSync(outputPath, JSON.stringify(output, null, 2), 'utf8');
 
   // Generera RSS-filer för olika perioder
   const rssFeeds = [
@@ -784,10 +812,115 @@ async function main() {
 
     // Per arena
     console.log('\nPer arena:');
+    const arenaCounts = {};
     for (const arena of Object.values(ARENAS)) {
       const count = uniqueEvents.filter(e => e.arenaId === arena.id).length;
+      arenaCounts[arena.id] = count;
       console.log(`  ${arena.name}: ${count}`);
     }
+
+    // Jämför med tidigare events för att hitta ändringar
+    const changes = {
+      added: 0,
+      updated: 0,
+      removed: 0,
+      details: []
+    };
+
+    const previousMap = new Map();
+    previousEvents.forEach(e => {
+      const key = `${e.id}-${e.eventDate || 'no-date'}`;
+      previousMap.set(key, e);
+    });
+
+    const currentMap = new Map();
+    uniqueEvents.forEach(e => {
+      const key = `${e.id}-${e.eventDate || 'no-date'}`;
+      currentMap.set(key, e);
+    });
+
+    // Hitta nya events
+    uniqueEvents.forEach(event => {
+      const key = `${event.id}-${event.eventDate || 'no-date'}`;
+      if (!previousMap.has(key)) {
+        changes.added++;
+        if (changes.details.length < 10) {
+          changes.details.push({
+            type: 'added',
+            title: event.title,
+            arena: event.arena,
+            date: event.eventDate
+          });
+        }
+      }
+    });
+
+    // Hitta borttagna events
+    previousEvents.forEach(event => {
+      const key = `${event.id}-${event.eventDate || 'no-date'}`;
+      if (!currentMap.has(key)) {
+        changes.removed++;
+        if (changes.details.length < 10) {
+          changes.details.push({
+            type: 'removed',
+            title: event.title,
+            arena: event.arena,
+            date: event.eventDate
+          });
+        }
+      }
+    });
+
+    // Hitta uppdaterade events (samma ID men ändrad data)
+    uniqueEvents.forEach(event => {
+      const key = `${event.id}-${event.eventDate || 'no-date'}`;
+      const previous = previousMap.get(key);
+      if (previous) {
+        // Jämför viktiga fält
+        if (previous.eventTime !== event.eventTime ||
+            previous.title !== event.title ||
+            previous.opponent !== event.opponent) {
+          changes.updated++;
+          if (changes.details.length < 10) {
+            const details = [];
+            if (previous.eventTime !== event.eventTime) {
+              details.push(`Tid: ${previous.eventTime || 'Okänt'} → ${event.eventTime || 'Okänt'}`);
+            }
+            if (previous.title !== event.title) {
+              details.push(`Titel ändrad`);
+            }
+            changes.details.push({
+              type: 'updated',
+              title: event.title,
+              arena: event.arena,
+              date: event.eventDate,
+              details: details.join(', ')
+            });
+          }
+        }
+      }
+    });
+
+    // Skapa status.json
+    const duration = Math.floor((Date.now() - startTime) / 1000);
+    const status = {
+      lastRun: new Date().toISOString(),
+      duration: duration,
+      status: criticalErrors > 0 ? 'error' : (totalErrors > 0 ? 'warning' : 'success'),
+      eventCount: uniqueEvents.length,
+      arenaCount: Object.keys(arenaCounts).length,
+      changes: {
+        added: changes.added,
+        updated: changes.updated,
+        removed: changes.removed,
+        details: changes.details.slice(0, 10) // Max 10 ändringar
+      },
+      errors: errors.length > 0 ? errors : undefined
+    };
+
+    const statusPath = path.join(publicDir, 'status.json');
+    fs.writeFileSync(statusPath, JSON.stringify(status, null, 2), 'utf8');
+    console.log(`\nStatus sparad till: ${statusPath}`);
   };
 
   try {
