@@ -18,29 +18,29 @@ export function usePageViews() {
 
     const fetchPageViews = async (isFirstVisit = false) => {
       try {
-        const res = await fetch(apiUrl, { 
+        const res = await fetch(apiUrl, {
           method: 'GET',
           signal,
           cache: 'no-cache'
         });
-        
+
         // Om request misslyckas (404, network error, etc), returnera tyst
         if (!res.ok) {
           return;
         }
-        
+
         // Kontrollera content-type för att säkerställa att vi får JSON
         const contentType = res.headers.get('content-type');
         if (!contentType || !contentType.includes('application/json')) {
           return;
         }
-        
+
         const text = await res.text();
         if (!text || text.trim().startsWith('<')) {
           // Om svaret ser ut som HTML (t.ex. 404-sida), ignorera
           return;
         }
-        
+
         const data = JSON.parse(text);
         if (data && typeof data.count === 'number') {
           setPageViews(data.count);
