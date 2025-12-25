@@ -12,12 +12,21 @@ export default defineConfig({
         manualChunks: {
           'react-vendor': ['react', 'react-dom'],
         },
+        // Optimera chunk-namn för bättre caching
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]',
       },
     },
     // Minska chunk-storlekar
     chunkSizeWarningLimit: 1000,
     // Aktivera minification (esbuild är standard och snabbare än terser)
     minify: 'esbuild',
+    // Aktivera source maps för production debugging (valfritt)
+    sourcemap: false,
+    // Optimera CSS
+    cssCodeSplit: true,
+    cssMinify: true,
   },
   server: {
     proxy: {
