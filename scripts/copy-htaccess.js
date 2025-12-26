@@ -7,12 +7,22 @@ const __dirname = dirname(__filename);
 const rootDir = join(__dirname, '..');
 const distDir = join(rootDir, 'dist');
 
+// Kopiera huvud-.htaccess till dist/.htaccess (KRITISK för SPA-routing)
+const mainHtaccessSource = join(rootDir, '.htaccess');
+const mainHtaccessDest = join(distDir, '.htaccess');
+
+if (existsSync(mainHtaccessSource)) {
+  copyFileSync(mainHtaccessSource, mainHtaccessDest);
+  console.log('✓ Kopierade .htaccess till dist/.htaccess');
+} else {
+  console.error('✗ KRITISKT: .htaccess saknas i projektets rot!');
+}
+
 // Kopiera api/.htaccess till dist/api/.htaccess
 const apiHtaccessSource = join(rootDir, 'public', 'api', '.htaccess');
 const apiHtaccessDest = join(distDir, 'api', '.htaccess');
 
 if (existsSync(apiHtaccessSource)) {
-  // Se till att dest-mappen finns
   const apiDestDir = dirname(apiHtaccessDest);
   if (!existsSync(apiDestDir)) {
     mkdirSync(apiDestDir, { recursive: true });
@@ -22,4 +32,6 @@ if (existsSync(apiHtaccessSource)) {
 } else {
   console.warn('⚠ api/.htaccess hittades inte i public/api/');
 }
+
+
 
