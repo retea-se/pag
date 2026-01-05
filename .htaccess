@@ -4,18 +4,30 @@
 RewriteEngine On
 RewriteBase /pag/
 
-# Exclude API and assets directories from SPA routing (måste komma FÖRST)
+# CRITICAL: Exclude API and static directories from SPA routing
+# Must come FIRST and use explicit matching
+# Använder 'static' istället för 'assets' pga serverkonfiguration
 RewriteCond %{REQUEST_URI} ^/pag/api/ [OR]
-RewriteCond %{REQUEST_URI} ^/pag/assets/
-RewriteRule ^ - [L]
+RewriteCond %{REQUEST_URI} ^/pag/static/
+RewriteRule ^(.*)$ - [L]
 
-# If the request is for an existing file or directory, don't rewrite
-RewriteCond %{REQUEST_FILENAME} -f [OR]
+# If the request is for an existing file, don't rewrite
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^(.*)$ - [L]
+
+# If the request is for an existing directory, don't rewrite
 RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^ - [L]
+RewriteRule ^(.*)$ - [L]
 
 # Otherwise, serve index.html for SPA routing
-RewriteRule ^ index.html [L]
+RewriteRule ^(.*)$ index.html [L]
+
+# Set correct MIME types for CSS and JS
+<IfModule mod_mime.c>
+    AddType text/css .css
+    AddType application/javascript .js
+    AddType application/json .json
+</IfModule>
 
 # Enable compression (Brotli first, then Deflate as fallback)
 <IfModule mod_brotli.c>
@@ -79,4 +91,3 @@ RewriteRule ^ index.html [L]
         Header set Cache-Control "public, max-age=3600, must-revalidate"
     </FilesMatch>
 </IfModule>
-

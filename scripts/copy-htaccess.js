@@ -33,5 +33,18 @@ if (existsSync(apiHtaccessSource)) {
   console.warn('⚠ api/.htaccess hittades inte i public/api/');
 }
 
+// Kopiera trigger-update.php till dist/api/
+const triggerUpdateSource = join(rootDir, 'public', 'api', 'trigger-update.php');
+const triggerUpdateDest = join(distDir, 'api', 'trigger-update.php');
+
+if (existsSync(triggerUpdateSource)) {
+  const apiDestDir = dirname(triggerUpdateDest);
+  if (!existsSync(apiDestDir)) {
+    mkdirSync(apiDestDir, { recursive: true });
+  }
+  copyFileSync(triggerUpdateSource, triggerUpdateDest);
+  console.log('✓ Kopierade trigger-update.php till dist/api/');
+}
+
 
 

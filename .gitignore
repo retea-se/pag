@@ -89,9 +89,32 @@ lighthouse/
 # Deployment instruktioner (känslig information)
 DEPLOY.md
 DEPLOY-INSTRUCTIONS.txt
+DEPLOY-*.md
+DEPLOYMENT-*.md
 CRON-SETUP.md
+CRON-*.md
 TODO.md
 crontab.example
 server-package.json
 scripts/server-setup.sh
 scripts/update-events.sh
+scripts/deploy-*.sh
+scripts/deploy-*.ps1
+scripts/install-cron.sh
+scripts/verify-cron.sh
+scripts/check-cron.sh
+
+# Felsökningsdokumentation (inte relevant för public repo)
+*-PROBLEM-*.md
+*-FIX-*.md
+*-DIAGNOSIS*.md
+*-TROUBLESHOOTING*.md
+*-SAMMANFATTNING*.md
+PROBLEM-*.md
+CSS-*.md
+
+# Generated data files
+public/history.json
+
+# Old build artifacts
+public/assets/

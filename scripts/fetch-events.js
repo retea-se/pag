@@ -742,7 +742,44 @@ async function main() {
         }
       }
     }
-    const uniqueEvents = Array.from(eventMap.values());
+    let uniqueEvents = Array.from(eventMap.values());
+
+  // Behåll passerade events från tidigare data (max 2 dagar gamla)
+  // Detta gör att "Igår"-fliken kan visa events som redan passerat
+  const RETENTION_DAYS = 2;
+  const now = new Date();
+  const retentionCutoff = new Date(now);
+  retentionCutoff.setDate(retentionCutoff.getDate() - RETENTION_DAYS);
+  retentionCutoff.setHours(0, 0, 0, 0);
+
+  // Hitta passerade events från tidigare data som ska behållas
+  const currentEventKeys = new Set(uniqueEvents.map(e => {
+    const dateKey = e.eventDate ? new Date(e.eventDate).toISOString().split('T')[0] : 'no-date';
+    return `${e.title.toLowerCase()}-${dateKey}`;
+  }));
+
+  let preservedCount = 0;
+  for (const event of previousEvents) {
+    if (!event.eventDate) continue;
+
+    const eventDate = new Date(event.eventDate);
+    const dateKey = eventDate.toISOString().split('T')[0];
+    const key = `${event.title.toLowerCase()}-${dateKey}`;
+
+    // Behåll eventet om:
+    // 1. Det har passerat (före nu)
+    // 2. Det är inom retention-perioden (inte för gammalt)
+    // 3. Det inte redan finns i nuvarande data
+    if (eventDate < now && eventDate >= retentionCutoff && !currentEventKeys.has(key)) {
+      uniqueEvents.push(event);
+      currentEventKeys.add(key);
+      preservedCount++;
+    }
+  }
+
+  if (preservedCount > 0) {
+    console.log(`\n  Bevarade ${preservedCount} nyligen passerade events (max ${RETENTION_DAYS} dagar)`);
+  }
 
   // Sortera: events med datum först (kronologiskt), sedan utan datum (alfabetiskt)
   uniqueEvents.sort((a, b) => {
@@ -902,9 +939,15 @@ async function main() {
     });
 
     // Skapa status.json
-    const duration = Math.floor((Date.now() - startTime) / 1000);
+    const endTime = Date.now();
+    const duration = Math.floor((endTime - startTime) / 1000);
+    const startDate = new Date(startTime);
+    const endDate = new Date(endTime);
+
     const status = {
-      lastRun: new Date().toISOString(),
+      lastRun: endDate.toISOString(), // Sluttid (när status.json skrevs)
+      startTime: startDate.toISOString(), // Starttid (när skriptet började)
+      endTime: endDate.toISOString(), // Sluttid (när skriptet avslutades)
       duration: duration,
       status: criticalErrors > 0 ? 'error' : (totalErrors > 0 ? 'warning' : 'success'),
       eventCount: uniqueEvents.length,
@@ -915,12 +958,78 @@ async function main() {
         removed: changes.removed,
         details: changes.details.slice(0, 10) // Max 10 ändringar
       },
-      errors: errors.length > 0 ? errors : undefined
+      errors: errors.length > 0 ? errors : undefined,
+      // Detaljerad information om körningen
+      details: {
+        totalEvents: uniqueEvents.length,
+        arenaBreakdown: arenaCounts,
+        scrapingStats: {
+          totalScraped: allEvents.length,
+          uniqueAfterDedup: uniqueEvents.length,
+          duplicatesRemoved: allEvents.length - uniqueEvents.length
+        },
+        performance: {
+          durationSeconds: duration,
+          durationFormatted: `${Math.floor(duration / 60)}m ${duration % 60}s`,
+          eventsPerSecond: duration > 0 ? (uniqueEvents.length / duration).toFixed(2) : 0
+        }
+      }
     };
 
     const statusPath = path.join(publicDir, 'status.json');
     fs.writeFileSync(statusPath, JSON.stringify(status, null, 2), 'utf8');
     console.log(`\nStatus sparad till: ${statusPath}`);
+
+    // Spara i körningshistorik
+    const historyPath = path.join(publicDir, 'history.json');
+    let history = { runs: [] };
+
+    // Läs befintlig historik om den finns
+    if (fs.existsSync(historyPath)) {
+      try {
+        const historyData = fs.readFileSync(historyPath, 'utf8');
+        history = JSON.parse(historyData);
+        // Behåll max 50 senaste körningarna
+        if (history.runs && history.runs.length > 50) {
+          history.runs = history.runs.slice(-50);
+        }
+      } catch (err) {
+        console.warn('  Kunde inte läsa körningshistorik, skapar ny');
+        history = { runs: [] };
+      }
+    }
+
+    // Lägg till denna körning i historiken
+    const historyEntry = {
+      id: `run-${startTime}`,
+      startTime: startDate.toISOString(),
+      endTime: endDate.toISOString(),
+      duration: duration,
+      status: status.status,
+      eventCount: uniqueEvents.length,
+      arenaCount: Object.keys(arenaCounts).length,
+      changes: {
+        added: changes.added,
+        updated: changes.updated,
+        removed: changes.removed
+      },
+      errors: errors.length > 0 ? errors : [],
+      errorCount: errors.length,
+      criticalErrorCount: criticalErrors,
+      totalErrorCount: totalErrors,
+      details: status.details
+    };
+
+    if (!history.runs) {
+      history.runs = [];
+    }
+    history.runs.push(historyEntry);
+    history.lastUpdated = new Date().toISOString();
+    history.totalRuns = history.runs.length;
+
+    // Spara historik
+    fs.writeFileSync(historyPath, JSON.stringify(history, null, 2), 'utf8');
+    console.log(`Körningshistorik sparad till: ${historyPath}`);
   };
 
   try {
@@ -949,19 +1058,83 @@ async function main() {
     try {
       const publicDir = process.env.OUTPUT_DIR || path.join(__dirname, '..', 'public');
       const statusPath = path.join(publicDir, 'status.json');
+      const now = new Date();
+      const startDate = new Date(startTime);
+      const duration = Math.floor((Date.now() - startTime) / 1000);
       const errorStatus = {
-        lastRun: new Date().toISOString(),
-        duration: 0,
+        lastRun: now.toISOString(),
+        startTime: startDate.toISOString(),
+        endTime: now.toISOString(),
+        duration: duration,
         status: 'error',
         eventCount: 0,
         arenaCount: 0,
         errors: [{
           title: 'Kritiskt fel',
           message: error.message
-        }]
+        }],
+        details: {
+          totalEvents: 0,
+          arenaBreakdown: {},
+          scrapingStats: {
+            totalScraped: 0,
+            uniqueAfterDedup: 0,
+            duplicatesRemoved: 0
+          },
+          performance: {
+            durationSeconds: duration,
+            durationFormatted: `${Math.floor(duration / 60)}m ${duration % 60}s`,
+            eventsPerSecond: 0
+          }
+        }
       };
       fs.writeFileSync(statusPath, JSON.stringify(errorStatus, null, 2), 'utf8');
       console.log(`Status (fel) sparad till: ${statusPath}`);
+
+      // Spara även i historiken
+      const historyPath = path.join(publicDir, 'history.json');
+      let history = { runs: [] };
+
+      if (fs.existsSync(historyPath)) {
+        try {
+          const historyData = fs.readFileSync(historyPath, 'utf8');
+          history = JSON.parse(historyData);
+          if (history.runs && history.runs.length > 50) {
+            history.runs = history.runs.slice(-50);
+          }
+        } catch (err) {
+          history = { runs: [] };
+        }
+      }
+
+      const historyEntry = {
+        id: `run-${startTime}-error`,
+        startTime: startDate.toISOString(),
+        endTime: now.toISOString(),
+        duration: duration,
+        status: 'error',
+        eventCount: 0,
+        arenaCount: 0,
+        changes: { added: 0, updated: 0, removed: 0 },
+        errors: [{
+          title: 'Kritiskt fel',
+          message: error.message
+        }],
+        errorCount: 1,
+        criticalErrorCount: 1,
+        totalErrorCount: 1,
+        details: errorStatus.details
+      };
+
+      if (!history.runs) {
+        history.runs = [];
+      }
+      history.runs.push(historyEntry);
+      history.lastUpdated = new Date().toISOString();
+      history.totalRuns = history.runs.length;
+
+      fs.writeFileSync(historyPath, JSON.stringify(history, null, 2), 'utf8');
+      console.log(`Körningshistorik (fel) sparad till: ${historyPath}`);
     } catch (statusError) {
       console.error('Kunde inte spara status vid fel:', statusError.message);
     }

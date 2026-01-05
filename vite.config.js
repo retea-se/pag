@@ -13,9 +13,10 @@ export default defineConfig({
           'react-vendor': ['react', 'react-dom'],
         },
         // Optimera chunk-namn för bättre caching
-        chunkFileNames: 'assets/[name]-[hash].js',
-        entryFileNames: 'assets/[name]-[hash].js',
-        assetFileNames: 'assets/[name]-[hash].[ext]',
+        // Använder 'static' istället för 'assets' pga serverkonfiguration
+        chunkFileNames: 'static/[name]-[hash].js',
+        entryFileNames: 'static/[name]-[hash].js',
+        assetFileNames: 'static/[name]-[hash].[ext]',
       },
     },
     // Minska chunk-storlekar
