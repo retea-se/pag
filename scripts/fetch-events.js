@@ -702,10 +702,11 @@ function generateRSS(events, title, description, feedUrl) {
 }
 
 // Generera iCal format (.ics)
-function generateICS(events, title, description, feedUrl) {
+function generateICS(events, title, description, feedUrl, cancelledEvents = []) {
   const baseUrl = 'https://mackan.eu/pag';
   const now = formatICSDate(new Date());
   
+  // Generera normala events
   const events_ics = events
     .slice(0, 100)
     .filter(event => event.eventDate) // Endast events med datum
@@ -748,7 +749,44 @@ DESCRIPTION:${descriptionText}
 LOCATION:${location}
 URL:${event.link}
 END:VEVENT`;
-    }).join('\n');
+    });
+
+  // Lägg till borttagna events med STATUS:CANCELLED
+  const cancelled_ics = cancelledEvents
+    .filter(event => event.eventDate) // Endast events med datum
+    .map(event => {
+      const eventDate = new Date(event.eventDate);
+      const startDate = addTimeToDate(event.eventDate, event.eventTime);
+      const endDate = new Date(startDate);
+      endDate.setUTCHours(endDate.getUTCHours() + 2);
+
+      const dtStart = formatICSDate(startDate);
+      const dtEnd = formatICSDate(endDate);
+      const dtStamp = formatICSDate(new Date());
+
+      let displayTitle = event.title;
+      if (event.opponent) {
+        displayTitle += ` vs ${event.opponent}`;
+      }
+      if (event.totalPerformances > 1) {
+        displayTitle += ` (${event.performanceNumber}/${event.totalPerformances})`;
+      }
+
+      const summary = escapeICS(`${displayTitle} - ${event.arena} (Inställt)`);
+      const uid = `${event.id}@mackan.eu`;
+
+      return `BEGIN:VEVENT
+UID:${uid}
+DTSTAMP:${dtStamp}
+DTSTART:${dtStart}
+DTEND:${dtEnd}
+SUMMARY:${summary}
+STATUS:CANCELLED
+SEQUENCE:1
+END:VEVENT`;
+    });
+
+  const all_events_ics = [...events_ics, ...cancelled_ics].join('\n');
 
   return `BEGIN:VCALENDAR
 VERSION:2.0
@@ -758,7 +796,7 @@ METHOD:PUBLISH
 X-WR-CALNAME:${escapeICS(title)}
 X-WR-CALDESC:${escapeICS(description)}
 X-WR-TIMEZONE:Europe/Stockholm
-${events_ics}
+${all_events_ics}
 END:VCALENDAR`;
 }
 
@@ -986,23 +1024,7 @@ async function main() {
     console.log(`  ${feed.file}: ${filtered.length} events`);
   }
 
-  // Generera iCal-filer för olika perioder
-  console.log('\nGenererar iCal-filer...');
-  const icalFeeds = [
-    { period: 'today', title: 'På G - Idag', desc: 'Evenemang i Globenområdet idag', file: 'calendar-today.ics' },
-    { period: 'tomorrow', title: 'På G - Imorgon', desc: 'Evenemang i Globenområdet imorgon', file: 'calendar-tomorrow.ics' },
-    { period: 'week', title: 'På G - Denna vecka', desc: 'Evenemang i Globenområdet denna vecka', file: 'calendar-week.ics' },
-    { period: 'upcoming', title: 'På G - Kommande', desc: 'Kommande evenemang i Globenområdet', file: 'calendar-upcoming.ics' }
-  ];
-
-  for (const feed of icalFeeds) {
-    const filtered = filterEventsByPeriod(uniqueEvents, feed.period);
-    const ics = generateICS(filtered, feed.title, feed.desc, `https://mackan.eu/pag/${feed.file}`);
-    const icsPath = path.join(publicDir, feed.file);
-    fs.writeFileSync(icsPath, ics, 'utf8');
-    const eventsWithDate = filtered.filter(e => e.eventDate).length;
-    console.log(`  ${feed.file}: ${eventsWithDate} events (endast events med datum)`);
-  }
+  // iCal-filer genereras senare efter att removedEvents har definierats
 
   // Generera JSON Feed-filer för olika perioder
   console.log('\nGenererar JSON Feed-filer...');
@@ -1095,10 +1117,12 @@ async function main() {
     });
 
     // Hitta borttagna events
+    const removedEvents = [];
     previousEvents.forEach(event => {
       const key = `${event.id}-${event.eventDate || 'no-date'}`;
       if (!currentMap.has(key)) {
         changes.removed++;
+        removedEvents.push(event);
         if (changes.details.length < 10) {
           changes.details.push({
             type: 'removed',
@@ -1109,6 +1133,51 @@ async function main() {
         }
       }
     });
+
+    // Generera iCal-filer för olika perioder (efter att removedEvents är definierat)
+    console.log('\nGenererar iCal-filer...');
+    const icalFeeds = [
+      { period: 'today', title: 'På G - Idag', desc: 'Evenemang i Globenområdet idag', file: 'calendar-today.ics' },
+      { period: 'tomorrow', title: 'På G - Imorgon', desc: 'Evenemang i Globenområdet imorgon', file: 'calendar-tomorrow.ics' },
+      { period: 'week', title: 'På G - Denna vecka', desc: 'Evenemang i Globenområdet denna vecka', file: 'calendar-week.ics' },
+      { period: 'upcoming', title: 'På G - Kommande', desc: 'Kommande evenemang i Globenområdet', file: 'calendar-upcoming.ics' }
+    ];
+    
+    for (const feed of icalFeeds) {
+      const filtered = filterEventsByPeriod(uniqueEvents, feed.period);
+      // Filtrera borttagna events till samma period
+      const removedInPeriod = removedEvents.filter(event => {
+        if (!event.eventDate) return false;
+        const eventDate = new Date(event.eventDate);
+        const now = new Date();
+        now.setHours(0, 0, 0, 0);
+        
+        switch (feed.period) {
+          case 'today':
+            const today = new Date(now);
+            return eventDate.toDateString() === today.toDateString();
+          case 'tomorrow':
+            const tomorrow = new Date(now);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            return eventDate.toDateString() === tomorrow.toDateString();
+          case 'week':
+            const weekEnd = new Date(now);
+            weekEnd.setDate(weekEnd.getDate() + 7);
+            return eventDate >= now && eventDate <= weekEnd;
+          case 'upcoming':
+            return eventDate >= now;
+          default:
+            return false;
+        }
+      });
+      
+      const ics = generateICS(filtered, feed.title, feed.desc, `https://mackan.eu/pag/${feed.file}`, removedInPeriod);
+      const icsPath = path.join(publicDir, feed.file);
+      fs.writeFileSync(icsPath, ics, 'utf8');
+      const eventsWithDate = filtered.filter(e => e.eventDate).length;
+      const cancelledCount = removedInPeriod.filter(e => e.eventDate).length;
+      console.log(`  ${feed.file}: ${eventsWithDate} events${cancelledCount > 0 ? `, ${cancelledCount} inställda` : ''} (endast events med datum)`);
+    }
 
     // Hitta uppdaterade events (samma ID men ändrad data)
     uniqueEvents.forEach(event => {
