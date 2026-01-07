@@ -604,6 +604,52 @@ function filterEventsByPeriod(events, period) {
   });
 }
 
+// Escape XML special characters
+function escapeXml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
+// Escape iCal text (escape commas, semicolons, backslashes, newlines)
+function escapeICS(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/\\/g, '\\\\')
+    .replace(/;/g, '\\;')
+    .replace(/,/g, '\\,')
+    .replace(/\n/g, '\\n')
+    .replace(/\r/g, '');
+}
+
+// Format date for iCal (YYYYMMDDTHHMMSSZ)
+function formatICSDate(date) {
+  if (!date) return null;
+  const d = new Date(date);
+  const year = d.getUTCFullYear();
+  const month = String(d.getUTCMonth() + 1).padStart(2, '0');
+  const day = String(d.getUTCDate()).padStart(2, '0');
+  const hours = String(d.getUTCHours()).padStart(2, '0');
+  const minutes = String(d.getUTCMinutes()).padStart(2, '0');
+  const seconds = String(d.getUTCSeconds()).padStart(2, '0');
+  return `${year}${month}${day}T${hours}${minutes}${seconds}Z`;
+}
+
+// Parse time string (HH:MM) and add to date
+function addTimeToDate(date, timeStr) {
+  if (!date || !timeStr) return date;
+  const d = new Date(date);
+  const [hours, minutes] = timeStr.split(':').map(Number);
+  if (!isNaN(hours) && !isNaN(minutes)) {
+    d.setUTCHours(hours, minutes, 0, 0);
+  }
+  return d;
+}
+
 // Generera RSS XML
 function generateRSS(events, title, description, feedUrl) {
   const now = new Date().toUTCString();
@@ -653,6 +699,127 @@ function generateRSS(events, title, description, feedUrl) {
     ${items}
   </channel>
 </rss>`;
+}
+
+// Generera iCal format (.ics)
+function generateICS(events, title, description, feedUrl) {
+  const baseUrl = 'https://mackan.eu/pag';
+  const now = formatICSDate(new Date());
+  
+  const events_ics = events
+    .slice(0, 100)
+    .filter(event => event.eventDate) // Endast events med datum
+    .map(event => {
+      const eventDate = new Date(event.eventDate);
+      const startDate = addTimeToDate(event.eventDate, event.eventTime);
+      const endDate = new Date(startDate);
+      endDate.setUTCHours(endDate.getUTCHours() + 2); // Standard 2 timmar om inget annat angivet
+
+      const dtStart = formatICSDate(startDate);
+      const dtEnd = formatICSDate(endDate);
+      const dtStamp = formatICSDate(new Date());
+
+      // Bygg titel med opponent och föreställningsnummer
+      let displayTitle = event.title;
+      if (event.opponent) {
+        displayTitle += ` vs ${event.opponent}`;
+      }
+      if (event.totalPerformances > 1) {
+        displayTitle += ` (${event.performanceNumber}/${event.totalPerformances})`;
+      }
+
+      const summary = escapeICS(`${displayTitle} - ${event.arena}`);
+      const descriptionText = escapeICS(
+        `${description}\n\n` +
+        `Arena: ${event.arena}\n` +
+        `Kategori: ${event.categoryName}\n` +
+        `Länk: ${event.link}`
+      );
+      const location = escapeICS(event.arena);
+      const uid = `${event.id}@mackan.eu`;
+
+      return `BEGIN:VEVENT
+UID:${uid}
+DTSTAMP:${dtStamp}
+DTSTART:${dtStart}
+DTEND:${dtEnd}
+SUMMARY:${summary}
+DESCRIPTION:${descriptionText}
+LOCATION:${location}
+URL:${event.link}
+END:VEVENT`;
+    }).join('\n');
+
+  return `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//På G//Events//SV
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:${escapeICS(title)}
+X-WR-CALDESC:${escapeICS(description)}
+X-WR-TIMEZONE:Europe/Stockholm
+${events_ics}
+END:VCALENDAR`;
+}
+
+// Generera JSON Feed format
+function generateJSONFeed(events, title, description, feedUrl) {
+  const baseUrl = 'https://mackan.eu/pag';
+  const now = new Date().toISOString();
+
+  const items = events
+    .slice(0, 100)
+    .map(event => {
+      const eventDate = event.eventDate ? new Date(event.eventDate) : null;
+      const dateStr = eventDate ? eventDate.toLocaleDateString('sv-SE', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      }) : 'Datum ej angivet';
+      const timeStr = event.eventTime || '';
+
+      // Bygg titel med opponent och föreställningsnummer
+      let displayTitle = event.title;
+      if (event.opponent) {
+        displayTitle += ` vs ${event.opponent}`;
+      }
+      if (event.totalPerformances > 1) {
+        displayTitle += ` (${event.performanceNumber}/${event.totalPerformances})`;
+      }
+
+      const contentHtml = `${dateStr}${timeStr ? ' kl. ' + timeStr : ''} på ${escapeXml(event.arena)}. Kategori: ${escapeXml(event.categoryName)}`;
+
+      return {
+        id: event.id,
+        title: `${displayTitle} - ${event.arena}`,
+        content_html: contentHtml,
+        url: event.link,
+        date_published: eventDate ? eventDate.toISOString() : now,
+        tags: [event.categoryName, event.arena],
+        external_url: event.link,
+        _meta: {
+          arena: event.arena,
+          arenaId: event.arenaId,
+          category: event.categoryName,
+          eventDate: event.eventDate,
+          eventTime: event.eventTime,
+          opponent: event.opponent,
+          performanceNumber: event.performanceNumber,
+          totalPerformances: event.totalPerformances
+        }
+      };
+    });
+
+  return JSON.stringify({
+    version: 'https://jsonfeed.org/version/1.1',
+    title: title,
+    description: description,
+    home_page_url: baseUrl,
+    feed_url: feedUrl,
+    language: 'sv',
+    items: items
+  }, null, 2);
 }
 
 async function main() {
@@ -816,6 +983,41 @@ async function main() {
     const rss = generateRSS(filtered, feed.title, feed.desc, `https://mackan.eu/pag/${feed.file}`);
     const rssPath = path.join(publicDir, feed.file);
     fs.writeFileSync(rssPath, rss, 'utf8');
+    console.log(`  ${feed.file}: ${filtered.length} events`);
+  }
+
+  // Generera iCal-filer för olika perioder
+  console.log('\nGenererar iCal-filer...');
+  const icalFeeds = [
+    { period: 'today', title: 'På G - Idag', desc: 'Evenemang i Globenområdet idag', file: 'calendar-today.ics' },
+    { period: 'tomorrow', title: 'På G - Imorgon', desc: 'Evenemang i Globenområdet imorgon', file: 'calendar-tomorrow.ics' },
+    { period: 'week', title: 'På G - Denna vecka', desc: 'Evenemang i Globenområdet denna vecka', file: 'calendar-week.ics' },
+    { period: 'upcoming', title: 'På G - Kommande', desc: 'Kommande evenemang i Globenområdet', file: 'calendar-upcoming.ics' }
+  ];
+
+  for (const feed of icalFeeds) {
+    const filtered = filterEventsByPeriod(uniqueEvents, feed.period);
+    const ics = generateICS(filtered, feed.title, feed.desc, `https://mackan.eu/pag/${feed.file}`);
+    const icsPath = path.join(publicDir, feed.file);
+    fs.writeFileSync(icsPath, ics, 'utf8');
+    const eventsWithDate = filtered.filter(e => e.eventDate).length;
+    console.log(`  ${feed.file}: ${eventsWithDate} events (endast events med datum)`);
+  }
+
+  // Generera JSON Feed-filer för olika perioder
+  console.log('\nGenererar JSON Feed-filer...');
+  const jsonFeeds = [
+    { period: 'today', title: 'På G - Idag', desc: 'Evenemang i Globenområdet idag', file: 'feed-today.json' },
+    { period: 'tomorrow', title: 'På G - Imorgon', desc: 'Evenemang i Globenområdet imorgon', file: 'feed-tomorrow.json' },
+    { period: 'week', title: 'På G - Denna vecka', desc: 'Evenemang i Globenområdet denna vecka', file: 'feed-week.json' },
+    { period: 'upcoming', title: 'På G - Kommande', desc: 'Kommande evenemang i Globenområdet', file: 'feed-upcoming.json' }
+  ];
+
+  for (const feed of jsonFeeds) {
+    const filtered = filterEventsByPeriod(uniqueEvents, feed.period);
+    const jsonFeed = generateJSONFeed(filtered, feed.title, feed.desc, `https://mackan.eu/pag/${feed.file}`);
+    const jsonPath = path.join(publicDir, feed.file);
+    fs.writeFileSync(jsonPath, jsonFeed, 'utf8');
     console.log(`  ${feed.file}: ${filtered.length} events`);
   }
 

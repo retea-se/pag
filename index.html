@@ -7,15 +7,16 @@
     <!-- Content Security Policy -->
     <meta http-equiv="Content-Security-Policy"
           content="default-src 'self';
-                   script-src 'self' 'unsafe-inline';
+                   script-src 'self' 'unsafe-inline' https://stats.mackan.eu;
                    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
                    font-src 'self' https://fonts.gstatic.com;
-                   img-src 'self' data: https:;
-                   connect-src 'self' https://aviciiarena.se https://3arena.se https://hovetarena.se https://annexet.se;" />
+                   img-src 'self' data: https: https://stats.mackan.eu;
+                   connect-src 'self' https://aviciiarena.se https://3arena.se https://hovetarena.se https://annexet.se https://stats.mackan.eu;" />
 
     <!-- DNS prefetch och preconnect för snabbare resursladdning -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://stats.mackan.eu" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -85,6 +86,21 @@
       ]
     }
     </script>
+      <!-- Matomo Analytics -->
+    <script>
+      var _paq = window._paq = window._paq || [];
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="/pag/api/matomo-proxy.php?file=";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><img referrerpolicy="no-referrer-when-downgrade" src="/pag/api/matomo-proxy.php?file=matomo.php&idsite=1&amp;rec=1" style="border:0" alt="" /></noscript>
+    <!-- End Matomo Code -->
   </head>
   <body>
     <div id="root"></div>

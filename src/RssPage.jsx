@@ -1,32 +1,58 @@
 import { useState, useEffect } from 'react';
-import { RssIcon } from './components/Icons';
+import { RssIcon, CalendarIcon, JsonIcon } from './components/Icons';
 import { usePageViews } from './hooks/usePageViews';
 import './App.css';
 
-const RSS_FEEDS = [
+const FEED_PERIODS = [
   {
     id: 'today',
     name: 'Idag',
-    description: 'Evenemang som händer idag',
-    file: 'rss-today.xml'
+    description: 'Evenemang som händer idag'
   },
   {
     id: 'tomorrow',
     name: 'Imorgon',
-    description: 'Evenemang som händer imorgon',
-    file: 'rss-tomorrow.xml'
+    description: 'Evenemang som händer imorgon'
   },
   {
     id: 'week',
     name: 'Denna vecka',
-    description: 'Evenemang de närmaste 7 dagarna',
-    file: 'rss-week.xml'
+    description: 'Evenemang de närmaste 7 dagarna'
   },
   {
     id: 'upcoming',
     name: 'Kommande',
-    description: 'Alla kommande evenemang',
-    file: 'rss-upcoming.xml'
+    description: 'Alla kommande evenemang'
+  }
+];
+
+const FEED_TYPES = [
+  {
+    id: 'rss',
+    name: 'RSS',
+    description: 'Klassisk RSS-feed för RSS-läsare',
+    icon: RssIcon,
+    getFileName: (period) => `rss-${period}.xml`,
+    getViewText: () => 'Visa XML-kod',
+    color: '#f97316'
+  },
+  {
+    id: 'ical',
+    name: 'Kalender',
+    description: 'iCal-format för kalenderappar (Google Calendar, Outlook, Apple Calendar)',
+    icon: CalendarIcon,
+    getFileName: (period) => `calendar-${period}.ics`,
+    getViewText: () => 'Ladda ner .ics-fil',
+    color: '#3b82f6'
+  },
+  {
+    id: 'json',
+    name: 'JSON Feed',
+    description: 'Modern JSON Feed för utvecklare och moderna appar',
+    icon: JsonIcon,
+    getFileName: (period) => `feed-${period}.json`,
+    getViewText: () => 'Visa JSON',
+    color: '#10b981'
   }
 ];
 
@@ -68,8 +94,8 @@ function RssPage() {
               <span className="logo-text">På G</span>
             </div>
             <div className="header-title">
-              <h1>RSS-flöden</h1>
-              <span className="header-subtitle">Prenumerera på evenemang</span>
+              <h1>Prenumerationsflöden</h1>
+              <span className="header-subtitle">RSS, Kalender & JSON Feed</span>
             </div>
           </div>
           <a href="#" className="back-btn" title="Tillbaka">
@@ -81,8 +107,8 @@ function RssPage() {
       <main className="main rss-main">
         <div className="rss-intro">
           <p>
-            Prenumerera på evenemang i Globenområdet direkt i din RSS-läsare.
-            Kopiera länken nedan eller klicka för att visa XML-koden.
+            Prenumerera på evenemang i Globenområdet via RSS, kalender eller JSON Feed.
+            Välj det format som passar bäst för ditt behov.
           </p>
           {lastUpdated && (
             <p className="rss-updated">
@@ -97,53 +123,97 @@ function RssPage() {
           )}
         </div>
 
-        <div className="rss-feeds">
-          {RSS_FEEDS.map(feed => {
-            const feedUrl = `${baseUrl}/${feed.file}`;
-            return (
-              <div key={feed.id} className="rss-feed-card">
-                <div className="rss-feed-icon">
-                  <RssIcon size={24} />
+        {FEED_TYPES.map(feedType => {
+          const IconComponent = feedType.icon;
+          return (
+            <div key={feedType.id} className="feed-type-section">
+              <div className="feed-type-header">
+                <div className="feed-type-icon" style={{ backgroundColor: `${feedType.color}15`, color: feedType.color }}>
+                  <IconComponent size={24} />
                 </div>
-                <div className="rss-feed-content">
-                  <h2>{feed.name}</h2>
-                  <p>{feed.description}</p>
-                  <div className="rss-feed-url">
-                    <input
-                      type="text"
-                      value={feedUrl}
-                      readOnly
-                      onClick={(e) => e.target.select()}
-                    />
-                    <button
-                      onClick={() => copyToClipboard(feed.id, feedUrl)}
-                      className={copied === feed.id ? 'copied' : ''}
-                    >
-                      {copied === feed.id ? 'Kopierad!' : 'Kopiera'}
-                    </button>
-                  </div>
-                  <a
-                    href={feedUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rss-view-link"
-                  >
-                    Visa XML-kod
-                  </a>
+                <div>
+                  <h2>{feedType.name}</h2>
+                  <p className="feed-type-description">{feedType.description}</p>
                 </div>
               </div>
-            );
-          })}
-        </div>
+              <div className="rss-feeds">
+                {FEED_PERIODS.map(period => {
+                  const fileName = feedType.getFileName(period.id);
+                  const feedUrl = `${baseUrl}/${fileName}`;
+                  const feedId = `${feedType.id}-${period.id}`;
+                  return (
+                    <div key={feedId} className="rss-feed-card">
+                      <div className="rss-feed-icon" style={{ backgroundColor: `${feedType.color}15`, color: feedType.color }}>
+                        <IconComponent size={24} />
+                      </div>
+                      <div className="rss-feed-content">
+                        <h3>{period.name}</h3>
+                        <p>{period.description}</p>
+                        <div className="rss-feed-url">
+                          <input
+                            type="text"
+                            value={feedUrl}
+                            readOnly
+                            onClick={(e) => e.target.select()}
+                          />
+                          <button
+                            onClick={() => copyToClipboard(feedId, feedUrl)}
+                            className={copied === feedId ? 'copied' : ''}
+                            style={{ backgroundColor: feedType.color }}
+                          >
+                            {copied === feedId ? 'Kopierad!' : 'Kopiera'}
+                          </button>
+                        </div>
+                        <a
+                          href={feedUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="rss-view-link"
+                          style={{ color: feedType.color }}
+                        >
+                          {feedType.getViewText()}
+                        </a>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
 
         <div className="rss-help">
-          <h3>Hur använder jag RSS?</h3>
-          <ol>
-            <li>Kopiera länken till det flöde du vill prenumerera på</li>
-            <li>Öppna din RSS-läsare (t.ex. Feedly, Inoreader, NetNewsWire)</li>
-            <li>Lägg till ett nytt flöde och klistra in länken</li>
-            <li>Klart! Du får nu uppdateringar om evenemang automatiskt</li>
-          </ol>
+          <h3>Hur använder jag flödena?</h3>
+          <div className="help-sections">
+            <div className="help-section">
+              <h4>RSS</h4>
+              <ol>
+                <li>Kopiera länken till det flöde du vill prenumerera på</li>
+                <li>Öppna din RSS-läsare (t.ex. Feedly, Inoreader, NetNewsWire)</li>
+                <li>Lägg till ett nytt flöde och klistra in länken</li>
+                <li>Klart! Du får nu uppdateringar om evenemang automatiskt</li>
+              </ol>
+            </div>
+            <div className="help-section">
+              <h4>Kalender (iCal)</h4>
+              <ol>
+                <li>Klicka på länken eller kopiera URL:en</li>
+                <li><strong>Google Calendar:</strong> Gå till "Lägg till kalender" → "Från URL" och klistra in länken</li>
+                <li><strong>Outlook:</strong> Gå till "Lägg till kalender" → "Prenumerera på kalender" och klistra in länken</li>
+                <li><strong>Apple Calendar:</strong> Gå till "Arkiv" → "Ny kalenderprenumeration" och klistra in länken</li>
+                <li>Evenemangen synkroniseras automatiskt och uppdateras regelbundet</li>
+              </ol>
+            </div>
+            <div className="help-section">
+              <h4>JSON Feed</h4>
+              <ol>
+                <li>Kopiera URL:en till JSON Feed-flödet</li>
+                <li>Använd i din applikation eller utvecklingsprojekt</li>
+                <li>Parsa JSON-data direkt utan XML-parsing</li>
+                <li>Perfekt för moderna webbappar och mobilappar</li>
+              </ol>
+            </div>
+          </div>
         </div>
       </main>
 

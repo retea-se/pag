@@ -112,6 +112,8 @@ scripts/check-cron.sh
 *-SAMMANFATTNING*.md
 PROBLEM-*.md
 CSS-*.md
+CRON-MONITORING.md
+WHATSAPP-SETUP.md
 
 # Generated data files
 public/history.json

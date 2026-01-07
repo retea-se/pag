@@ -13,7 +13,7 @@ En modern webbapp som visar kommande evenemang på arenorna i Globenområdet i S
 - Visar evenemang från Avicii Arena, 3Arena, Hovet och Annexet
 - Filtrering: Igår, Idag, Imorgon, Veckan, Kommande
 - Responsiv design optimerad för mobil
-- RSS-flöden för prenumeration (idag, imorgon, veckan, kommande)
+- **Prenumerationsflöden**: RSS, iCal (kalender) och JSON Feed (idag, imorgon, veckan, kommande)
 - Mörkt tema med modern skandinavisk design
 - Ingen användning av emojis - endast SVG-ikoner
 
@@ -53,10 +53,21 @@ node scripts/fetch-events.js
 
 Detta genererar:
 - `public/events.json` - All eventdata
-- `public/rss-today.xml` - Dagens evenemang
-- `public/rss-tomorrow.xml` - Morgondagens evenemang
-- `public/rss-week.xml` - Veckans evenemang
-- `public/rss-upcoming.xml` - Alla kommande evenemang
+- **RSS-flöden:**
+  - `public/rss-today.xml` - Dagens evenemang
+  - `public/rss-tomorrow.xml` - Morgondagens evenemang
+  - `public/rss-week.xml` - Veckans evenemang
+  - `public/rss-upcoming.xml` - Alla kommande evenemang
+- **iCal-kalenderflöden:**
+  - `public/calendar-today.ics` - Dagens evenemang (för kalenderappar)
+  - `public/calendar-tomorrow.ics` - Morgondagens evenemang
+  - `public/calendar-week.ics` - Veckans evenemang
+  - `public/calendar-upcoming.ics` - Alla kommande evenemang
+- **JSON Feed-flöden:**
+  - `public/feed-today.json` - Dagens evenemang (modern JSON-format)
+  - `public/feed-tomorrow.json` - Morgondagens evenemang
+  - `public/feed-week.json` - Veckans evenemang
+  - `public/feed-upcoming.json` - Alla kommande evenemang
 
 ### Konfiguration
 
@@ -95,7 +106,31 @@ FETCH_TIMEOUT_MS=15000 MAX_PARALLEL_SCRAPES=8 node scripts/fetch-events.js
 - [Vite](https://vitejs.dev) 6
 - Vanilla CSS med CSS-variabler
 - Node.js bakgrundsskript för datahämtning
-- RSS 2.0 med Atom-tillägg
+- **Feed-format:**
+  - RSS 2.0 med Atom-tillägg
+  - iCal (.ics) för kalenderintegration
+  - JSON Feed 1.1 för moderna applikationer
+
+## Prenumerationsflöden
+
+Projektet stöder tre olika feed-format för att prenumerera på evenemang:
+
+### RSS
+Klassisk RSS-feed för RSS-läsare som Feedly, Inoreader, NetNewsWire, etc.
+
+### iCal (Kalender)
+iCal-format för direkt integration i kalenderappar:
+- **Google Calendar**: Gå till "Lägg till kalender" → "Från URL" och klistra in länken
+- **Outlook**: Gå till "Lägg till kalender" → "Prenumerera på kalender" och klistra in länken
+- **Apple Calendar**: Gå till "Arkiv" → "Ny kalenderprenumeration" och klistra in länken
+
+Evenemangen synkroniseras automatiskt och uppdateras regelbundet.
+
+### JSON Feed
+Modern JSON Feed-format enligt [JSON Feed spec 1.1](https://www.jsonfeed.org/). Perfekt för:
+- Utvecklare som vill bygga egna integrationer
+- Moderna webbappar och mobilappar
+- Direkt JSON-parsing utan XML-hantering
 
 ## Krediter
 
@@ -132,7 +167,7 @@ Perfect for event-goers, tourists, and locals who want to stay updated on what's
 - **Comprehensive event tracking**: Displays all events and shows happening at the four major arenas in Stockholm's Globen area - Avicii Arena, 3Arena, Hovet, and Annexet
 - **Smart filtering**: View events by time period - Yesterday, Today, Tomorrow, This Week, or all Upcoming events
 - **Mobile-optimized**: Responsive design that works perfectly on phones, tablets, and desktops
-- **RSS feeds**: Subscribe to RSS feeds for today's events, tomorrow's events, this week's events, or all upcoming events
+- **Subscription feeds**: Subscribe via RSS, iCal (calendar), or JSON Feed for today's events, tomorrow's events, this week's events, or all upcoming events
 - **Modern design**: Dark theme with clean Scandinavian aesthetics
 - **Accessible**: No emojis - uses SVG icons for better accessibility and performance
 
@@ -172,10 +207,21 @@ node scripts/fetch-events.js
 
 This generates:
 - `public/events.json` - All event data
-- `public/rss-today.xml` - Today's events
-- `public/rss-tomorrow.xml` - Tomorrow's events
-- `public/rss-week.xml` - This week's events
-- `public/rss-upcoming.xml` - All upcoming events
+- **RSS feeds:**
+  - `public/rss-today.xml` - Today's events
+  - `public/rss-tomorrow.xml` - Tomorrow's events
+  - `public/rss-week.xml` - This week's events
+  - `public/rss-upcoming.xml` - All upcoming events
+- **iCal calendar feeds:**
+  - `public/calendar-today.ics` - Today's events (for calendar apps)
+  - `public/calendar-tomorrow.ics` - Tomorrow's events
+  - `public/calendar-week.ics` - This week's events
+  - `public/calendar-upcoming.ics` - All upcoming events
+- **JSON Feed:**
+  - `public/feed-today.json` - Today's events (modern JSON format)
+  - `public/feed-tomorrow.json` - Tomorrow's events
+  - `public/feed-week.json` - This week's events
+  - `public/feed-upcoming.json` - All upcoming events
 
 ### Configuration
 
@@ -214,7 +260,31 @@ FETCH_TIMEOUT_MS=15000 MAX_PARALLEL_SCRAPES=8 node scripts/fetch-events.js
 - [Vite](https://vitejs.dev) 6
 - Vanilla CSS with CSS variables
 - Node.js background script for data fetching
-- RSS 2.0 with Atom extensions
+- **Feed formats:**
+  - RSS 2.0 with Atom extensions
+  - iCal (.ics) for calendar integration
+  - JSON Feed 1.1 for modern applications
+
+## Subscription Feeds
+
+The project supports three different feed formats for subscribing to events:
+
+### RSS
+Classic RSS feed for RSS readers like Feedly, Inoreader, NetNewsWire, etc.
+
+### iCal (Calendar)
+iCal format for direct integration into calendar apps:
+- **Google Calendar**: Go to "Add calendar" → "From URL" and paste the link
+- **Outlook**: Go to "Add calendar" → "Subscribe to calendar" and paste the link
+- **Apple Calendar**: Go to "File" → "New Calendar Subscription" and paste the link
+
+Events sync automatically and update regularly.
+
+### JSON Feed
+Modern JSON Feed format according to [JSON Feed spec 1.1](https://www.jsonfeed.org/). Perfect for:
+- Developers building custom integrations
+- Modern web apps and mobile apps
+- Direct JSON parsing without XML handling
 
 ## Credits
 
