@@ -1,0 +1,28 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//På G//Events//SV
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:På G - Imorgon
+X-WR-CALDESC:Evenemang i Globenområdet imorgon
+X-WR-TIMEZONE:Europe/Stockholm
+BEGIN:VEVENT
+UID:avicii-arena-5423-4@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260111T103000Z
+DTEND:20260111T123000Z
+SUMMARY:Disney On Ice presenterar Find Your Hero (4/6) - Avicii Arena
+DESCRIPTION:Evenemang i Globenområdet imorgon\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/disney-on-ice-presenterar-find-your-hero/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/disney-on-ice-presenterar-find-your-hero/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-5423-6@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260111T103000Z
+DTEND:20260111T123000Z
+SUMMARY:Disney On Ice presenterar Find Your Hero (6/8) - Avicii Arena (Inställt)
+STATUS:CANCELLED
+SEQUENCE:1
+END:VEVENT
+END:VCALENDAR

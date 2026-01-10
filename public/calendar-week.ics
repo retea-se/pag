@@ -1,0 +1,105 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//På G//Events//SV
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:På G - Denna vecka
+X-WR-CALDESC:Evenemang i Globenområdet denna vecka
+X-WR-TIMEZONE:Europe/Stockholm
+BEGIN:VEVENT
+UID:avicii-arena-5423-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260110T103000Z
+DTEND:20260110T123000Z
+SUMMARY:Disney On Ice presenterar Find Your Hero (1/6) - Avicii Arena
+DESCRIPTION:Evenemang i Globenområdet denna vecka\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/disney-on-ice-presenterar-find-your-hero/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/disney-on-ice-presenterar-find-your-hero/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-5423-4@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260111T103000Z
+DTEND:20260111T123000Z
+SUMMARY:Disney On Ice presenterar Find Your Hero (4/6) - Avicii Arena
+DESCRIPTION:Evenemang i Globenområdet denna vecka\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/disney-on-ice-presenterar-find-your-hero/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/disney-on-ice-presenterar-find-your-hero/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-5618-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260115T180000Z
+DTEND:20260115T200000Z
+SUMMARY:Burna Boy (1/2) - Avicii Arena
+DESCRIPTION:Evenemang i Globenområdet denna vecka\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/burna-boy/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/burna-boy/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1823-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260115T190000Z
+DTEND:20260115T210000Z
+SUMMARY:Djurgården Hockey vs Växjö (1/10) - Hovet
+DESCRIPTION:Evenemang i Globenområdet denna vecka\n\nArena: Hovet\nKategori: Sport\nLänk: https://hovetarena.se/evenemang/sport/djurgarden-hockey/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/sport/djurgarden-hockey/
+END:VEVENT
+BEGIN:VEVENT
+UID:annexet-1627-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260116T181500Z
+DTEND:20260116T201500Z
+SUMMARY:Architects (1/2) - Annexet
+DESCRIPTION:Evenemang i Globenområdet denna vecka\n\nArena: Annexet\nKategori: Event\nLänk: https://annexet.se/evenemang/musik-show/architects/
+LOCATION:Annexet
+URL:https://annexet.se/evenemang/musik-show/architects/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1825-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260116T190000Z
+DTEND:20260116T210000Z
+SUMMARY:AIK Hockey vs Kalmar HC (1/10) - Hovet
+DESCRIPTION:Evenemang i Globenområdet denna vecka\n\nArena: Hovet\nKategori: Sport\nLänk: https://hovetarena.se/evenemang/sport/aik-hockey/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/sport/aik-hockey/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-5423-3@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260110T103000Z
+DTEND:20260110T123000Z
+SUMMARY:Disney On Ice presenterar Find Your Hero (3/8) - Avicii Arena (Inställt)
+STATUS:CANCELLED
+SEQUENCE:1
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-5423-6@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260111T103000Z
+DTEND:20260111T123000Z
+SUMMARY:Disney On Ice presenterar Find Your Hero (6/8) - Avicii Arena (Inställt)
+STATUS:CANCELLED
+SEQUENCE:1
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1823-2@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260115T190000Z
+DTEND:20260115T210000Z
+SUMMARY:Djurgården Hockey vs Växjö (2/11) - Hovet (Inställt)
+STATUS:CANCELLED
+SEQUENCE:1
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1825-2@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260116T190000Z
+DTEND:20260116T210000Z
+SUMMARY:AIK Hockey vs Kalmar HC (2/11) - Hovet (Inställt)
+STATUS:CANCELLED
+SEQUENCE:1
+END:VEVENT
+END:VCALENDAR

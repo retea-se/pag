@@ -1,0 +1,32 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "På G - Imorgon",
+  "description": "Evenemang i Globenområdet imorgon",
+  "home_page_url": "https://mackan.eu/pag",
+  "feed_url": "https://mackan.eu/pag/feed-tomorrow.json",
+  "language": "sv",
+  "items": [
+    {
+      "id": "avicii-arena-5423-4",
+      "title": "Disney On Ice presenterar Find Your Hero (4/6) - Avicii Arena",
+      "content_html": "söndag 11 januari 2026 kl. 10:30 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/disney-on-ice-presenterar-find-your-hero/",
+      "date_published": "2026-01-11T09:30:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/disney-on-ice-presenterar-find-your-hero/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-01-11T09:30:00.000Z",
+        "eventTime": "10:30",
+        "opponent": null,
+        "performanceNumber": 4,
+        "totalPerformances": 6
+      }
+    }
+  ]
+}

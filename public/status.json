@@ -1,0 +1,95 @@
+{
+  "lastRun": "2026-01-10T06:42:36.728Z",
+  "startTime": "2026-01-10T06:42:31.477Z",
+  "endTime": "2026-01-10T06:42:36.728Z",
+  "duration": 5,
+  "status": "success",
+  "eventCount": 87,
+  "arenaCount": 4,
+  "changes": {
+    "added": 21,
+    "updated": 0,
+    "removed": 23,
+    "details": [
+      {
+        "type": "added",
+        "title": "Disney On Ice presenterar Find Your Hero",
+        "arena": "Avicii Arena",
+        "date": "2026-01-10T09:30:00.000Z"
+      },
+      {
+        "type": "added",
+        "title": "Disney On Ice presenterar Find Your Hero",
+        "arena": "Avicii Arena",
+        "date": "2026-01-11T09:30:00.000Z"
+      },
+      {
+        "type": "added",
+        "title": "Djurgården Hockey",
+        "arena": "Hovet",
+        "date": "2026-01-15T18:00:00.000Z"
+      },
+      {
+        "type": "added",
+        "title": "AIK Hockey",
+        "arena": "Hovet",
+        "date": "2026-01-16T18:00:00.000Z"
+      },
+      {
+        "type": "added",
+        "title": "Djurgården Hockey",
+        "arena": "Hovet",
+        "date": "2026-01-17T14:15:00.000Z"
+      },
+      {
+        "type": "added",
+        "title": "AIK Hockey",
+        "arena": "Hovet",
+        "date": "2026-01-21T18:00:00.000Z"
+      },
+      {
+        "type": "added",
+        "title": "Djurgården Hockey",
+        "arena": "Hovet",
+        "date": "2026-01-24T17:00:00.000Z"
+      },
+      {
+        "type": "added",
+        "title": "AIK Hockey",
+        "arena": "Hovet",
+        "date": "2026-01-30T18:00:00.000Z"
+      },
+      {
+        "type": "added",
+        "title": "AIK Hockey",
+        "arena": "Hovet",
+        "date": "2026-02-04T18:00:00.000Z"
+      },
+      {
+        "type": "added",
+        "title": "Djurgården Hockey",
+        "arena": "Hovet",
+        "date": "2026-02-05T18:00:00.000Z"
+      }
+    ]
+  },
+  "details": {
+    "totalEvents": 87,
+    "arenaBreakdown": {
+      "avicii-arena": 34,
+      "3arena": 9,
+      "hovet": 28,
+      "annexet": 16
+    },
+    "scrapingStats": {
+      "totalScraped": 126,
+      "uniqueAfterDedup": 87,
+      "duplicatesRemoved": 39
+    },
+    "performance": {
+      "durationSeconds": 5,
+      "durationFormatted": "0m 5s",
+      "eventsPerSecond": "17.40"
+    }
+  }
+}

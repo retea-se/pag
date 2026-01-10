@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>På G - Denna vecka</title>
+    <link>https://mackan.eu/pag</link>
+    <description>Evenemang i Globenområdet denna vecka</description>
+    <language>sv</language>
+    <lastBuildDate>Sat, 10 Jan 2026 06:42:36 GMT</lastBuildDate>
+    <atom:link href="https://mackan.eu/pag/rss-week.xml" rel="self" type="application/rss+xml"/>
+    
+    <item>
+      <title><![CDATA[Disney On Ice presenterar Find Your Hero (1/6) - Avicii Arena]]></title>
+      <link>https://aviciiarena.se/evenemang/musik-show/disney-on-ice-presenterar-find-your-hero/</link>
+      <guid isPermaLink="false">avicii-arena-5423-1</guid>
+      <pubDate>Sat, 10 Jan 2026 09:30:00 GMT</pubDate>
+      <description><![CDATA[lördag 10 januari 2026 kl. 10:30 på Avicii Arena. Kategori: Musik/Show]]></description>
+      <category>Musik/Show</category>
+    </item>
+    <item>
+      <title><![CDATA[Disney On Ice presenterar Find Your Hero (4/6) - Avicii Arena]]></title>
+      <link>https://aviciiarena.se/evenemang/musik-show/disney-on-ice-presenterar-find-your-hero/</link>
+      <guid isPermaLink="false">avicii-arena-5423-4</guid>
+      <pubDate>Sun, 11 Jan 2026 09:30:00 GMT</pubDate>
+      <description><![CDATA[söndag 11 januari 2026 kl. 10:30 på Avicii Arena. Kategori: Musik/Show]]></description>
+      <category>Musik/Show</category>
+    </item>
+    <item>
+      <title><![CDATA[Burna Boy (1/2) - Avicii Arena]]></title>
+      <link>https://aviciiarena.se/evenemang/musik-show/burna-boy/</link>
+      <guid isPermaLink="false">avicii-arena-5618-1</guid>
+      <pubDate>Thu, 15 Jan 2026 17:00:00 GMT</pubDate>
+      <description><![CDATA[torsdag 15 januari 2026 kl. 18:00 på Avicii Arena. Kategori: Musik/Show]]></description>
+      <category>Musik/Show</category>
+    </item>
+    <item>
+      <title><![CDATA[Djurgården Hockey vs Växjö (1/10) - Hovet]]></title>
+      <link>https://hovetarena.se/evenemang/sport/djurgarden-hockey/</link>
+      <guid isPermaLink="false">hovet-1823-1</guid>
+      <pubDate>Thu, 15 Jan 2026 18:00:00 GMT</pubDate>
+      <description><![CDATA[torsdag 15 januari 2026 kl. 19:00 på Hovet. Kategori: Sport]]></description>
+      <category>Sport</category>
+    </item>
+    <item>
+      <title><![CDATA[Architects (1/2) - Annexet]]></title>
+      <link>https://annexet.se/evenemang/musik-show/architects/</link>
+      <guid isPermaLink="false">annexet-1627-1</guid>
+      <pubDate>Fri, 16 Jan 2026 17:15:00 GMT</pubDate>
+      <description><![CDATA[fredag 16 januari 2026 kl. 18:15 på Annexet. Kategori: Event]]></description>
+      <category>Event</category>
+    </item>
+    <item>
+      <title><![CDATA[AIK Hockey vs Kalmar HC (1/10) - Hovet]]></title>
+      <link>https://hovetarena.se/evenemang/sport/aik-hockey/</link>
+      <guid isPermaLink="false">hovet-1825-1</guid>
+      <pubDate>Fri, 16 Jan 2026 18:00:00 GMT</pubDate>
+      <description><![CDATA[fredag 16 januari 2026 kl. 19:00 på Hovet. Kategori: Sport]]></description>
+      <category>Sport</category>
+    </item>
+  </channel>
+</rss>

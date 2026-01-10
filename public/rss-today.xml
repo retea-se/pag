@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>På G - Idag</title>
+    <link>https://mackan.eu/pag</link>
+    <description>Evenemang i Globenområdet idag</description>
+    <language>sv</language>
+    <lastBuildDate>Sat, 10 Jan 2026 06:42:36 GMT</lastBuildDate>
+    <atom:link href="https://mackan.eu/pag/rss-today.xml" rel="self" type="application/rss+xml"/>
+    
+    <item>
+      <title><![CDATA[Disney On Ice presenterar Find Your Hero (1/6) - Avicii Arena]]></title>
+      <link>https://aviciiarena.se/evenemang/musik-show/disney-on-ice-presenterar-find-your-hero/</link>
+      <guid isPermaLink="false">avicii-arena-5423-1</guid>
+      <pubDate>Sat, 10 Jan 2026 09:30:00 GMT</pubDate>
+      <description><![CDATA[lördag 10 januari 2026 kl. 10:30 på Avicii Arena. Kategori: Musik/Show]]></description>
+      <category>Musik/Show</category>
+    </item>
+  </channel>
+</rss>

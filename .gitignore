@@ -63,10 +63,14 @@ tests/
 yarn.lock
 pnpm-lock.yaml
 
-# Generated data files (regenereras av scripts/fetch-events.js)
-public/events.json
-public/rss-*.xml
-public/status.json
+# Generated data files - INTE IGNORERADE längre!
+# Dessa filer uppdateras av GitHub Actions och måste finnas i repo
+# för att deploy ska fungera.
+# public/events.json   ← Spåras nu i Git
+# public/rss-*.xml     ← Spåras nu i Git
+# public/status.json   ← Spåras nu i Git
+# public/calendar-*.ics ← Spåras nu i Git
+# public/feed-*.json    ← Spåras nu i Git
 
 # Unused/old files
 mockups/
@@ -110,13 +114,19 @@ scripts/check-cron.sh
 *-DIAGNOSIS*.md
 *-TROUBLESHOOTING*.md
 *-SAMMANFATTNING*.md
+*-ISSUE*.md
 PROBLEM-*.md
 CSS-*.md
 CRON-MONITORING.md
 WHATSAPP-SETUP.md
+MATOMO-*.md
 
-# Generated data files
-public/history.json
+# Monitoring scripts (server-specifika, pushas inte)
+scripts/monitor-cron*.php
+scripts/monitor-cron*.sh
+
+# Generated data files - spåras nu i Git för deploy
+# public/history.json  ← Spåras nu i Git
 
 # Old build artifacts
 public/assets/

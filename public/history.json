@@ -1,0 +1,117 @@
+{
+  "runs": [
+    {
+      "id": "run-1766748933686",
+      "startTime": "2025-12-26T11:35:33.686Z",
+      "endTime": "2025-12-26T11:35:37.944Z",
+      "duration": 4,
+      "status": "success",
+      "eventCount": 87,
+      "arenaCount": 4,
+      "changes": {
+        "added": 0,
+        "updated": 0,
+        "removed": 0
+      },
+      "errors": [],
+      "errorCount": 0,
+      "criticalErrorCount": 0,
+      "totalErrorCount": 0,
+      "details": {
+        "totalEvents": 87,
+        "arenaBreakdown": {
+          "avicii-arena": 36,
+          "3arena": 4,
+          "hovet": 31,
+          "annexet": 16
+        },
+        "scrapingStats": {
+          "totalScraped": 132,
+          "uniqueAfterDedup": 87,
+          "duplicatesRemoved": 45
+        },
+        "performance": {
+          "durationSeconds": 4,
+          "durationFormatted": "0m 4s",
+          "eventsPerSecond": "21.75"
+        }
+      }
+    },
+    {
+      "id": "run-1767814775297",
+      "startTime": "2026-01-07T19:39:35.297Z",
+      "endTime": "2026-01-07T19:39:40.145Z",
+      "duration": 4,
+      "status": "success",
+      "eventCount": 89,
+      "arenaCount": 4,
+      "changes": {
+        "added": 28,
+        "updated": 0,
+        "removed": 26
+      },
+      "errors": [],
+      "errorCount": 0,
+      "criticalErrorCount": 0,
+      "totalErrorCount": 0,
+      "details": {
+        "totalEvents": 89,
+        "arenaBreakdown": {
+          "avicii-arena": 34,
+          "3arena": 9,
+          "hovet": 30,
+          "annexet": 16
+        },
+        "scrapingStats": {
+          "totalScraped": 130,
+          "uniqueAfterDedup": 89,
+          "duplicatesRemoved": 41
+        },
+        "performance": {
+          "durationSeconds": 4,
+          "durationFormatted": "0m 4s",
+          "eventsPerSecond": "22.25"
+        }
+      }
+    },
+    {
+      "id": "run-1768027351477",
+      "startTime": "2026-01-10T06:42:31.477Z",
+      "endTime": "2026-01-10T06:42:36.728Z",
+      "duration": 5,
+      "status": "success",
+      "eventCount": 87,
+      "arenaCount": 4,
+      "changes": {
+        "added": 21,
+        "updated": 0,
+        "removed": 23
+      },
+      "errors": [],
+      "errorCount": 0,
+      "criticalErrorCount": 0,
+      "totalErrorCount": 0,
+      "details": {
+        "totalEvents": 87,
+        "arenaBreakdown": {
+          "avicii-arena": 34,
+          "3arena": 9,
+          "hovet": 28,
+          "annexet": 16
+        },
+        "scrapingStats": {
+          "totalScraped": 126,
+          "uniqueAfterDedup": 87,
+          "duplicatesRemoved": 39
+        },
+        "performance": {
+          "durationSeconds": 5,
+          "durationFormatted": "0m 5s",
+          "eventsPerSecond": "17.40"
+        }
+      }
+    }
+  ],
+  "lastUpdated": "2026-01-10T06:42:36.731Z",
+  "totalRuns": 3
+}

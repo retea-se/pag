@@ -1,0 +1,1038 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//På G//Events//SV
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:På G - Kommande
+X-WR-CALDESC:Kommande evenemang i Globenområdet
+X-WR-TIMEZONE:Europe/Stockholm
+BEGIN:VEVENT
+UID:avicii-arena-5423-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260110T103000Z
+DTEND:20260110T123000Z
+SUMMARY:Disney On Ice presenterar Find Your Hero (1/6) - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/disney-on-ice-presenterar-find-your-hero/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/disney-on-ice-presenterar-find-your-hero/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-5423-4@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260111T103000Z
+DTEND:20260111T123000Z
+SUMMARY:Disney On Ice presenterar Find Your Hero (4/6) - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/disney-on-ice-presenterar-find-your-hero/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/disney-on-ice-presenterar-find-your-hero/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-5618-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260115T180000Z
+DTEND:20260115T200000Z
+SUMMARY:Burna Boy (1/2) - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/burna-boy/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/burna-boy/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1823-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260115T190000Z
+DTEND:20260115T210000Z
+SUMMARY:Djurgården Hockey vs Växjö (1/10) - Hovet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Hovet\nKategori: Sport\nLänk: https://hovetarena.se/evenemang/sport/djurgarden-hockey/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/sport/djurgarden-hockey/
+END:VEVENT
+BEGIN:VEVENT
+UID:annexet-1627-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260116T181500Z
+DTEND:20260116T201500Z
+SUMMARY:Architects (1/2) - Annexet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Annexet\nKategori: Event\nLänk: https://annexet.se/evenemang/musik-show/architects/
+LOCATION:Annexet
+URL:https://annexet.se/evenemang/musik-show/architects/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1825-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260116T190000Z
+DTEND:20260116T210000Z
+SUMMARY:AIK Hockey vs Kalmar HC (1/10) - Hovet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Hovet\nKategori: Sport\nLänk: https://hovetarena.se/evenemang/sport/aik-hockey/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/sport/aik-hockey/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1823-2@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260117T151500Z
+DTEND:20260117T171500Z
+SUMMARY:Djurgården Hockey vs Frölunda (2/10) - Hovet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Hovet\nKategori: Sport\nLänk: https://hovetarena.se/evenemang/sport/djurgarden-hockey/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/sport/djurgarden-hockey/
+END:VEVENT
+BEGIN:VEVENT
+UID:annexet-1672-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260120T180000Z
+DTEND:20260120T200000Z
+SUMMARY:Alter Bridge: What Lies Within Tour (1/2) - Annexet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Annexet\nKategori: Event\nLänk: https://annexet.se/evenemang/musik-show/alter-bridge-what-lies-within-tour/
+LOCATION:Annexet
+URL:https://annexet.se/evenemang/musik-show/alter-bridge-what-lies-within-tour/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1825-2@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260121T190000Z
+DTEND:20260121T210000Z
+SUMMARY:AIK Hockey vs Vimmerby HC (2/10) - Hovet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Hovet\nKategori: Sport\nLänk: https://hovetarena.se/evenemang/sport/aik-hockey/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/sport/aik-hockey/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-6033@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260121T200000Z
+DTEND:20260121T220000Z
+SUMMARY:Idrottsgalan 2026 - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Annat\nLänk: https://aviciiarena.se/evenemang/annat/idrottsgalan-2026/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/annat/idrottsgalan-2026/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1823-3@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260124T180000Z
+DTEND:20260124T200000Z
+SUMMARY:Djurgården Hockey vs Malmö (3/10) - Hovet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Hovet\nKategori: Sport\nLänk: https://hovetarena.se/evenemang/sport/djurgarden-hockey/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/sport/djurgarden-hockey/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-6115-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260129T160000Z
+DTEND:20260129T180000Z
+SUMMARY:Stockholm Beach (1/2) - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Sport\nLänk: https://aviciiarena.se/evenemang/sport/stockholm-beach/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/sport/stockholm-beach/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1825-3@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260130T190000Z
+DTEND:20260130T210000Z
+SUMMARY:AIK Hockey vs Almtuna (3/10) - Hovet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Hovet\nKategori: Sport\nLänk: https://hovetarena.se/evenemang/sport/aik-hockey/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/sport/aik-hockey/
+END:VEVENT
+BEGIN:VEVENT
+UID:3arena-3441@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260131T150000Z
+DTEND:20260131T170000Z
+SUMMARY:Det Räcker! - 3Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: 3Arena\nKategori: Humor/Samtal\nLänk: https://3arena.se/evenemang/musik-show/det-racker/
+LOCATION:3Arena
+URL:https://3arena.se/evenemang/musik-show/det-racker/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-5500-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260131T180000Z
+DTEND:20260131T200000Z
+SUMMARY:Soppgirobygget (1/2) - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/soppgirobygget/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/soppgirobygget/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1825-4@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260204T190000Z
+DTEND:20260204T210000Z
+SUMMARY:AIK Hockey vs Nybro Vikings (4/10) - Hovet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Hovet\nKategori: Sport\nLänk: https://hovetarena.se/evenemang/sport/aik-hockey/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/sport/aik-hockey/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1823-4@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260205T190000Z
+DTEND:20260205T210000Z
+SUMMARY:Djurgården Hockey vs Färjestad (4/10) - Hovet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Hovet\nKategori: Sport\nLänk: https://hovetarena.se/evenemang/sport/djurgarden-hockey/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/sport/djurgarden-hockey/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1825-5@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260206T190000Z
+DTEND:20260206T210000Z
+SUMMARY:AIK Hockey vs Kalmar HC (5/10) - Hovet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Hovet\nKategori: Sport\nLänk: https://hovetarena.se/evenemang/sport/aik-hockey/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/sport/aik-hockey/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1823-5@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260207T151500Z
+DTEND:20260207T171500Z
+SUMMARY:Djurgården Hockey vs Linköping (5/10) - Hovet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Hovet\nKategori: Sport\nLänk: https://hovetarena.se/evenemang/sport/djurgarden-hockey/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/sport/djurgarden-hockey/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-5482-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260207T174500Z
+DTEND:20260207T194500Z
+SUMMARY:RAYE (1/2) - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/raye/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/raye/
+END:VEVENT
+BEGIN:VEVENT
+UID:annexet-1668-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260210T180000Z
+DTEND:20260210T200000Z
+SUMMARY:sombr: The Late Nights & Young Romance Tour (1/2) - Annexet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Annexet\nKategori: Event\nLänk: https://annexet.se/evenemang/musik-show/sombr-the-late-nights-young-romance-tour/
+LOCATION:Annexet
+URL:https://annexet.se/evenemang/musik-show/sombr-the-late-nights-young-romance-tour/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1825-6@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260210T190000Z
+DTEND:20260210T210000Z
+SUMMARY:AIK Hockey vs MoDo Hockey (6/10) - Hovet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Hovet\nKategori: Sport\nLänk: https://hovetarena.se/evenemang/sport/aik-hockey/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/sport/aik-hockey/
+END:VEVENT
+BEGIN:VEVENT
+UID:annexet-1694-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260212T183000Z
+DTEND:20260212T203000Z
+SUMMARY:The Kooks (1/2) - Annexet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Annexet\nKategori: Event\nLänk: https://annexet.se/evenemang/musik-show/the-kooks/
+LOCATION:Annexet
+URL:https://annexet.se/evenemang/musik-show/the-kooks/
+END:VEVENT
+BEGIN:VEVENT
+UID:3arena-3492-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260214T150000Z
+DTEND:20260214T170000Z
+SUMMARY:Djurgården Fotboll (1/3) - 3Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: 3Arena\nKategori: Sport\nLänk: https://3arena.se/evenemang/sport/djurgarden-fotboll/
+LOCATION:3Arena
+URL:https://3arena.se/evenemang/sport/djurgarden-fotboll/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1844-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260214T180000Z
+DTEND:20260214T200000Z
+SUMMARY:Tjuvjakt (1/2) - Hovet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Hovet\nKategori: Annat\nLänk: https://hovetarena.se/evenemang/musik-show/tjuvjakt/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/musik-show/tjuvjakt/
+END:VEVENT
+BEGIN:VEVENT
+UID:annexet-1594@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260216T193000Z
+DTEND:20260216T213000Z
+SUMMARY:Jason Derulo: The Last Dance World Tour - Annexet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Annexet\nKategori: Event\nLänk: https://annexet.se/evenemang/musik-show/jason-derulo-the-last-dance-world-tour/
+LOCATION:Annexet
+URL:https://annexet.se/evenemang/musik-show/jason-derulo-the-last-dance-world-tour/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-5786-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260217T183000Z
+DTEND:20260217T203000Z
+SUMMARY:Dave (1/2) - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/dave/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/dave/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1873@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260217T200000Z
+DTEND:20260217T220000Z
+SUMMARY:Sean Paul – Inställd - Hovet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Hovet\nKategori: Annat\nLänk: https://hovetarena.se/evenemang/musik-show/sean-paul/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/musik-show/sean-paul/
+END:VEVENT
+BEGIN:VEVENT
+UID:3arena-3488@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260218T190000Z
+DTEND:20260218T210000Z
+SUMMARY:Hammarby Fotboll - 3Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: 3Arena\nKategori: Sport\nLänk: https://3arena.se/evenemang/sport/hammarby-fotboll/
+LOCATION:3Arena
+URL:https://3arena.se/evenemang/sport/hammarby-fotboll/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1828-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260219T183000Z
+DTEND:20260219T203000Z
+SUMMARY:Lorna Shore (1/2) - Hovet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Hovet\nKategori: Annat\nLänk: https://hovetarena.se/evenemang/musik-show/lorna-shore/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/musik-show/lorna-shore/
+END:VEVENT
+BEGIN:VEVENT
+UID:3arena-3492-2@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260221T150000Z
+DTEND:20260221T170000Z
+SUMMARY:Djurgården Fotboll (2/3) - 3Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: 3Arena\nKategori: Sport\nLänk: https://3arena.se/evenemang/sport/djurgarden-fotboll/
+LOCATION:3Arena
+URL:https://3arena.se/evenemang/sport/djurgarden-fotboll/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1815-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260221T170000Z
+DTEND:20260221T190000Z
+SUMMARY:Powerwolf (1/2) - Hovet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Hovet\nKategori: Annat\nLänk: https://hovetarena.se/evenemang/musik-show/powerwolf/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/musik-show/powerwolf/
+END:VEVENT
+BEGIN:VEVENT
+UID:3arena-3490-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260221T190000Z
+DTEND:20260221T210000Z
+SUMMARY:Hammarby Fotboll (1/2) - 3Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: 3Arena\nKategori: Sport\nLänk: https://3arena.se/evenemang/sport/hammarby-fotboll-2/
+LOCATION:3Arena
+URL:https://3arena.se/evenemang/sport/hammarby-fotboll-2/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1825-7@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260223T190000Z
+DTEND:20260223T210000Z
+SUMMARY:AIK Hockey vs Almtuna (7/10) - Hovet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Hovet\nKategori: Sport\nLänk: https://hovetarena.se/evenemang/sport/aik-hockey/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/sport/aik-hockey/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1823-6@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260226T190000Z
+DTEND:20260226T210000Z
+SUMMARY:Djurgården Hockey vs Hv71 (6/10) - Hovet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Hovet\nKategori: Sport\nLänk: https://hovetarena.se/evenemang/sport/djurgarden-hockey/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/sport/djurgarden-hockey/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1825-8@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260226T230000Z
+DTEND:20260227T010000Z
+SUMMARY:AIK Hockey vs Södertälje (8/10) - Hovet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Hovet\nKategori: Sport\nLänk: https://hovetarena.se/evenemang/sport/aik-hockey/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/sport/aik-hockey/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-6146-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260227T173000Z
+DTEND:20260227T193000Z
+SUMMARY:VM-Kval: Sverige – Estland (1/2) - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Sport\nLänk: https://aviciiarena.se/evenemang/sport/vm-kval-sverige-estland/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/sport/vm-kval-sverige-estland/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-5504@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260228T151500Z
+DTEND:20260228T171500Z
+SUMMARY:Djurgården Hockey vs Leksand - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Sport\nLänk: https://aviciiarena.se/evenemang/sport/djurgarden-hockey/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/sport/djurgarden-hockey/
+END:VEVENT
+BEGIN:VEVENT
+UID:annexet-1708-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260228T180000Z
+DTEND:20260228T200000Z
+SUMMARY:Zach Top (1/2) - Annexet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Annexet\nKategori: Event\nLänk: https://annexet.se/evenemang/musik-show/zach-top/
+LOCATION:Annexet
+URL:https://annexet.se/evenemang/musik-show/zach-top/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1796@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260228T193000Z
+DTEND:20260228T213000Z
+SUMMARY:Dr. Jordan B. Peterson - Hovet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Hovet\nKategori: Event\nLänk: https://hovetarena.se/evenemang/humor-samtal/dr-jordan-b-peterson/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/humor-samtal/dr-jordan-b-peterson/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1825-9@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260304T190000Z
+DTEND:20260304T210000Z
+SUMMARY:AIK Hockey vs Östersund IK (9/10) - Hovet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Hovet\nKategori: Sport\nLänk: https://hovetarena.se/evenemang/sport/aik-hockey/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/sport/aik-hockey/
+END:VEVENT
+BEGIN:VEVENT
+UID:annexet-1738-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260306T181500Z
+DTEND:20260306T201500Z
+SUMMARY:GIVĒON (1/2) - Annexet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Annexet\nKategori: Event\nLänk: https://annexet.se/evenemang/musik-show/giveon/
+LOCATION:Annexet
+URL:https://annexet.se/evenemang/musik-show/giveon/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1825-10@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260306T190000Z
+DTEND:20260306T210000Z
+SUMMARY:AIK Hockey vs IK Oskarshamn (10/10) - Hovet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Hovet\nKategori: Sport\nLänk: https://hovetarena.se/evenemang/sport/aik-hockey/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/sport/aik-hockey/
+END:VEVENT
+BEGIN:VEVENT
+UID:3arena-3490-2@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260307T130000Z
+DTEND:20260307T150000Z
+SUMMARY:Hammarby Fotboll (2/2) - 3Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: 3Arena\nKategori: Sport\nLänk: https://3arena.se/evenemang/sport/hammarby-fotboll-2/
+LOCATION:3Arena
+URL:https://3arena.se/evenemang/sport/hammarby-fotboll-2/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-6201@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260307T163000Z
+DTEND:20260307T183000Z
+SUMMARY:Hammarby Handboll – IFK Kristianstad - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Sport\nLänk: https://aviciiarena.se/evenemang/sport/hammarby-handboll-ifk-kristianstad/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/sport/hammarby-handboll-ifk-kristianstad/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1823-8@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260307T180000Z
+DTEND:20260307T200000Z
+SUMMARY:Djurgården Hockey vs Luleå (8/10) - Hovet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Hovet\nKategori: Sport\nLänk: https://hovetarena.se/evenemang/sport/djurgarden-hockey/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/sport/djurgarden-hockey/
+END:VEVENT
+BEGIN:VEVENT
+UID:3arena-3492-3@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260308T150000Z
+DTEND:20260308T170000Z
+SUMMARY:Djurgården Fotboll (3/3) - 3Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: 3Arena\nKategori: Sport\nLänk: https://3arena.se/evenemang/sport/djurgarden-fotboll/
+LOCATION:3Arena
+URL:https://3arena.se/evenemang/sport/djurgarden-fotboll/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-4183@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260308T200000Z
+DTEND:20260308T220000Z
+SUMMARY:Hans Zimmer Live - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/hans-zimmer-live/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/hans-zimmer-live/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1823-9@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260310T190000Z
+DTEND:20260310T210000Z
+SUMMARY:Djurgården Hockey vs Växjö (9/10) - Hovet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Hovet\nKategori: Sport\nLänk: https://hovetarena.se/evenemang/sport/djurgarden-hockey/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/sport/djurgarden-hockey/
+END:VEVENT
+BEGIN:VEVENT
+UID:annexet-1764-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260313T093000Z
+DTEND:20260313T113000Z
+SUMMARY:ESL Pro League (1/6) - Annexet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Annexet\nKategori: Event\nLänk: https://annexet.se/evenemang/annat/esl-pro-league/
+LOCATION:Annexet
+URL:https://annexet.se/evenemang/annat/esl-pro-league/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-5488-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260313T200000Z
+DTEND:20260313T220000Z
+SUMMARY:Håkan Hellström (1/2) - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/hakan-hellstrom/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/hakan-hellstrom/
+END:VEVENT
+BEGIN:VEVENT
+UID:annexet-1764-3@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260314T144500Z
+DTEND:20260314T164500Z
+SUMMARY:ESL Pro League (3/6) - Annexet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Annexet\nKategori: Event\nLänk: https://annexet.se/evenemang/annat/esl-pro-league/
+LOCATION:Annexet
+URL:https://annexet.se/evenemang/annat/esl-pro-league/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1823-10@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260314T151500Z
+DTEND:20260314T171500Z
+SUMMARY:Djurgården Hockey vs Skellefteå (10/10) - Hovet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Hovet\nKategori: Sport\nLänk: https://hovetarena.se/evenemang/sport/djurgarden-hockey/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/sport/djurgarden-hockey/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-5488-2@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260314T200000Z
+DTEND:20260314T220000Z
+SUMMARY:Håkan Hellström (2/2) - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/hakan-hellstrom/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/hakan-hellstrom/
+END:VEVENT
+BEGIN:VEVENT
+UID:annexet-1764-5@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260315T123000Z
+DTEND:20260315T143000Z
+SUMMARY:ESL Pro League (5/6) - Annexet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Annexet\nKategori: Event\nLänk: https://annexet.se/evenemang/annat/esl-pro-league/
+LOCATION:Annexet
+URL:https://annexet.se/evenemang/annat/esl-pro-league/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-5495-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260320T180000Z
+DTEND:20260320T200000Z
+SUMMARY:Molly Sandén (1/2) - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/molly-sanden/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/molly-sanden/
+END:VEVENT
+BEGIN:VEVENT
+UID:annexet-1575@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260323T193000Z
+DTEND:20260323T213000Z
+SUMMARY:The Last Airbender In Concert – The 20th Anniversary Tour - Annexet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Annexet\nKategori: Event\nLänk: https://annexet.se/evenemang/musik-show/the-last-airbender-in-concert-the-20th-anniversary-tour/
+LOCATION:Annexet
+URL:https://annexet.se/evenemang/musik-show/the-last-airbender-in-concert-the-20th-anniversary-tour/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-5805-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260328T183000Z
+DTEND:20260328T203000Z
+SUMMARY:Måns Möller (1/2) - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/mans-moller/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/mans-moller/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-5576-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260329T180000Z
+DTEND:20260329T200000Z
+SUMMARY:Louis Tomlinson (1/2) - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/louis-tomlinson/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/louis-tomlinson/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1863-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260418T181500Z
+DTEND:20260418T201500Z
+SUMMARY:5 Seconds of Summer (1/2) - Hovet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Hovet\nKategori: Annat\nLänk: https://hovetarena.se/evenemang/musik-show/5-seconds-of-summer/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/musik-show/5-seconds-of-summer/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-5984-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260420T180000Z
+DTEND:20260420T200000Z
+SUMMARY:Matt Rife (1/2) - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/matt-rife/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/matt-rife/
+END:VEVENT
+BEGIN:VEVENT
+UID:annexet-1703-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260423T173000Z
+DTEND:20260423T193000Z
+SUMMARY:Kreator (1/2) - Annexet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Annexet\nKategori: Event\nLänk: https://annexet.se/evenemang/musik-show/kreator/
+LOCATION:Annexet
+URL:https://annexet.se/evenemang/musik-show/kreator/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-5998-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260425T100000Z
+DTEND:20260425T120000Z
+SUMMARY:SM-finalen Innebandy 2026 (1/2) - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/sm-finalen-innebandy-2026/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/sm-finalen-innebandy-2026/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-5553-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260426T180000Z
+DTEND:20260426T200000Z
+SUMMARY:Tame Impala (1/2) - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/tame-impala/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/tame-impala/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-5623-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260503T180000Z
+DTEND:20260503T200000Z
+SUMMARY:Pentatonix (1/2) - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/pentatonix/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/pentatonix/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-6084-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260509T173000Z
+DTEND:20260509T193000Z
+SUMMARY:Marcus & Martinus (1/2) - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/marcus-martinus/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/marcus-martinus/
+END:VEVENT
+BEGIN:VEVENT
+UID:annexet-1748-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260512T180000Z
+DTEND:20260512T200000Z
+SUMMARY:Dermot Kennedy (1/2) - Annexet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Annexet\nKategori: Event\nLänk: https://annexet.se/evenemang/musik-show/dermot-kennedy/
+LOCATION:Annexet
+URL:https://annexet.se/evenemang/musik-show/dermot-kennedy/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-5795-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260516T180000Z
+DTEND:20260516T200000Z
+SUMMARY:Jireel (1/2) - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/jireel/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/jireel/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-5435-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260517T183000Z
+DTEND:20260517T203000Z
+SUMMARY:Olivia Dean (1/2) - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/olivia-dean/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/olivia-dean/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-5800-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260525T183000Z
+DTEND:20260525T203000Z
+SUMMARY:Conan Gray (1/2) - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/conan-gray/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/conan-gray/
+END:VEVENT
+BEGIN:VEVENT
+UID:3arena-3295@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260529T193000Z
+DTEND:20260529T213000Z
+SUMMARY:LINKIN PARK - 3Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: 3Arena\nKategori: Humor/Samtal\nLänk: https://3arena.se/evenemang/musik-show/linkin-park/
+LOCATION:3Arena
+URL:https://3arena.se/evenemang/musik-show/linkin-park/
+END:VEVENT
+BEGIN:VEVENT
+UID:annexet-1769@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260613T220000Z
+DTEND:20260614T000000Z
+SUMMARY:Extreme - Annexet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Annexet\nKategori: Event\nLänk: https://annexet.se/evenemang/musik-show/extreme/
+LOCATION:Annexet
+URL:https://annexet.se/evenemang/musik-show/extreme/
+END:VEVENT
+BEGIN:VEVENT
+UID:3arena-3404@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260623T200000Z
+DTEND:20260623T220000Z
+SUMMARY:Pitbull - 3Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: 3Arena\nKategori: Humor/Samtal\nLänk: https://3arena.se/evenemang/musik-show/pitbull/
+LOCATION:3Arena
+URL:https://3arena.se/evenemang/musik-show/pitbull/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-6056@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260724T193000Z
+DTEND:20260724T213000Z
+SUMMARY:Lenny Kravitz - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/lenny-kravitz/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/lenny-kravitz/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-6183@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260826T193000Z
+DTEND:20260826T213000Z
+SUMMARY:Emmylou Harris - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/emmylou-harris/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/emmylou-harris/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-6047-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260926T180000Z
+DTEND:20260926T200000Z
+SUMMARY:Oskar Linnros (1/2) - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/oskar-linnros/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/oskar-linnros/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-5567-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20261023T183000Z
+DTEND:20261023T203000Z
+SUMMARY:Joe Bonamassa (1/2) - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/joe-bonamassa/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/joe-bonamassa/
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1909-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20261024T173000Z
+DTEND:20261024T193000Z
+SUMMARY:Amon Amarth (1/2) - Hovet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Hovet\nKategori: Annat\nLänk: https://hovetarena.se/evenemang/musik-show/amon-amarth/
+LOCATION:Hovet
+URL:https://hovetarena.se/evenemang/musik-show/amon-amarth/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-6061@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20261026T193000Z
+DTEND:20261026T213000Z
+SUMMARY:Deep Purple - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/deep-purple/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/deep-purple/
+END:VEVENT
+BEGIN:VEVENT
+UID:annexet-1727-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20261030T180000Z
+DTEND:20261030T200000Z
+SUMMARY:Brandi Carlile (1/2) - Annexet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Annexet\nKategori: Event\nLänk: https://annexet.se/evenemang/musik-show/brandi-carlile/
+LOCATION:Annexet
+URL:https://annexet.se/evenemang/musik-show/brandi-carlile/
+END:VEVENT
+BEGIN:VEVENT
+UID:annexet-1743-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20261102T183000Z
+DTEND:20261102T203000Z
+SUMMARY:The Witcher in Concert 2026 (1/2) - Annexet
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Annexet\nKategori: Event\nLänk: https://annexet.se/evenemang/musik-show/the-witcher-in-concert-2026/
+LOCATION:Annexet
+URL:https://annexet.se/evenemang/musik-show/the-witcher-in-concert-2026/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-6138-1@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20261113T193000Z
+DTEND:20261113T213000Z
+SUMMARY:Benjamin Ingrosso (1/2) - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/benjamin-ingrosso/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/benjamin-ingrosso/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-6138-2@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20261114T193000Z
+DTEND:20261114T213000Z
+SUMMARY:Benjamin Ingrosso (2/2) - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/benjamin-ingrosso/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/benjamin-ingrosso/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-5829@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20261120T193000Z
+DTEND:20261120T213000Z
+SUMMARY:Westlife - Avicii Arena
+DESCRIPTION:Kommande evenemang i Globenområdet\n\nArena: Avicii Arena\nKategori: Musik/Show\nLänk: https://aviciiarena.se/evenemang/musik-show/westlife/
+LOCATION:Avicii Arena
+URL:https://aviciiarena.se/evenemang/musik-show/westlife/
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-5423-3@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260110T103000Z
+DTEND:20260110T123000Z
+SUMMARY:Disney On Ice presenterar Find Your Hero (3/8) - Avicii Arena (Inställt)
+STATUS:CANCELLED
+SEQUENCE:1
+END:VEVENT
+BEGIN:VEVENT
+UID:avicii-arena-5423-6@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260111T103000Z
+DTEND:20260111T123000Z
+SUMMARY:Disney On Ice presenterar Find Your Hero (6/8) - Avicii Arena (Inställt)
+STATUS:CANCELLED
+SEQUENCE:1
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1823-2@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260115T190000Z
+DTEND:20260115T210000Z
+SUMMARY:Djurgården Hockey vs Växjö (2/11) - Hovet (Inställt)
+STATUS:CANCELLED
+SEQUENCE:1
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1825-2@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260116T190000Z
+DTEND:20260116T210000Z
+SUMMARY:AIK Hockey vs Kalmar HC (2/11) - Hovet (Inställt)
+STATUS:CANCELLED
+SEQUENCE:1
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1823-3@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260117T151500Z
+DTEND:20260117T171500Z
+SUMMARY:Djurgården Hockey vs Frölunda (3/11) - Hovet (Inställt)
+STATUS:CANCELLED
+SEQUENCE:1
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1825-3@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260121T190000Z
+DTEND:20260121T210000Z
+SUMMARY:AIK Hockey vs Vimmerby HC (3/11) - Hovet (Inställt)
+STATUS:CANCELLED
+SEQUENCE:1
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1823-4@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260124T180000Z
+DTEND:20260124T200000Z
+SUMMARY:Djurgården Hockey vs Malmö (4/11) - Hovet (Inställt)
+STATUS:CANCELLED
+SEQUENCE:1
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1825-4@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260130T190000Z
+DTEND:20260130T210000Z
+SUMMARY:AIK Hockey vs Almtuna (4/11) - Hovet (Inställt)
+STATUS:CANCELLED
+SEQUENCE:1
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1825-5@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260204T190000Z
+DTEND:20260204T210000Z
+SUMMARY:AIK Hockey vs Nybro Vikings (5/11) - Hovet (Inställt)
+STATUS:CANCELLED
+SEQUENCE:1
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1823-5@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260205T190000Z
+DTEND:20260205T210000Z
+SUMMARY:Djurgården Hockey vs Färjestad (5/11) - Hovet (Inställt)
+STATUS:CANCELLED
+SEQUENCE:1
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1825-6@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260206T190000Z
+DTEND:20260206T210000Z
+SUMMARY:AIK Hockey vs Kalmar HC (6/11) - Hovet (Inställt)
+STATUS:CANCELLED
+SEQUENCE:1
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1823-6@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260207T151500Z
+DTEND:20260207T171500Z
+SUMMARY:Djurgården Hockey vs Linköping (6/11) - Hovet (Inställt)
+STATUS:CANCELLED
+SEQUENCE:1
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1825-7@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260210T190000Z
+DTEND:20260210T210000Z
+SUMMARY:AIK Hockey vs MoDo Hockey (7/11) - Hovet (Inställt)
+STATUS:CANCELLED
+SEQUENCE:1
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1825-8@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260223T190000Z
+DTEND:20260223T210000Z
+SUMMARY:AIK Hockey vs Almtuna (8/11) - Hovet (Inställt)
+STATUS:CANCELLED
+SEQUENCE:1
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1823-7@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260226T190000Z
+DTEND:20260226T210000Z
+SUMMARY:Djurgården Hockey vs Hv71 (7/11) - Hovet (Inställt)
+STATUS:CANCELLED
+SEQUENCE:1
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1825-9@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260226T230000Z
+DTEND:20260227T010000Z
+SUMMARY:AIK Hockey vs Södertälje (9/11) - Hovet (Inställt)
+STATUS:CANCELLED
+SEQUENCE:1
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1825-10@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260304T190000Z
+DTEND:20260304T210000Z
+SUMMARY:AIK Hockey vs Östersund IK (10/11) - Hovet (Inställt)
+STATUS:CANCELLED
+SEQUENCE:1
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1825-11@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260306T190000Z
+DTEND:20260306T210000Z
+SUMMARY:AIK Hockey vs IK Oskarshamn (11/11) - Hovet (Inställt)
+STATUS:CANCELLED
+SEQUENCE:1
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1823-9@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260307T180000Z
+DTEND:20260307T200000Z
+SUMMARY:Djurgården Hockey vs Luleå (9/11) - Hovet (Inställt)
+STATUS:CANCELLED
+SEQUENCE:1
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1823-10@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260310T190000Z
+DTEND:20260310T210000Z
+SUMMARY:Djurgården Hockey vs Växjö (10/11) - Hovet (Inställt)
+STATUS:CANCELLED
+SEQUENCE:1
+END:VEVENT
+BEGIN:VEVENT
+UID:hovet-1823-11@mackan.eu
+DTSTAMP:20260110T064236Z
+DTSTART:20260314T151500Z
+DTEND:20260314T171500Z
+SUMMARY:Djurgården Hockey vs Skellefteå (11/11) - Hovet (Inställt)
+STATUS:CANCELLED
+SEQUENCE:1
+END:VEVENT
+END:VCALENDAR

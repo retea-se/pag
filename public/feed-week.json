@@ -1,0 +1,142 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "På G - Denna vecka",
+  "description": "Evenemang i Globenområdet denna vecka",
+  "home_page_url": "https://mackan.eu/pag",
+  "feed_url": "https://mackan.eu/pag/feed-week.json",
+  "language": "sv",
+  "items": [
+    {
+      "id": "avicii-arena-5423-1",
+      "title": "Disney On Ice presenterar Find Your Hero (1/6) - Avicii Arena",
+      "content_html": "lördag 10 januari 2026 kl. 10:30 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/disney-on-ice-presenterar-find-your-hero/",
+      "date_published": "2026-01-10T09:30:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/disney-on-ice-presenterar-find-your-hero/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-01-10T09:30:00.000Z",
+        "eventTime": "10:30",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 6
+      }
+    },
+    {
+      "id": "avicii-arena-5423-4",
+      "title": "Disney On Ice presenterar Find Your Hero (4/6) - Avicii Arena",
+      "content_html": "söndag 11 januari 2026 kl. 10:30 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/disney-on-ice-presenterar-find-your-hero/",
+      "date_published": "2026-01-11T09:30:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/disney-on-ice-presenterar-find-your-hero/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-01-11T09:30:00.000Z",
+        "eventTime": "10:30",
+        "opponent": null,
+        "performanceNumber": 4,
+        "totalPerformances": 6
+      }
+    },
+    {
+      "id": "avicii-arena-5618-1",
+      "title": "Burna Boy (1/2) - Avicii Arena",
+      "content_html": "torsdag 15 januari 2026 kl. 18:00 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/burna-boy/",
+      "date_published": "2026-01-15T17:00:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/burna-boy/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-01-15T17:00:00.000Z",
+        "eventTime": "18:00",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "hovet-1823-1",
+      "title": "Djurgården Hockey vs Växjö (1/10) - Hovet",
+      "content_html": "torsdag 15 januari 2026 kl. 19:00 på Hovet. Kategori: Sport",
+      "url": "https://hovetarena.se/evenemang/sport/djurgarden-hockey/",
+      "date_published": "2026-01-15T18:00:00.000Z",
+      "tags": [
+        "Sport",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/sport/djurgarden-hockey/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Sport",
+        "eventDate": "2026-01-15T18:00:00.000Z",
+        "eventTime": "19:00",
+        "opponent": "Växjö",
+        "performanceNumber": 1,
+        "totalPerformances": 10
+      }
+    },
+    {
+      "id": "annexet-1627-1",
+      "title": "Architects (1/2) - Annexet",
+      "content_html": "fredag 16 januari 2026 kl. 18:15 på Annexet. Kategori: Event",
+      "url": "https://annexet.se/evenemang/musik-show/architects/",
+      "date_published": "2026-01-16T17:15:00.000Z",
+      "tags": [
+        "Event",
+        "Annexet"
+      ],
+      "external_url": "https://annexet.se/evenemang/musik-show/architects/",
+      "_meta": {
+        "arena": "Annexet",
+        "arenaId": "annexet",
+        "category": "Event",
+        "eventDate": "2026-01-16T17:15:00.000Z",
+        "eventTime": "18:15",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "hovet-1825-1",
+      "title": "AIK Hockey vs Kalmar HC (1/10) - Hovet",
+      "content_html": "fredag 16 januari 2026 kl. 19:00 på Hovet. Kategori: Sport",
+      "url": "https://hovetarena.se/evenemang/sport/aik-hockey/",
+      "date_published": "2026-01-16T18:00:00.000Z",
+      "tags": [
+        "Sport",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/sport/aik-hockey/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Sport",
+        "eventDate": "2026-01-16T18:00:00.000Z",
+        "eventTime": "19:00",
+        "opponent": "Kalmar HC",
+        "performanceNumber": 1,
+        "totalPerformances": 10
+      }
+    }
+  ]
+}

@@ -1,0 +1,1858 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "På G - Kommande",
+  "description": "Kommande evenemang i Globenområdet",
+  "home_page_url": "https://mackan.eu/pag",
+  "feed_url": "https://mackan.eu/pag/feed-upcoming.json",
+  "language": "sv",
+  "items": [
+    {
+      "id": "avicii-arena-5423-1",
+      "title": "Disney On Ice presenterar Find Your Hero (1/6) - Avicii Arena",
+      "content_html": "lördag 10 januari 2026 kl. 10:30 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/disney-on-ice-presenterar-find-your-hero/",
+      "date_published": "2026-01-10T09:30:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/disney-on-ice-presenterar-find-your-hero/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-01-10T09:30:00.000Z",
+        "eventTime": "10:30",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 6
+      }
+    },
+    {
+      "id": "avicii-arena-5423-4",
+      "title": "Disney On Ice presenterar Find Your Hero (4/6) - Avicii Arena",
+      "content_html": "söndag 11 januari 2026 kl. 10:30 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/disney-on-ice-presenterar-find-your-hero/",
+      "date_published": "2026-01-11T09:30:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/disney-on-ice-presenterar-find-your-hero/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-01-11T09:30:00.000Z",
+        "eventTime": "10:30",
+        "opponent": null,
+        "performanceNumber": 4,
+        "totalPerformances": 6
+      }
+    },
+    {
+      "id": "avicii-arena-5618-1",
+      "title": "Burna Boy (1/2) - Avicii Arena",
+      "content_html": "torsdag 15 januari 2026 kl. 18:00 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/burna-boy/",
+      "date_published": "2026-01-15T17:00:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/burna-boy/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-01-15T17:00:00.000Z",
+        "eventTime": "18:00",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "hovet-1823-1",
+      "title": "Djurgården Hockey vs Växjö (1/10) - Hovet",
+      "content_html": "torsdag 15 januari 2026 kl. 19:00 på Hovet. Kategori: Sport",
+      "url": "https://hovetarena.se/evenemang/sport/djurgarden-hockey/",
+      "date_published": "2026-01-15T18:00:00.000Z",
+      "tags": [
+        "Sport",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/sport/djurgarden-hockey/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Sport",
+        "eventDate": "2026-01-15T18:00:00.000Z",
+        "eventTime": "19:00",
+        "opponent": "Växjö",
+        "performanceNumber": 1,
+        "totalPerformances": 10
+      }
+    },
+    {
+      "id": "annexet-1627-1",
+      "title": "Architects (1/2) - Annexet",
+      "content_html": "fredag 16 januari 2026 kl. 18:15 på Annexet. Kategori: Event",
+      "url": "https://annexet.se/evenemang/musik-show/architects/",
+      "date_published": "2026-01-16T17:15:00.000Z",
+      "tags": [
+        "Event",
+        "Annexet"
+      ],
+      "external_url": "https://annexet.se/evenemang/musik-show/architects/",
+      "_meta": {
+        "arena": "Annexet",
+        "arenaId": "annexet",
+        "category": "Event",
+        "eventDate": "2026-01-16T17:15:00.000Z",
+        "eventTime": "18:15",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "hovet-1825-1",
+      "title": "AIK Hockey vs Kalmar HC (1/10) - Hovet",
+      "content_html": "fredag 16 januari 2026 kl. 19:00 på Hovet. Kategori: Sport",
+      "url": "https://hovetarena.se/evenemang/sport/aik-hockey/",
+      "date_published": "2026-01-16T18:00:00.000Z",
+      "tags": [
+        "Sport",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/sport/aik-hockey/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Sport",
+        "eventDate": "2026-01-16T18:00:00.000Z",
+        "eventTime": "19:00",
+        "opponent": "Kalmar HC",
+        "performanceNumber": 1,
+        "totalPerformances": 10
+      }
+    },
+    {
+      "id": "hovet-1823-2",
+      "title": "Djurgården Hockey vs Frölunda (2/10) - Hovet",
+      "content_html": "lördag 17 januari 2026 kl. 15:15 på Hovet. Kategori: Sport",
+      "url": "https://hovetarena.se/evenemang/sport/djurgarden-hockey/",
+      "date_published": "2026-01-17T14:15:00.000Z",
+      "tags": [
+        "Sport",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/sport/djurgarden-hockey/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Sport",
+        "eventDate": "2026-01-17T14:15:00.000Z",
+        "eventTime": "15:15",
+        "opponent": "Frölunda",
+        "performanceNumber": 2,
+        "totalPerformances": 10
+      }
+    },
+    {
+      "id": "annexet-1672-1",
+      "title": "Alter Bridge: What Lies Within Tour (1/2) - Annexet",
+      "content_html": "tisdag 20 januari 2026 kl. 18:00 på Annexet. Kategori: Event",
+      "url": "https://annexet.se/evenemang/musik-show/alter-bridge-what-lies-within-tour/",
+      "date_published": "2026-01-20T17:00:00.000Z",
+      "tags": [
+        "Event",
+        "Annexet"
+      ],
+      "external_url": "https://annexet.se/evenemang/musik-show/alter-bridge-what-lies-within-tour/",
+      "_meta": {
+        "arena": "Annexet",
+        "arenaId": "annexet",
+        "category": "Event",
+        "eventDate": "2026-01-20T17:00:00.000Z",
+        "eventTime": "18:00",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "hovet-1825-2",
+      "title": "AIK Hockey vs Vimmerby HC (2/10) - Hovet",
+      "content_html": "onsdag 21 januari 2026 kl. 19:00 på Hovet. Kategori: Sport",
+      "url": "https://hovetarena.se/evenemang/sport/aik-hockey/",
+      "date_published": "2026-01-21T18:00:00.000Z",
+      "tags": [
+        "Sport",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/sport/aik-hockey/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Sport",
+        "eventDate": "2026-01-21T18:00:00.000Z",
+        "eventTime": "19:00",
+        "opponent": "Vimmerby HC",
+        "performanceNumber": 2,
+        "totalPerformances": 10
+      }
+    },
+    {
+      "id": "avicii-arena-6033",
+      "title": "Idrottsgalan 2026 - Avicii Arena",
+      "content_html": "onsdag 21 januari 2026 kl. 20:00 på Avicii Arena. Kategori: Annat",
+      "url": "https://aviciiarena.se/evenemang/annat/idrottsgalan-2026/",
+      "date_published": "2026-01-21T19:00:00.000Z",
+      "tags": [
+        "Annat",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/annat/idrottsgalan-2026/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Annat",
+        "eventDate": "2026-01-21T19:00:00.000Z",
+        "eventTime": "20:00",
+        "opponent": null,
+        "performanceNumber": null,
+        "totalPerformances": null
+      }
+    },
+    {
+      "id": "hovet-1823-3",
+      "title": "Djurgården Hockey vs Malmö (3/10) - Hovet",
+      "content_html": "lördag 24 januari 2026 kl. 18:00 på Hovet. Kategori: Sport",
+      "url": "https://hovetarena.se/evenemang/sport/djurgarden-hockey/",
+      "date_published": "2026-01-24T17:00:00.000Z",
+      "tags": [
+        "Sport",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/sport/djurgarden-hockey/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Sport",
+        "eventDate": "2026-01-24T17:00:00.000Z",
+        "eventTime": "18:00",
+        "opponent": "Malmö",
+        "performanceNumber": 3,
+        "totalPerformances": 10
+      }
+    },
+    {
+      "id": "avicii-arena-6115-1",
+      "title": "Stockholm Beach (1/2) - Avicii Arena",
+      "content_html": "torsdag 29 januari 2026 kl. 16:00 på Avicii Arena. Kategori: Sport",
+      "url": "https://aviciiarena.se/evenemang/sport/stockholm-beach/",
+      "date_published": "2026-01-29T15:00:00.000Z",
+      "tags": [
+        "Sport",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/sport/stockholm-beach/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Sport",
+        "eventDate": "2026-01-29T15:00:00.000Z",
+        "eventTime": "16:00",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "hovet-1825-3",
+      "title": "AIK Hockey vs Almtuna (3/10) - Hovet",
+      "content_html": "fredag 30 januari 2026 kl. 19:00 på Hovet. Kategori: Sport",
+      "url": "https://hovetarena.se/evenemang/sport/aik-hockey/",
+      "date_published": "2026-01-30T18:00:00.000Z",
+      "tags": [
+        "Sport",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/sport/aik-hockey/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Sport",
+        "eventDate": "2026-01-30T18:00:00.000Z",
+        "eventTime": "19:00",
+        "opponent": "Almtuna",
+        "performanceNumber": 3,
+        "totalPerformances": 10
+      }
+    },
+    {
+      "id": "3arena-3441",
+      "title": "Det Räcker! - 3Arena",
+      "content_html": "lördag 31 januari 2026 kl. 15:00 på 3Arena. Kategori: Humor/Samtal",
+      "url": "https://3arena.se/evenemang/musik-show/det-racker/",
+      "date_published": "2026-01-31T14:00:00.000Z",
+      "tags": [
+        "Humor/Samtal",
+        "3Arena"
+      ],
+      "external_url": "https://3arena.se/evenemang/musik-show/det-racker/",
+      "_meta": {
+        "arena": "3Arena",
+        "arenaId": "3arena",
+        "category": "Humor/Samtal",
+        "eventDate": "2026-01-31T14:00:00.000Z",
+        "eventTime": "15:00",
+        "opponent": null,
+        "performanceNumber": null,
+        "totalPerformances": null
+      }
+    },
+    {
+      "id": "avicii-arena-5500-1",
+      "title": "Soppgirobygget (1/2) - Avicii Arena",
+      "content_html": "lördag 31 januari 2026 kl. 18:00 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/soppgirobygget/",
+      "date_published": "2026-01-31T17:00:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/soppgirobygget/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-01-31T17:00:00.000Z",
+        "eventTime": "18:00",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "hovet-1825-4",
+      "title": "AIK Hockey vs Nybro Vikings (4/10) - Hovet",
+      "content_html": "onsdag 4 februari 2026 kl. 19:00 på Hovet. Kategori: Sport",
+      "url": "https://hovetarena.se/evenemang/sport/aik-hockey/",
+      "date_published": "2026-02-04T18:00:00.000Z",
+      "tags": [
+        "Sport",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/sport/aik-hockey/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Sport",
+        "eventDate": "2026-02-04T18:00:00.000Z",
+        "eventTime": "19:00",
+        "opponent": "Nybro Vikings",
+        "performanceNumber": 4,
+        "totalPerformances": 10
+      }
+    },
+    {
+      "id": "hovet-1823-4",
+      "title": "Djurgården Hockey vs Färjestad (4/10) - Hovet",
+      "content_html": "torsdag 5 februari 2026 kl. 19:00 på Hovet. Kategori: Sport",
+      "url": "https://hovetarena.se/evenemang/sport/djurgarden-hockey/",
+      "date_published": "2026-02-05T18:00:00.000Z",
+      "tags": [
+        "Sport",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/sport/djurgarden-hockey/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Sport",
+        "eventDate": "2026-02-05T18:00:00.000Z",
+        "eventTime": "19:00",
+        "opponent": "Färjestad",
+        "performanceNumber": 4,
+        "totalPerformances": 10
+      }
+    },
+    {
+      "id": "hovet-1825-5",
+      "title": "AIK Hockey vs Kalmar HC (5/10) - Hovet",
+      "content_html": "fredag 6 februari 2026 kl. 19:00 på Hovet. Kategori: Sport",
+      "url": "https://hovetarena.se/evenemang/sport/aik-hockey/",
+      "date_published": "2026-02-06T18:00:00.000Z",
+      "tags": [
+        "Sport",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/sport/aik-hockey/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Sport",
+        "eventDate": "2026-02-06T18:00:00.000Z",
+        "eventTime": "19:00",
+        "opponent": "Kalmar HC",
+        "performanceNumber": 5,
+        "totalPerformances": 10
+      }
+    },
+    {
+      "id": "hovet-1823-5",
+      "title": "Djurgården Hockey vs Linköping (5/10) - Hovet",
+      "content_html": "lördag 7 februari 2026 kl. 15:15 på Hovet. Kategori: Sport",
+      "url": "https://hovetarena.se/evenemang/sport/djurgarden-hockey/",
+      "date_published": "2026-02-07T14:15:00.000Z",
+      "tags": [
+        "Sport",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/sport/djurgarden-hockey/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Sport",
+        "eventDate": "2026-02-07T14:15:00.000Z",
+        "eventTime": "15:15",
+        "opponent": "Linköping",
+        "performanceNumber": 5,
+        "totalPerformances": 10
+      }
+    },
+    {
+      "id": "avicii-arena-5482-1",
+      "title": "RAYE (1/2) - Avicii Arena",
+      "content_html": "lördag 7 februari 2026 kl. 17:45 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/raye/",
+      "date_published": "2026-02-07T16:45:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/raye/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-02-07T16:45:00.000Z",
+        "eventTime": "17:45",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "annexet-1668-1",
+      "title": "sombr: The Late Nights & Young Romance Tour (1/2) - Annexet",
+      "content_html": "tisdag 10 februari 2026 kl. 18:00 på Annexet. Kategori: Event",
+      "url": "https://annexet.se/evenemang/musik-show/sombr-the-late-nights-young-romance-tour/",
+      "date_published": "2026-02-10T17:00:00.000Z",
+      "tags": [
+        "Event",
+        "Annexet"
+      ],
+      "external_url": "https://annexet.se/evenemang/musik-show/sombr-the-late-nights-young-romance-tour/",
+      "_meta": {
+        "arena": "Annexet",
+        "arenaId": "annexet",
+        "category": "Event",
+        "eventDate": "2026-02-10T17:00:00.000Z",
+        "eventTime": "18:00",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "hovet-1825-6",
+      "title": "AIK Hockey vs MoDo Hockey (6/10) - Hovet",
+      "content_html": "tisdag 10 februari 2026 kl. 19:00 på Hovet. Kategori: Sport",
+      "url": "https://hovetarena.se/evenemang/sport/aik-hockey/",
+      "date_published": "2026-02-10T18:00:00.000Z",
+      "tags": [
+        "Sport",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/sport/aik-hockey/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Sport",
+        "eventDate": "2026-02-10T18:00:00.000Z",
+        "eventTime": "19:00",
+        "opponent": "MoDo Hockey",
+        "performanceNumber": 6,
+        "totalPerformances": 10
+      }
+    },
+    {
+      "id": "annexet-1694-1",
+      "title": "The Kooks (1/2) - Annexet",
+      "content_html": "torsdag 12 februari 2026 kl. 18:30 på Annexet. Kategori: Event",
+      "url": "https://annexet.se/evenemang/musik-show/the-kooks/",
+      "date_published": "2026-02-12T17:30:00.000Z",
+      "tags": [
+        "Event",
+        "Annexet"
+      ],
+      "external_url": "https://annexet.se/evenemang/musik-show/the-kooks/",
+      "_meta": {
+        "arena": "Annexet",
+        "arenaId": "annexet",
+        "category": "Event",
+        "eventDate": "2026-02-12T17:30:00.000Z",
+        "eventTime": "18:30",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "3arena-3492-1",
+      "title": "Djurgården Fotboll (1/3) - 3Arena",
+      "content_html": "lördag 14 februari 2026 kl. 15:00 på 3Arena. Kategori: Sport",
+      "url": "https://3arena.se/evenemang/sport/djurgarden-fotboll/",
+      "date_published": "2026-02-14T14:00:00.000Z",
+      "tags": [
+        "Sport",
+        "3Arena"
+      ],
+      "external_url": "https://3arena.se/evenemang/sport/djurgarden-fotboll/",
+      "_meta": {
+        "arena": "3Arena",
+        "arenaId": "3arena",
+        "category": "Sport",
+        "eventDate": "2026-02-14T14:00:00.000Z",
+        "eventTime": "15:00",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 3
+      }
+    },
+    {
+      "id": "hovet-1844-1",
+      "title": "Tjuvjakt (1/2) - Hovet",
+      "content_html": "lördag 14 februari 2026 kl. 18:00 på Hovet. Kategori: Annat",
+      "url": "https://hovetarena.se/evenemang/musik-show/tjuvjakt/",
+      "date_published": "2026-02-14T17:00:00.000Z",
+      "tags": [
+        "Annat",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/musik-show/tjuvjakt/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Annat",
+        "eventDate": "2026-02-14T17:00:00.000Z",
+        "eventTime": "18:00",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "annexet-1594",
+      "title": "Jason Derulo: The Last Dance World Tour - Annexet",
+      "content_html": "måndag 16 februari 2026 kl. 19:30 på Annexet. Kategori: Event",
+      "url": "https://annexet.se/evenemang/musik-show/jason-derulo-the-last-dance-world-tour/",
+      "date_published": "2026-02-16T18:30:00.000Z",
+      "tags": [
+        "Event",
+        "Annexet"
+      ],
+      "external_url": "https://annexet.se/evenemang/musik-show/jason-derulo-the-last-dance-world-tour/",
+      "_meta": {
+        "arena": "Annexet",
+        "arenaId": "annexet",
+        "category": "Event",
+        "eventDate": "2026-02-16T18:30:00.000Z",
+        "eventTime": "19:30",
+        "opponent": null,
+        "performanceNumber": null,
+        "totalPerformances": null
+      }
+    },
+    {
+      "id": "avicii-arena-5786-1",
+      "title": "Dave (1/2) - Avicii Arena",
+      "content_html": "tisdag 17 februari 2026 kl. 18:30 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/dave/",
+      "date_published": "2026-02-17T17:30:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/dave/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-02-17T17:30:00.000Z",
+        "eventTime": "18:30",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "hovet-1873",
+      "title": "Sean Paul – Inställd - Hovet",
+      "content_html": "tisdag 17 februari 2026 kl. 20:00 på Hovet. Kategori: Annat",
+      "url": "https://hovetarena.se/evenemang/musik-show/sean-paul/",
+      "date_published": "2026-02-17T19:00:00.000Z",
+      "tags": [
+        "Annat",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/musik-show/sean-paul/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Annat",
+        "eventDate": "2026-02-17T19:00:00.000Z",
+        "eventTime": "20:00",
+        "opponent": null,
+        "performanceNumber": null,
+        "totalPerformances": null
+      }
+    },
+    {
+      "id": "3arena-3488",
+      "title": "Hammarby Fotboll - 3Arena",
+      "content_html": "onsdag 18 februari 2026 kl. 19:00 på 3Arena. Kategori: Sport",
+      "url": "https://3arena.se/evenemang/sport/hammarby-fotboll/",
+      "date_published": "2026-02-18T18:00:00.000Z",
+      "tags": [
+        "Sport",
+        "3Arena"
+      ],
+      "external_url": "https://3arena.se/evenemang/sport/hammarby-fotboll/",
+      "_meta": {
+        "arena": "3Arena",
+        "arenaId": "3arena",
+        "category": "Sport",
+        "eventDate": "2026-02-18T18:00:00.000Z",
+        "eventTime": "19:00",
+        "opponent": null,
+        "performanceNumber": null,
+        "totalPerformances": null
+      }
+    },
+    {
+      "id": "hovet-1828-1",
+      "title": "Lorna Shore (1/2) - Hovet",
+      "content_html": "torsdag 19 februari 2026 kl. 18:30 på Hovet. Kategori: Annat",
+      "url": "https://hovetarena.se/evenemang/musik-show/lorna-shore/",
+      "date_published": "2026-02-19T17:30:00.000Z",
+      "tags": [
+        "Annat",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/musik-show/lorna-shore/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Annat",
+        "eventDate": "2026-02-19T17:30:00.000Z",
+        "eventTime": "18:30",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "3arena-3492-2",
+      "title": "Djurgården Fotboll (2/3) - 3Arena",
+      "content_html": "lördag 21 februari 2026 kl. 15:00 på 3Arena. Kategori: Sport",
+      "url": "https://3arena.se/evenemang/sport/djurgarden-fotboll/",
+      "date_published": "2026-02-21T14:00:00.000Z",
+      "tags": [
+        "Sport",
+        "3Arena"
+      ],
+      "external_url": "https://3arena.se/evenemang/sport/djurgarden-fotboll/",
+      "_meta": {
+        "arena": "3Arena",
+        "arenaId": "3arena",
+        "category": "Sport",
+        "eventDate": "2026-02-21T14:00:00.000Z",
+        "eventTime": "15:00",
+        "opponent": null,
+        "performanceNumber": 2,
+        "totalPerformances": 3
+      }
+    },
+    {
+      "id": "hovet-1815-1",
+      "title": "Powerwolf (1/2) - Hovet",
+      "content_html": "lördag 21 februari 2026 kl. 17:00 på Hovet. Kategori: Annat",
+      "url": "https://hovetarena.se/evenemang/musik-show/powerwolf/",
+      "date_published": "2026-02-21T16:00:00.000Z",
+      "tags": [
+        "Annat",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/musik-show/powerwolf/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Annat",
+        "eventDate": "2026-02-21T16:00:00.000Z",
+        "eventTime": "17:00",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "3arena-3490-1",
+      "title": "Hammarby Fotboll (1/2) - 3Arena",
+      "content_html": "lördag 21 februari 2026 kl. 19:00 på 3Arena. Kategori: Sport",
+      "url": "https://3arena.se/evenemang/sport/hammarby-fotboll-2/",
+      "date_published": "2026-02-21T18:00:00.000Z",
+      "tags": [
+        "Sport",
+        "3Arena"
+      ],
+      "external_url": "https://3arena.se/evenemang/sport/hammarby-fotboll-2/",
+      "_meta": {
+        "arena": "3Arena",
+        "arenaId": "3arena",
+        "category": "Sport",
+        "eventDate": "2026-02-21T18:00:00.000Z",
+        "eventTime": "19:00",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "hovet-1825-7",
+      "title": "AIK Hockey vs Almtuna (7/10) - Hovet",
+      "content_html": "måndag 23 februari 2026 kl. 19:00 på Hovet. Kategori: Sport",
+      "url": "https://hovetarena.se/evenemang/sport/aik-hockey/",
+      "date_published": "2026-02-23T18:00:00.000Z",
+      "tags": [
+        "Sport",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/sport/aik-hockey/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Sport",
+        "eventDate": "2026-02-23T18:00:00.000Z",
+        "eventTime": "19:00",
+        "opponent": "Almtuna",
+        "performanceNumber": 7,
+        "totalPerformances": 10
+      }
+    },
+    {
+      "id": "hovet-1823-6",
+      "title": "Djurgården Hockey vs Hv71 (6/10) - Hovet",
+      "content_html": "torsdag 26 februari 2026 kl. 19:00 på Hovet. Kategori: Sport",
+      "url": "https://hovetarena.se/evenemang/sport/djurgarden-hockey/",
+      "date_published": "2026-02-26T18:00:00.000Z",
+      "tags": [
+        "Sport",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/sport/djurgarden-hockey/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Sport",
+        "eventDate": "2026-02-26T18:00:00.000Z",
+        "eventTime": "19:00",
+        "opponent": "Hv71",
+        "performanceNumber": 6,
+        "totalPerformances": 10
+      }
+    },
+    {
+      "id": "hovet-1825-8",
+      "title": "AIK Hockey vs Södertälje (8/10) - Hovet",
+      "content_html": "fredag 27 februari 2026 på Hovet. Kategori: Sport",
+      "url": "https://hovetarena.se/evenemang/sport/aik-hockey/",
+      "date_published": "2026-02-26T23:00:00.000Z",
+      "tags": [
+        "Sport",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/sport/aik-hockey/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Sport",
+        "eventDate": "2026-02-26T23:00:00.000Z",
+        "eventTime": null,
+        "opponent": "Södertälje",
+        "performanceNumber": 8,
+        "totalPerformances": 10
+      }
+    },
+    {
+      "id": "avicii-arena-6146-1",
+      "title": "VM-Kval: Sverige – Estland (1/2) - Avicii Arena",
+      "content_html": "fredag 27 februari 2026 kl. 17:30 på Avicii Arena. Kategori: Sport",
+      "url": "https://aviciiarena.se/evenemang/sport/vm-kval-sverige-estland/",
+      "date_published": "2026-02-27T16:30:00.000Z",
+      "tags": [
+        "Sport",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/sport/vm-kval-sverige-estland/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Sport",
+        "eventDate": "2026-02-27T16:30:00.000Z",
+        "eventTime": "17:30",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "avicii-arena-5504",
+      "title": "Djurgården Hockey vs Leksand - Avicii Arena",
+      "content_html": "lördag 28 februari 2026 kl. 15:15 på Avicii Arena. Kategori: Sport",
+      "url": "https://aviciiarena.se/evenemang/sport/djurgarden-hockey/",
+      "date_published": "2026-02-28T14:15:00.000Z",
+      "tags": [
+        "Sport",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/sport/djurgarden-hockey/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Sport",
+        "eventDate": "2026-02-28T14:15:00.000Z",
+        "eventTime": "15:15",
+        "opponent": "Leksand",
+        "performanceNumber": null,
+        "totalPerformances": null
+      }
+    },
+    {
+      "id": "annexet-1708-1",
+      "title": "Zach Top (1/2) - Annexet",
+      "content_html": "lördag 28 februari 2026 kl. 18:00 på Annexet. Kategori: Event",
+      "url": "https://annexet.se/evenemang/musik-show/zach-top/",
+      "date_published": "2026-02-28T17:00:00.000Z",
+      "tags": [
+        "Event",
+        "Annexet"
+      ],
+      "external_url": "https://annexet.se/evenemang/musik-show/zach-top/",
+      "_meta": {
+        "arena": "Annexet",
+        "arenaId": "annexet",
+        "category": "Event",
+        "eventDate": "2026-02-28T17:00:00.000Z",
+        "eventTime": "18:00",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "hovet-1796",
+      "title": "Dr. Jordan B. Peterson - Hovet",
+      "content_html": "lördag 28 februari 2026 kl. 19:30 på Hovet. Kategori: Event",
+      "url": "https://hovetarena.se/evenemang/humor-samtal/dr-jordan-b-peterson/",
+      "date_published": "2026-02-28T18:30:00.000Z",
+      "tags": [
+        "Event",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/humor-samtal/dr-jordan-b-peterson/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Event",
+        "eventDate": "2026-02-28T18:30:00.000Z",
+        "eventTime": "19:30",
+        "opponent": null,
+        "performanceNumber": null,
+        "totalPerformances": null
+      }
+    },
+    {
+      "id": "hovet-1825-9",
+      "title": "AIK Hockey vs Östersund IK (9/10) - Hovet",
+      "content_html": "onsdag 4 mars 2026 kl. 19:00 på Hovet. Kategori: Sport",
+      "url": "https://hovetarena.se/evenemang/sport/aik-hockey/",
+      "date_published": "2026-03-04T18:00:00.000Z",
+      "tags": [
+        "Sport",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/sport/aik-hockey/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Sport",
+        "eventDate": "2026-03-04T18:00:00.000Z",
+        "eventTime": "19:00",
+        "opponent": "Östersund IK",
+        "performanceNumber": 9,
+        "totalPerformances": 10
+      }
+    },
+    {
+      "id": "annexet-1738-1",
+      "title": "GIVĒON (1/2) - Annexet",
+      "content_html": "fredag 6 mars 2026 kl. 18:15 på Annexet. Kategori: Event",
+      "url": "https://annexet.se/evenemang/musik-show/giveon/",
+      "date_published": "2026-03-06T17:15:00.000Z",
+      "tags": [
+        "Event",
+        "Annexet"
+      ],
+      "external_url": "https://annexet.se/evenemang/musik-show/giveon/",
+      "_meta": {
+        "arena": "Annexet",
+        "arenaId": "annexet",
+        "category": "Event",
+        "eventDate": "2026-03-06T17:15:00.000Z",
+        "eventTime": "18:15",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "hovet-1825-10",
+      "title": "AIK Hockey vs IK Oskarshamn (10/10) - Hovet",
+      "content_html": "fredag 6 mars 2026 kl. 19:00 på Hovet. Kategori: Sport",
+      "url": "https://hovetarena.se/evenemang/sport/aik-hockey/",
+      "date_published": "2026-03-06T18:00:00.000Z",
+      "tags": [
+        "Sport",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/sport/aik-hockey/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Sport",
+        "eventDate": "2026-03-06T18:00:00.000Z",
+        "eventTime": "19:00",
+        "opponent": "IK Oskarshamn",
+        "performanceNumber": 10,
+        "totalPerformances": 10
+      }
+    },
+    {
+      "id": "3arena-3490-2",
+      "title": "Hammarby Fotboll (2/2) - 3Arena",
+      "content_html": "lördag 7 mars 2026 kl. 13:00 på 3Arena. Kategori: Sport",
+      "url": "https://3arena.se/evenemang/sport/hammarby-fotboll-2/",
+      "date_published": "2026-03-07T12:00:00.000Z",
+      "tags": [
+        "Sport",
+        "3Arena"
+      ],
+      "external_url": "https://3arena.se/evenemang/sport/hammarby-fotboll-2/",
+      "_meta": {
+        "arena": "3Arena",
+        "arenaId": "3arena",
+        "category": "Sport",
+        "eventDate": "2026-03-07T12:00:00.000Z",
+        "eventTime": "13:00",
+        "opponent": null,
+        "performanceNumber": 2,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "avicii-arena-6201",
+      "title": "Hammarby Handboll – IFK Kristianstad - Avicii Arena",
+      "content_html": "lördag 7 mars 2026 kl. 16:30 på Avicii Arena. Kategori: Sport",
+      "url": "https://aviciiarena.se/evenemang/sport/hammarby-handboll-ifk-kristianstad/",
+      "date_published": "2026-03-07T15:30:00.000Z",
+      "tags": [
+        "Sport",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/sport/hammarby-handboll-ifk-kristianstad/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Sport",
+        "eventDate": "2026-03-07T15:30:00.000Z",
+        "eventTime": "16:30",
+        "opponent": null,
+        "performanceNumber": null,
+        "totalPerformances": null
+      }
+    },
+    {
+      "id": "hovet-1823-8",
+      "title": "Djurgården Hockey vs Luleå (8/10) - Hovet",
+      "content_html": "lördag 7 mars 2026 kl. 18:00 på Hovet. Kategori: Sport",
+      "url": "https://hovetarena.se/evenemang/sport/djurgarden-hockey/",
+      "date_published": "2026-03-07T17:00:00.000Z",
+      "tags": [
+        "Sport",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/sport/djurgarden-hockey/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Sport",
+        "eventDate": "2026-03-07T17:00:00.000Z",
+        "eventTime": "18:00",
+        "opponent": "Luleå",
+        "performanceNumber": 8,
+        "totalPerformances": 10
+      }
+    },
+    {
+      "id": "3arena-3492-3",
+      "title": "Djurgården Fotboll (3/3) - 3Arena",
+      "content_html": "söndag 8 mars 2026 kl. 15:00 på 3Arena. Kategori: Sport",
+      "url": "https://3arena.se/evenemang/sport/djurgarden-fotboll/",
+      "date_published": "2026-03-08T14:00:00.000Z",
+      "tags": [
+        "Sport",
+        "3Arena"
+      ],
+      "external_url": "https://3arena.se/evenemang/sport/djurgarden-fotboll/",
+      "_meta": {
+        "arena": "3Arena",
+        "arenaId": "3arena",
+        "category": "Sport",
+        "eventDate": "2026-03-08T14:00:00.000Z",
+        "eventTime": "15:00",
+        "opponent": null,
+        "performanceNumber": 3,
+        "totalPerformances": 3
+      }
+    },
+    {
+      "id": "avicii-arena-4183",
+      "title": "Hans Zimmer Live - Avicii Arena",
+      "content_html": "söndag 8 mars 2026 kl. 20:00 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/hans-zimmer-live/",
+      "date_published": "2026-03-08T19:00:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/hans-zimmer-live/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-03-08T19:00:00.000Z",
+        "eventTime": "20:00",
+        "opponent": null,
+        "performanceNumber": null,
+        "totalPerformances": null
+      }
+    },
+    {
+      "id": "hovet-1823-9",
+      "title": "Djurgården Hockey vs Växjö (9/10) - Hovet",
+      "content_html": "tisdag 10 mars 2026 kl. 19:00 på Hovet. Kategori: Sport",
+      "url": "https://hovetarena.se/evenemang/sport/djurgarden-hockey/",
+      "date_published": "2026-03-10T18:00:00.000Z",
+      "tags": [
+        "Sport",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/sport/djurgarden-hockey/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Sport",
+        "eventDate": "2026-03-10T18:00:00.000Z",
+        "eventTime": "19:00",
+        "opponent": "Växjö",
+        "performanceNumber": 9,
+        "totalPerformances": 10
+      }
+    },
+    {
+      "id": "annexet-1764-1",
+      "title": "ESL Pro League (1/6) - Annexet",
+      "content_html": "fredag 13 mars 2026 kl. 09:30 på Annexet. Kategori: Event",
+      "url": "https://annexet.se/evenemang/annat/esl-pro-league/",
+      "date_published": "2026-03-13T08:30:00.000Z",
+      "tags": [
+        "Event",
+        "Annexet"
+      ],
+      "external_url": "https://annexet.se/evenemang/annat/esl-pro-league/",
+      "_meta": {
+        "arena": "Annexet",
+        "arenaId": "annexet",
+        "category": "Event",
+        "eventDate": "2026-03-13T08:30:00.000Z",
+        "eventTime": "09:30",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 6
+      }
+    },
+    {
+      "id": "avicii-arena-5488-1",
+      "title": "Håkan Hellström (1/2) - Avicii Arena",
+      "content_html": "fredag 13 mars 2026 kl. 20:00 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/hakan-hellstrom/",
+      "date_published": "2026-03-13T19:00:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/hakan-hellstrom/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-03-13T19:00:00.000Z",
+        "eventTime": "20:00",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "annexet-1764-3",
+      "title": "ESL Pro League (3/6) - Annexet",
+      "content_html": "lördag 14 mars 2026 kl. 14:45 på Annexet. Kategori: Event",
+      "url": "https://annexet.se/evenemang/annat/esl-pro-league/",
+      "date_published": "2026-03-14T13:45:00.000Z",
+      "tags": [
+        "Event",
+        "Annexet"
+      ],
+      "external_url": "https://annexet.se/evenemang/annat/esl-pro-league/",
+      "_meta": {
+        "arena": "Annexet",
+        "arenaId": "annexet",
+        "category": "Event",
+        "eventDate": "2026-03-14T13:45:00.000Z",
+        "eventTime": "14:45",
+        "opponent": null,
+        "performanceNumber": 3,
+        "totalPerformances": 6
+      }
+    },
+    {
+      "id": "hovet-1823-10",
+      "title": "Djurgården Hockey vs Skellefteå (10/10) - Hovet",
+      "content_html": "lördag 14 mars 2026 kl. 15:15 på Hovet. Kategori: Sport",
+      "url": "https://hovetarena.se/evenemang/sport/djurgarden-hockey/",
+      "date_published": "2026-03-14T14:15:00.000Z",
+      "tags": [
+        "Sport",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/sport/djurgarden-hockey/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Sport",
+        "eventDate": "2026-03-14T14:15:00.000Z",
+        "eventTime": "15:15",
+        "opponent": "Skellefteå",
+        "performanceNumber": 10,
+        "totalPerformances": 10
+      }
+    },
+    {
+      "id": "avicii-arena-5488-2",
+      "title": "Håkan Hellström (2/2) - Avicii Arena",
+      "content_html": "lördag 14 mars 2026 kl. 20:00 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/hakan-hellstrom/",
+      "date_published": "2026-03-14T19:00:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/hakan-hellstrom/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-03-14T19:00:00.000Z",
+        "eventTime": "20:00",
+        "opponent": null,
+        "performanceNumber": 2,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "annexet-1764-5",
+      "title": "ESL Pro League (5/6) - Annexet",
+      "content_html": "söndag 15 mars 2026 kl. 12:30 på Annexet. Kategori: Event",
+      "url": "https://annexet.se/evenemang/annat/esl-pro-league/",
+      "date_published": "2026-03-15T11:30:00.000Z",
+      "tags": [
+        "Event",
+        "Annexet"
+      ],
+      "external_url": "https://annexet.se/evenemang/annat/esl-pro-league/",
+      "_meta": {
+        "arena": "Annexet",
+        "arenaId": "annexet",
+        "category": "Event",
+        "eventDate": "2026-03-15T11:30:00.000Z",
+        "eventTime": "12:30",
+        "opponent": null,
+        "performanceNumber": 5,
+        "totalPerformances": 6
+      }
+    },
+    {
+      "id": "avicii-arena-5495-1",
+      "title": "Molly Sandén (1/2) - Avicii Arena",
+      "content_html": "fredag 20 mars 2026 kl. 18:00 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/molly-sanden/",
+      "date_published": "2026-03-20T17:00:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/molly-sanden/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-03-20T17:00:00.000Z",
+        "eventTime": "18:00",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "annexet-1575",
+      "title": "The Last Airbender In Concert – The 20th Anniversary Tour - Annexet",
+      "content_html": "måndag 23 mars 2026 kl. 19:30 på Annexet. Kategori: Event",
+      "url": "https://annexet.se/evenemang/musik-show/the-last-airbender-in-concert-the-20th-anniversary-tour/",
+      "date_published": "2026-03-23T18:30:00.000Z",
+      "tags": [
+        "Event",
+        "Annexet"
+      ],
+      "external_url": "https://annexet.se/evenemang/musik-show/the-last-airbender-in-concert-the-20th-anniversary-tour/",
+      "_meta": {
+        "arena": "Annexet",
+        "arenaId": "annexet",
+        "category": "Event",
+        "eventDate": "2026-03-23T18:30:00.000Z",
+        "eventTime": "19:30",
+        "opponent": null,
+        "performanceNumber": null,
+        "totalPerformances": null
+      }
+    },
+    {
+      "id": "avicii-arena-5805-1",
+      "title": "Måns Möller (1/2) - Avicii Arena",
+      "content_html": "lördag 28 mars 2026 kl. 18:30 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/mans-moller/",
+      "date_published": "2026-03-28T17:30:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/mans-moller/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-03-28T17:30:00.000Z",
+        "eventTime": "18:30",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "avicii-arena-5576-1",
+      "title": "Louis Tomlinson (1/2) - Avicii Arena",
+      "content_html": "söndag 29 mars 2026 kl. 18:00 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/louis-tomlinson/",
+      "date_published": "2026-03-29T16:00:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/louis-tomlinson/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-03-29T16:00:00.000Z",
+        "eventTime": "18:00",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "hovet-1863-1",
+      "title": "5 Seconds of Summer (1/2) - Hovet",
+      "content_html": "lördag 18 april 2026 kl. 18:15 på Hovet. Kategori: Annat",
+      "url": "https://hovetarena.se/evenemang/musik-show/5-seconds-of-summer/",
+      "date_published": "2026-04-18T16:15:00.000Z",
+      "tags": [
+        "Annat",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/musik-show/5-seconds-of-summer/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Annat",
+        "eventDate": "2026-04-18T16:15:00.000Z",
+        "eventTime": "18:15",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "avicii-arena-5984-1",
+      "title": "Matt Rife (1/2) - Avicii Arena",
+      "content_html": "måndag 20 april 2026 kl. 18:00 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/matt-rife/",
+      "date_published": "2026-04-20T16:00:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/matt-rife/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-04-20T16:00:00.000Z",
+        "eventTime": "18:00",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "annexet-1703-1",
+      "title": "Kreator (1/2) - Annexet",
+      "content_html": "torsdag 23 april 2026 kl. 17:30 på Annexet. Kategori: Event",
+      "url": "https://annexet.se/evenemang/musik-show/kreator/",
+      "date_published": "2026-04-23T15:30:00.000Z",
+      "tags": [
+        "Event",
+        "Annexet"
+      ],
+      "external_url": "https://annexet.se/evenemang/musik-show/kreator/",
+      "_meta": {
+        "arena": "Annexet",
+        "arenaId": "annexet",
+        "category": "Event",
+        "eventDate": "2026-04-23T15:30:00.000Z",
+        "eventTime": "17:30",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "avicii-arena-5998-1",
+      "title": "SM-finalen Innebandy 2026 (1/2) - Avicii Arena",
+      "content_html": "lördag 25 april 2026 kl. 10:00 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/sm-finalen-innebandy-2026/",
+      "date_published": "2026-04-25T08:00:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/sm-finalen-innebandy-2026/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-04-25T08:00:00.000Z",
+        "eventTime": "10:00",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "avicii-arena-5553-1",
+      "title": "Tame Impala (1/2) - Avicii Arena",
+      "content_html": "söndag 26 april 2026 kl. 18:00 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/tame-impala/",
+      "date_published": "2026-04-26T16:00:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/tame-impala/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-04-26T16:00:00.000Z",
+        "eventTime": "18:00",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "avicii-arena-5623-1",
+      "title": "Pentatonix (1/2) - Avicii Arena",
+      "content_html": "söndag 3 maj 2026 kl. 18:00 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/pentatonix/",
+      "date_published": "2026-05-03T16:00:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/pentatonix/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-05-03T16:00:00.000Z",
+        "eventTime": "18:00",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "avicii-arena-6084-1",
+      "title": "Marcus & Martinus (1/2) - Avicii Arena",
+      "content_html": "lördag 9 maj 2026 kl. 17:30 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/marcus-martinus/",
+      "date_published": "2026-05-09T15:30:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/marcus-martinus/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-05-09T15:30:00.000Z",
+        "eventTime": "17:30",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "annexet-1748-1",
+      "title": "Dermot Kennedy (1/2) - Annexet",
+      "content_html": "tisdag 12 maj 2026 kl. 18:00 på Annexet. Kategori: Event",
+      "url": "https://annexet.se/evenemang/musik-show/dermot-kennedy/",
+      "date_published": "2026-05-12T16:00:00.000Z",
+      "tags": [
+        "Event",
+        "Annexet"
+      ],
+      "external_url": "https://annexet.se/evenemang/musik-show/dermot-kennedy/",
+      "_meta": {
+        "arena": "Annexet",
+        "arenaId": "annexet",
+        "category": "Event",
+        "eventDate": "2026-05-12T16:00:00.000Z",
+        "eventTime": "18:00",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "avicii-arena-5795-1",
+      "title": "Jireel (1/2) - Avicii Arena",
+      "content_html": "lördag 16 maj 2026 kl. 18:00 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/jireel/",
+      "date_published": "2026-05-16T16:00:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/jireel/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-05-16T16:00:00.000Z",
+        "eventTime": "18:00",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "avicii-arena-5435-1",
+      "title": "Olivia Dean (1/2) - Avicii Arena",
+      "content_html": "söndag 17 maj 2026 kl. 18:30 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/olivia-dean/",
+      "date_published": "2026-05-17T16:30:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/olivia-dean/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-05-17T16:30:00.000Z",
+        "eventTime": "18:30",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "avicii-arena-5800-1",
+      "title": "Conan Gray (1/2) - Avicii Arena",
+      "content_html": "måndag 25 maj 2026 kl. 18:30 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/conan-gray/",
+      "date_published": "2026-05-25T16:30:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/conan-gray/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-05-25T16:30:00.000Z",
+        "eventTime": "18:30",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "3arena-3295",
+      "title": "LINKIN PARK - 3Arena",
+      "content_html": "fredag 29 maj 2026 kl. 19:30 på 3Arena. Kategori: Humor/Samtal",
+      "url": "https://3arena.se/evenemang/musik-show/linkin-park/",
+      "date_published": "2026-05-29T17:30:00.000Z",
+      "tags": [
+        "Humor/Samtal",
+        "3Arena"
+      ],
+      "external_url": "https://3arena.se/evenemang/musik-show/linkin-park/",
+      "_meta": {
+        "arena": "3Arena",
+        "arenaId": "3arena",
+        "category": "Humor/Samtal",
+        "eventDate": "2026-05-29T17:30:00.000Z",
+        "eventTime": "19:30",
+        "opponent": null,
+        "performanceNumber": null,
+        "totalPerformances": null
+      }
+    },
+    {
+      "id": "annexet-1769",
+      "title": "Extreme - Annexet",
+      "content_html": "söndag 14 juni 2026 på Annexet. Kategori: Event",
+      "url": "https://annexet.se/evenemang/musik-show/extreme/",
+      "date_published": "2026-06-13T22:00:00.000Z",
+      "tags": [
+        "Event",
+        "Annexet"
+      ],
+      "external_url": "https://annexet.se/evenemang/musik-show/extreme/",
+      "_meta": {
+        "arena": "Annexet",
+        "arenaId": "annexet",
+        "category": "Event",
+        "eventDate": "2026-06-13T22:00:00.000Z",
+        "eventTime": null,
+        "opponent": null,
+        "performanceNumber": null,
+        "totalPerformances": null
+      }
+    },
+    {
+      "id": "3arena-3404",
+      "title": "Pitbull - 3Arena",
+      "content_html": "tisdag 23 juni 2026 kl. 20:00 på 3Arena. Kategori: Humor/Samtal",
+      "url": "https://3arena.se/evenemang/musik-show/pitbull/",
+      "date_published": "2026-06-23T18:00:00.000Z",
+      "tags": [
+        "Humor/Samtal",
+        "3Arena"
+      ],
+      "external_url": "https://3arena.se/evenemang/musik-show/pitbull/",
+      "_meta": {
+        "arena": "3Arena",
+        "arenaId": "3arena",
+        "category": "Humor/Samtal",
+        "eventDate": "2026-06-23T18:00:00.000Z",
+        "eventTime": "20:00",
+        "opponent": null,
+        "performanceNumber": null,
+        "totalPerformances": null
+      }
+    },
+    {
+      "id": "avicii-arena-6056",
+      "title": "Lenny Kravitz - Avicii Arena",
+      "content_html": "fredag 24 juli 2026 kl. 19:30 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/lenny-kravitz/",
+      "date_published": "2026-07-24T17:30:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/lenny-kravitz/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-07-24T17:30:00.000Z",
+        "eventTime": "19:30",
+        "opponent": null,
+        "performanceNumber": null,
+        "totalPerformances": null
+      }
+    },
+    {
+      "id": "avicii-arena-6183",
+      "title": "Emmylou Harris - Avicii Arena",
+      "content_html": "onsdag 26 augusti 2026 kl. 19:30 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/emmylou-harris/",
+      "date_published": "2026-08-26T17:30:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/emmylou-harris/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-08-26T17:30:00.000Z",
+        "eventTime": "19:30",
+        "opponent": null,
+        "performanceNumber": null,
+        "totalPerformances": null
+      }
+    },
+    {
+      "id": "avicii-arena-6047-1",
+      "title": "Oskar Linnros (1/2) - Avicii Arena",
+      "content_html": "lördag 26 september 2026 kl. 18:00 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/oskar-linnros/",
+      "date_published": "2026-09-26T16:00:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/oskar-linnros/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-09-26T16:00:00.000Z",
+        "eventTime": "18:00",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "avicii-arena-5567-1",
+      "title": "Joe Bonamassa (1/2) - Avicii Arena",
+      "content_html": "fredag 23 oktober 2026 kl. 18:30 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/joe-bonamassa/",
+      "date_published": "2026-10-23T16:30:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/joe-bonamassa/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-10-23T16:30:00.000Z",
+        "eventTime": "18:30",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "hovet-1909-1",
+      "title": "Amon Amarth (1/2) - Hovet",
+      "content_html": "lördag 24 oktober 2026 kl. 17:30 på Hovet. Kategori: Annat",
+      "url": "https://hovetarena.se/evenemang/musik-show/amon-amarth/",
+      "date_published": "2026-10-24T15:30:00.000Z",
+      "tags": [
+        "Annat",
+        "Hovet"
+      ],
+      "external_url": "https://hovetarena.se/evenemang/musik-show/amon-amarth/",
+      "_meta": {
+        "arena": "Hovet",
+        "arenaId": "hovet",
+        "category": "Annat",
+        "eventDate": "2026-10-24T15:30:00.000Z",
+        "eventTime": "17:30",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "avicii-arena-6061",
+      "title": "Deep Purple - Avicii Arena",
+      "content_html": "måndag 26 oktober 2026 kl. 19:30 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/deep-purple/",
+      "date_published": "2026-10-26T18:30:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/deep-purple/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-10-26T18:30:00.000Z",
+        "eventTime": "19:30",
+        "opponent": null,
+        "performanceNumber": null,
+        "totalPerformances": null
+      }
+    },
+    {
+      "id": "annexet-1727-1",
+      "title": "Brandi Carlile (1/2) - Annexet",
+      "content_html": "fredag 30 oktober 2026 kl. 18:00 på Annexet. Kategori: Event",
+      "url": "https://annexet.se/evenemang/musik-show/brandi-carlile/",
+      "date_published": "2026-10-30T17:00:00.000Z",
+      "tags": [
+        "Event",
+        "Annexet"
+      ],
+      "external_url": "https://annexet.se/evenemang/musik-show/brandi-carlile/",
+      "_meta": {
+        "arena": "Annexet",
+        "arenaId": "annexet",
+        "category": "Event",
+        "eventDate": "2026-10-30T17:00:00.000Z",
+        "eventTime": "18:00",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "annexet-1743-1",
+      "title": "The Witcher in Concert 2026 (1/2) - Annexet",
+      "content_html": "måndag 2 november 2026 kl. 18:30 på Annexet. Kategori: Event",
+      "url": "https://annexet.se/evenemang/musik-show/the-witcher-in-concert-2026/",
+      "date_published": "2026-11-02T17:30:00.000Z",
+      "tags": [
+        "Event",
+        "Annexet"
+      ],
+      "external_url": "https://annexet.se/evenemang/musik-show/the-witcher-in-concert-2026/",
+      "_meta": {
+        "arena": "Annexet",
+        "arenaId": "annexet",
+        "category": "Event",
+        "eventDate": "2026-11-02T17:30:00.000Z",
+        "eventTime": "18:30",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "avicii-arena-6138-1",
+      "title": "Benjamin Ingrosso (1/2) - Avicii Arena",
+      "content_html": "fredag 13 november 2026 kl. 19:30 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/benjamin-ingrosso/",
+      "date_published": "2026-11-13T18:30:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/benjamin-ingrosso/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-11-13T18:30:00.000Z",
+        "eventTime": "19:30",
+        "opponent": null,
+        "performanceNumber": 1,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "avicii-arena-6138-2",
+      "title": "Benjamin Ingrosso (2/2) - Avicii Arena",
+      "content_html": "lördag 14 november 2026 kl. 19:30 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/benjamin-ingrosso/",
+      "date_published": "2026-11-14T18:30:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/benjamin-ingrosso/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-11-14T18:30:00.000Z",
+        "eventTime": "19:30",
+        "opponent": null,
+        "performanceNumber": 2,
+        "totalPerformances": 2
+      }
+    },
+    {
+      "id": "avicii-arena-5829",
+      "title": "Westlife - Avicii Arena",
+      "content_html": "fredag 20 november 2026 kl. 19:30 på Avicii Arena. Kategori: Musik/Show",
+      "url": "https://aviciiarena.se/evenemang/musik-show/westlife/",
+      "date_published": "2026-11-20T18:30:00.000Z",
+      "tags": [
+        "Musik/Show",
+        "Avicii Arena"
+      ],
+      "external_url": "https://aviciiarena.se/evenemang/musik-show/westlife/",
+      "_meta": {
+        "arena": "Avicii Arena",
+        "arenaId": "avicii-arena",
+        "category": "Musik/Show",
+        "eventDate": "2026-11-20T18:30:00.000Z",
+        "eventTime": "19:30",
+        "opponent": null,
+        "performanceNumber": null,
+        "totalPerformances": null
+      }
+    }
+  ]
+}

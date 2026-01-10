@@ -32,7 +32,7 @@ jobs:
       - name: Check for changes
         id: verify-changed-files
         run: |
-          if [ -n "$(git status --porcelain public/*.json public/*.xml)" ]; then
+          if [ -n "$(git status --porcelain public/*.json public/*.xml public/*.ics)" ]; then
             echo "changed=true" >> $GITHUB_OUTPUT
           else
             echo "changed=false" >> $GITHUB_OUTPUT
@@ -43,7 +43,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: Update events data [skip ci]"
-          file_pattern: 'public/*.json public/*.xml'
+          file_pattern: 'public/*.json public/*.xml public/*.ics'
           skip_dirty_check: true
 
       - name: Report status
