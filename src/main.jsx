@@ -5,12 +5,27 @@ import App from './App.jsx'
 import RssPage from './RssPage.jsx'
 import InfoPage from './InfoPage.jsx'
 import DashboardPage from './DashboardPage.jsx'
+import { trackPageView } from './hooks/useMatomo.js'
+
+// Page titles for tracking
+const PAGE_TITLES = {
+  '': 'På G - Evenemang',
+  '#rss': 'På G - RSS-flöden',
+  '#info': 'På G - Information',
+  '#dashboard': 'På G - Dashboard'
+};
 
 function Router() {
   const [page, setPage] = useState(window.location.hash);
 
   useEffect(() => {
-    const handleHashChange = () => setPage(window.location.hash);
+    const handleHashChange = () => {
+      const newPage = window.location.hash;
+      setPage(newPage);
+      // Track virtual page view
+      const path = newPage ? newPage.replace('#', '/') : '/';
+      trackPageView(path, PAGE_TITLES[newPage] || 'På G');
+    };
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);

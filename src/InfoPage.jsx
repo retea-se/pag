@@ -1,5 +1,6 @@
 import { InfoIcon, RssIcon } from './components/Icons';
 import { usePageViews } from './hooks/usePageViews';
+import { trackNavClick } from './hooks/useMatomo';
 import './App.css';
 
 function InfoPage() {
@@ -34,7 +35,7 @@ function InfoPage() {
         </div>
 
         <div className="rss-feeds">
-          <a href="#rss" className="rss-feed-card" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <a href="#rss" className="rss-feed-card" style={{ textDecoration: 'none', color: 'inherit' }} onClick={() => trackNavClick('rss')}>
             <div className="rss-feed-icon">
               <RssIcon size={24} />
             </div>
@@ -44,7 +45,7 @@ function InfoPage() {
             </div>
           </a>
 
-          <a href="#dashboard" className="rss-feed-card" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <a href="#dashboard" className="rss-feed-card" style={{ textDecoration: 'none', color: 'inherit' }} onClick={() => trackNavClick('dashboard')}>
             <div className="rss-feed-icon" style={{ background: 'rgba(99, 102, 241, 0.15)', color: 'var(--accent)' }}>
               <InfoIcon size={24} />
             </div>
@@ -106,7 +107,7 @@ function InfoPage() {
       <footer className="footer">
         <div className="footer-content">
           <p>Data från Stockholm Live</p>
-          <a href="#" className="back-link">Tillbaka till evenemang</a>
+          <a href="#" className="back-link" onClick={() => trackNavClick('home')}>Tillbaka till evenemang</a>
         </div>
         <p className="footer-arenas">Avicii Arena, 3Arena, Hovet & Annexet</p>
         <p className="footer-made">Made with ❤️ in Stockholm | {pageViews.toLocaleString('sv-SE')}</p>

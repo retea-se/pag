@@ -7,6 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.0] - 2026-02-02
+
+### Added
+
+- **Matomo event tracking** for user interactions
+  - Filter changes (yesterday/today/tomorrow/week/upcoming)
+  - Event card clicks (arena and category)
+  - Manual refresh actions
+  - Navigation link clicks (RSS, info, GitHub, dashboard)
+  - Feed URL copy and view actions
+  - Dashboard manual update triggers
+  - Error tracking for failed operations
+- Virtual page view tracking for SPA navigation
+- New `useMatomo` hook in `src/hooks/useMatomo.js`
+- Analytics documentation in `docs/ANALYTICS.md`
+
+### Technical
+
+- All tracking is privacy-focused: cookieless, respects DNT, no PII
+- Events use category `PagApp` for easy filtering in Matomo
+
+---
+
 ## [1.0.1] - 2026-02-02
 
 ### Fixed

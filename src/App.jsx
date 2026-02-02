@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { fetchAllEvents, filterEventsByPeriod, groupEventsByDate, ARENAS } from './api/stockholmLive';
 import { RefreshIcon, getCategoryIcon, RssIcon, GitHubIcon, ArenaDot, InfoIcon } from './components/Icons';
 import { usePageViews } from './hooks/usePageViews';
+import { trackFilterChange, trackEventClick, trackRefresh, trackNavClick, trackError } from './hooks/useMatomo';
 import './App.css';
 
 // Datumfilter-knappar
@@ -47,9 +48,16 @@ function App() {
       }));
       setEvents(restored);
       setLastUpdated(new Date());
+      if (forceRefresh) {
+        trackRefresh(true);
+      }
     } catch (err) {
       setError('Kunde inte hämta evenemang');
       console.error(err);
+      if (forceRefresh) {
+        trackRefresh(false);
+      }
+      trackError('load_events');
     } finally {
       setLoading(false);
       setLoadingProgress('');
@@ -125,7 +133,10 @@ function App() {
           <button
             key={filter.id}
             className={dateFilter === filter.id ? 'active' : ''}
-            onClick={() => setDateFilter(filter.id)}
+            onClick={() => {
+              setDateFilter(filter.id);
+              trackFilterChange(filter.id, filterCounts[filter.id]);
+            }}
           >
             {filter.label}
             <span className="filter-count">{filterCounts[filter.id]}</span>
@@ -169,6 +180,7 @@ function App() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="event-card"
+                    onClick={() => trackEventClick(event.arena, event.categoryIcon)}
                   >
                     <div className="event-icon">
                       {getCategoryIcon(event.categoryIcon, 22)}
@@ -207,14 +219,14 @@ function App() {
         <div className="footer-content">
           <p>Data från Stockholm Live</p>
           <div className="footer-links">
-            <a href="#rss" className="rss-link">
+            <a href="#rss" className="rss-link" onClick={() => trackNavClick('rss')}>
               <RssIcon size={14} />
               RSS-flöden
             </a>
-            <a href="#info" className="info-link" title="Information och FAQ">
+            <a href="#info" className="info-link" title="Information och FAQ" onClick={() => trackNavClick('info')}>
               <InfoIcon size={14} />
             </a>
-            <a href="https://github.com/retea-se/pag" target="_blank" rel="noopener noreferrer" className="github-link" title="GitHub">
+            <a href="https://github.com/retea-se/pag" target="_blank" rel="noopener noreferrer" className="github-link" title="GitHub" onClick={() => trackNavClick('github')}>
               <GitHubIcon size={14} />
             </a>
           </div>

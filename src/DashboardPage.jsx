@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { InfoIcon, RefreshIcon } from './components/Icons';
 import { usePageViews } from './hooks/usePageViews';
+import { trackManualUpdate, trackNavClick, trackError } from './hooks/useMatomo';
 import './App.css';
 
 function DashboardPage() {
@@ -206,6 +207,7 @@ function DashboardPage() {
 
       if (data.success) {
         setUpdateMessage({ type: 'success', text: 'Uppdatering startad. Det kan ta 1-2 minuter...' });
+        trackManualUpdate(true);
 
         // Vänta lite och uppdatera status
         setTimeout(() => {
@@ -226,10 +228,13 @@ function DashboardPage() {
         }, 120000);
       } else {
         setUpdateMessage({ type: 'error', text: data.error || 'Kunde inte starta uppdatering' });
+        trackManualUpdate(false);
         setUpdating(false);
       }
     } catch (err) {
       setUpdateMessage({ type: 'error', text: 'Fel vid anrop till servern' });
+      trackManualUpdate(false);
+      trackError('manual_update');
       console.error(err);
       setUpdating(false);
     }
@@ -622,7 +627,7 @@ function DashboardPage() {
       <footer className="footer">
         <div className="footer-content">
           <p>Data från Stockholm Live</p>
-          <a href="#" className="back-link">Tillbaka till evenemang</a>
+          <a href="#" className="back-link" onClick={() => trackNavClick('home')}>Tillbaka till evenemang</a>
         </div>
         <p className="footer-arenas">Avicii Arena, 3Arena, Hovet & Annexet</p>
         <p className="footer-made">Made with ❤️ in Stockholm | {pageViews.toLocaleString('sv-SE')}</p>

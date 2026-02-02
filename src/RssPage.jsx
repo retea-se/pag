@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { RssIcon, CalendarIcon, JsonIcon } from './components/Icons';
 import { usePageViews } from './hooks/usePageViews';
+import { trackFeedCopy, trackFeedView, trackNavClick } from './hooks/useMatomo';
 import './App.css';
 
 const FEED_PERIODS = [
@@ -75,10 +76,11 @@ function RssPage() {
       .catch(() => {});
   }, []);
 
-  const copyToClipboard = async (feedId, url) => {
+  const copyToClipboard = async (feedId, url, feedType, period) => {
     try {
       await navigator.clipboard.writeText(url);
       setCopied(feedId);
+      trackFeedCopy(feedType, period);
       setTimeout(() => setCopied(null), 2000);
     } catch (err) {
       console.error('Kunde inte kopiera:', err);
@@ -157,7 +159,7 @@ function RssPage() {
                             onClick={(e) => e.target.select()}
                           />
                           <button
-                            onClick={() => copyToClipboard(feedId, feedUrl)}
+                            onClick={() => copyToClipboard(feedId, feedUrl, feedType.id, period.id)}
                             className={copied === feedId ? 'copied' : ''}
                             style={{ backgroundColor: feedType.color }}
                           >
@@ -170,6 +172,7 @@ function RssPage() {
                           rel="noopener noreferrer"
                           className="rss-view-link"
                           style={{ color: feedType.color }}
+                          onClick={() => trackFeedView(feedType.id, period.id)}
                         >
                           {feedType.getViewText()}
                         </a>
@@ -220,7 +223,7 @@ function RssPage() {
       <footer className="footer">
         <div className="footer-content">
           <p>Data från Stockholm Live</p>
-          <a href="#" className="back-link">Tillbaka till evenemang</a>
+          <a href="#" className="back-link" onClick={() => trackNavClick('home')}>Tillbaka till evenemang</a>
         </div>
         <p className="footer-arenas">Avicii Arena, 3Arena, Hovet & Annexet</p>
         <p className="footer-made">Made with ❤️ in Stockholm | {pageViews.toLocaleString('sv-SE')}</p>
