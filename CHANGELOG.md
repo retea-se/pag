@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.2] - 2026-02-08
+
+### Added
+- Hreflang sv + x-default (AU-S1)
+
 ## [1.1.1] - 2026-02-08
 
 ### Fixed
