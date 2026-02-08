@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.1] - 2026-02-08
+
+### Fixed
+- Migrate from legacy `_paq.push` Matomo to HostupMatomo script tag (AU-V10)
+
+### Added
+- OG-image 1200×630 for social sharing (og:image, twitter:image) (AU-V9)
+
+---
+
 ## [1.1.0] - 2026-02-02
 
 ### Added
