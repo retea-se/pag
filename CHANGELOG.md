@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.3] - 2026-02-09
+
+### Fixed
+- Mobile nav buttons: reduced padding (`6px 10px`), added `mask-image` fade on right edge to indicate scrollable content (AU-G5)
+
 ## [1.1.2] - 2026-02-08
 
 ### Added
