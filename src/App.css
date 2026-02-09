@@ -790,10 +790,12 @@ body {
   .date-filter {
     justify-content: flex-start;
     padding: var(--space-sm) var(--space-md);
+    mask-image: linear-gradient(to right, black calc(100% - 24px), transparent);
+    -webkit-mask-image: linear-gradient(to right, black calc(100% - 24px), transparent);
   }
 
   .date-filter button {
-    padding: 8px 12px;
+    padding: 6px 10px;
     font-size: 0.8125rem;
   }
 
